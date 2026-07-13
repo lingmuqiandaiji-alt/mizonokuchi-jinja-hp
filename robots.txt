@@ -1,0 +1,6 @@
+# 溝口神社公式ホームページ
+# 公開時にドメインを最終確認すること
+User-agent: *
+Allow: /
+
+Sitemap: https://www.mizonokuchijinjya.org/sitemap.xml

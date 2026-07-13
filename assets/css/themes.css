@@ -1,0 +1,230 @@
+/* ============================================================
+   溝口神社公式ホームページ
+   themes.css — 季節・行事テーマ定義
+
+   使い方：index.html の <html data-theme="..."> の値を変えるだけで
+   サイト全体の装いが切り替わります（この1ヶ所のみで管理）。
+
+   設計原則：
+   - 上書きするのは「装い」の変数のみ（主要色・背景の色味・
+     金茶・告知帯・ヒーロー暗幕）
+   - 本文色(--color-text)・補足色・罫線・フォーカス色は
+     可読性保護のため原則テーマで変更しない
+   - すべての主要色は白背景・生成り背景に対し
+     コントラスト比4.5:1以上を維持すること
+   - 派手な彩度・金色の面使用は禁止（品格の維持）
+
+   テーマ一覧：
+   default / spring / summer / autumn / winter / new-year /
+   setsubun / nagoshi / annual-festival / shichigosan /
+   tori-no-ichi / emergency
+
+   ※default は variables.css の :root 値をそのまま使う
+     （このファイルでの定義は不要）
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   春：清らかさ・始まり・生命力（新緑と淡い桜色）
+   ------------------------------------------------------------ */
+[data-theme="spring"] {
+  --color-background: #f9f7f2;
+  --color-surface-soft: #f3f1e8;
+  --color-primary: #45603f;        /* 若葉の緑 */
+  --color-primary-deep: #2e4229;
+  --color-gold-subtle: #a89563;
+  --color-notice-bg: #faf3f1;      /* ごく淡い桜 */
+  --color-notice-border: #b57f83;
+  --hero-shade-bottom: 0.68;
+}
+
+/* ------------------------------------------------------------
+   夏：清涼・祓い・力強さ（深い緑と澄んだ空気）
+   ------------------------------------------------------------ */
+[data-theme="summer"] {
+  --color-background: #f5f8f5;
+  --color-surface-soft: #edf2ec;
+  --color-primary: #2c524a;        /* 深い常磐 */
+  --color-primary-deep: #1d3833;
+  --color-gold-subtle: #93885e;
+  --color-notice-bg: #eef4f5;
+  --color-notice-border: #4f7f8b;
+  --hero-shade-bottom: 0.70;
+}
+
+/* ------------------------------------------------------------
+   秋：実り・感謝・賑わい（落ち着いた朱と茶）
+   ------------------------------------------------------------ */
+[data-theme="autumn"] {
+  --color-background: #f9f6ef;
+  --color-surface-soft: #f3eee2;
+  --color-primary: #5c4632;        /* 深い茶 */
+  --color-primary-deep: #40301f;
+  --color-gold-subtle: #b08d4f;
+  --color-notice-bg: #faf1e9;
+  --color-notice-border: #b3763e;
+  --hero-shade-bottom: 0.70;
+}
+
+/* ------------------------------------------------------------
+   冬：静謐・厳かさ（澄んだ空と藍鼠）
+   ------------------------------------------------------------ */
+[data-theme="winter"] {
+  --color-background: #f6f7f8;
+  --color-surface-soft: #eef0f2;
+  --color-primary: #3a4a55;        /* 藍鼠 */
+  --color-primary-deep: #273540;
+  --color-gold-subtle: #9b8d64;
+  --color-notice-bg: #f0f3f5;
+  --color-notice-border: #5a7186;
+  --hero-shade-bottom: 0.74;
+}
+
+/* ------------------------------------------------------------
+   正月：新年・奉祝・厳かさ（松の緑に控えめな金）
+   ------------------------------------------------------------ */
+[data-theme="new-year"] {
+  --color-background: #f9f7f1;
+  --color-surface-soft: #f2efe4;
+  --color-primary: #2c4a33;        /* 松の緑 */
+  --color-primary-deep: #1d3423;
+  --color-accent: #9d2c2c;         /* 奉祝の朱（面では使わない） */
+  --color-gold-subtle: #b39755;
+  --color-notice-bg: #fdf6e8;
+  --color-notice-border: #b39755;
+  --hero-shade-bottom: 0.72;
+}
+
+/* ------------------------------------------------------------
+   節分：立春前の厳かさ（紫紺）
+   ------------------------------------------------------------ */
+[data-theme="setsubun"] {
+  --color-background: #f8f7f4;
+  --color-surface-soft: #f1efe9;
+  --color-primary: #493d5c;        /* 紫紺 */
+  --color-primary-deep: #332a42;
+  --color-gold-subtle: #a28a5b;
+  --color-notice-bg: #f4f1f6;
+  --color-notice-border: #6f5f8a;
+  --hero-shade-bottom: 0.72;
+}
+
+/* ------------------------------------------------------------
+   夏越の大祓：茅の輪・祓い（茅の緑）
+   ------------------------------------------------------------ */
+[data-theme="nagoshi"] {
+  --color-background: #f6f8f3;
+  --color-surface-soft: #eff2e9;
+  --color-primary: #4a6141;        /* 茅の緑 */
+  --color-primary-deep: #33452c;
+  --color-gold-subtle: #9c9060;
+  --color-notice-bg: #f1f5ec;
+  --color-notice-border: #6d8a58;
+  --hero-shade-bottom: 0.70;
+}
+
+/* ------------------------------------------------------------
+   例大祭：祭礼の賑わい（深い臙脂）
+   ------------------------------------------------------------ */
+[data-theme="annual-festival"] {
+  --color-background: #f9f6f2;
+  --color-surface-soft: #f3ede6;
+  --color-primary: #6b3a3a;        /* 深い臙脂 */
+  --color-primary-deep: #4a2626;
+  --color-gold-subtle: #b08d4f;
+  --color-notice-bg: #faf0ec;
+  --color-notice-border: #a85454;
+  --hero-shade-bottom: 0.72;
+}
+
+/* ------------------------------------------------------------
+   七五三：子どもの成長の祝い（落ち着いた小豆色）
+   ------------------------------------------------------------ */
+[data-theme="shichigosan"] {
+  --color-background: #f9f6f3;
+  --color-surface-soft: #f4eee9;
+  --color-primary: #6d4a52;        /* 小豆色 */
+  --color-primary-deep: #4d3138;
+  --color-gold-subtle: #ad9160;
+  --color-notice-bg: #faf2ef;
+  --color-notice-border: #a8707c;
+  --hero-shade-bottom: 0.70;
+}
+
+/* ------------------------------------------------------------
+   酉の市：熊手・商売繁盛（深い金茶）
+   ------------------------------------------------------------ */
+[data-theme="tori-no-ichi"] {
+  --color-background: #f9f7f0;
+  --color-surface-soft: #f3efe2;
+  --color-primary: #5c4a28;        /* 深い金茶 */
+  --color-primary-deep: #403317;
+  --color-gold-subtle: #b3924f;
+  --color-notice-bg: #fbf5e6;
+  --color-notice-border: #b3924f;
+  --hero-shade-bottom: 0.72;
+}
+
+/* ------------------------------------------------------------
+   夏・神輿テーマ（値は互換のため kuminsai のまま）
+   「神輿文化が息づく溝口神社」を表現するブランドテーマ。
+   ※区民祭の"案内"は行わない（神社主催行事ではないため。
+     AMAGI最終指示 2026-07-13）。写真は素材としてのみ使用。
+   神輿の金具・法被・夕方の光を活かす控えめな暖色。
+   朱・金の面使用は禁止のまま。
+   ------------------------------------------------------------ */
+[data-theme="kuminsai"] {
+  --color-background: #faf7f0;
+  --color-surface-soft: #f5f0e4;
+  --color-primary: #3d5240;        /* 夏の常磐 */
+  --color-primary-deep: #263a2b;
+  --color-gold-subtle: #b08d4f;    /* 神輿の金具を想起する古金 */
+  --color-notice-bg: #fdf4e4;
+  --color-notice-border: #c98a3d;
+  --hero-shade-bottom: 0.66;       /* 神輿・法被の色を潰さない最小限 */
+  --hero-shade-mid: 0.22;
+  /* IMG_2894は下半分に神輿列があるため、表示位置を下寄せにして
+     神社の存在感・空の抜け・樹木の3要素が自然に見える位置へ
+     （MIZONO-HP-FINAL-QA-001①対応。スマホは現状維持） */
+  --hero-position-desktop: center 82%;
+  --hero-position-mobile: center 60%;
+}
+
+/* 7月テーマ時のみ表示する要素（季節見出し・季節導線）
+   :not() で詳細度を上げ、後読みCSSの display 指定に負けないようにする */
+html:not([data-theme="kuminsai"]) .theme-only--kuminsai {
+  display: none;
+}
+[data-theme="kuminsai"] .theme-only--kuminsai {
+  display: block;
+}
+[data-theme="kuminsai"] .hero__actions.theme-only--kuminsai {
+  display: flex;
+}
+[data-theme="kuminsai"] .theme-hide--kuminsai {
+  display: none;
+}
+
+/* ============================================================
+   運用モード（AMAGI-PHASE2-004 ③）— 将来拡張用の予約領域
+   body[data-mode="..."] で運営状態を切り替える設計。
+   現段階では意図的に何も定義しない（器のみ）。
+   実装する場合もテーマと同様、可読性・品格の原則に従うこと。
+
+   body[data-mode="event"]    { }
+   body[data-mode="notice"]   { }
+   body[data-mode="disaster"] { }
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   緊急：災害・臨時案内用（装飾を抑え、告知帯を強調）
+   ------------------------------------------------------------ */
+[data-theme="emergency"] {
+  --color-background: #f7f7f6;
+  --color-surface-soft: #efefed;
+  --color-primary: #3d4852;        /* 落ち着いた灰藍 */
+  --color-primary-deep: #29323a;
+  --color-gold-subtle: #8a8a80;
+  --color-notice-bg: #fbecec;      /* 告知帯を明確に強調 */
+  --color-notice-border: #b03a3a;
+  --hero-shade-bottom: 0.76;
+}

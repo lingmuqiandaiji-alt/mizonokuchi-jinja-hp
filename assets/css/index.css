@@ -1,0 +1,780 @@
+/* ============================================================
+   溝口神社公式ホームページ
+   index.css — トップページ専用スタイル
+   ============================================================ */
+
+/* ============================================================
+   1. ファーストビュー
+   ============================================================ */
+.hero {
+  position: relative;
+  background-color: var(--color-primary-deep);
+}
+
+.hero__media {
+  /* 100vh固定を避ける。Safariのバー変動に強いsvhを優先使用
+     （AMAGI-FINAL-QUALITY-100-001 ■4） */
+  height: clamp(320px, 55vh, 560px);
+  height: clamp(340px, 58svh, 600px);
+  overflow: hidden;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 表示位置は variables.css / themes.css の変数で調整する */
+  object-position: var(--hero-position-desktop);
+}
+
+@media (max-width: 640px) {
+  .hero__media img {
+    object-position: var(--hero-position-mobile);
+  }
+}
+
+.hero__body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* 文字と写真のコントラスト確保のための控えめなグラデーション。
+     濃さは --hero-shade-* 変数（写真・テーマごとに調整可）で管理 */
+  background: linear-gradient(
+    to top,
+    rgb(20 30 24 / var(--hero-shade-bottom)) 0%,
+    rgb(20 30 24 / var(--hero-shade-mid)) 45%,
+    rgb(20 30 24 / 0) 70%
+  );
+}
+
+.hero__inner {
+  padding-block: var(--space-lg);
+  color: #fff;
+}
+
+.hero__kicker {
+  /* ブランド肩書き「川崎の祈願所」（Mission2） */
+  font-family: var(--font-heading);
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  letter-spacing: 0.35em;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.2rem;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+/* 仮キャッチコピー（正式コピー決定後に index.html 側を差し替え） */
+.hero__copy {
+  margin-top: 0.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero__sub {
+  margin-top: 0.25rem;
+  font-size: var(--font-size-small);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  /* スマホで説明文が横へ広がりすぎないよう最大幅を設定（■3） */
+  max-width: 30ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+/* ============================================================
+   2. 本日の参拝案内
+   ============================================================ */
+.visit-info {
+  background-color: var(--color-surface);
+  border-block: 1px solid var(--color-border);
+  padding-block: var(--space-lg);
+}
+
+.visit-info__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.visit-info__item {
+  /* 縦線は細く・短く（■7）。線は上部のみのアクセントに */
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.visit-info__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  width: 2px;
+  height: 2.4rem;
+  background-color: var(--color-gold-subtle);
+}
+
+.visit-info__label {
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-text-subtle);
+}
+
+.visit-info__value {
+  /* 「午後5時30分」等が中途半端に折り返さないよう可変サイズ＋折返し禁止
+     （2026-07-13 参拝者目線レビューで調整） */
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  font-weight: 700;
+  color: var(--color-primary-deep);
+  white-space: nowrap;
+}
+
+.visit-info__value a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.visit-info__note {
+  font-size: var(--font-size-small);
+  color: var(--color-text-subtle);
+}
+
+.visit-info__footnotes {
+  margin-top: var(--space-md);
+}
+
+.visit-info__footnotes li {
+  font-size: var(--font-size-small);
+  color: var(--color-text-subtle);
+  padding-left: 1.2em;
+  position: relative;
+}
+
+.visit-info__footnotes li::before {
+  content: "※";
+  position: absolute;
+  left: 0;
+}
+
+/* ============================================================
+   3. お知らせ
+   ============================================================ */
+.news-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.news-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.news-item__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  padding: var(--space-sm) 0.25rem;
+  text-decoration: none;
+  color: inherit;
+  min-height: var(--tap-target);
+}
+
+.news-item__link:hover .news-item__title {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.news-item__date {
+  font-size: var(--font-size-small);
+  color: var(--color-text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.news-item__category {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 0 0.6em;
+  white-space: nowrap;
+}
+
+.news-item--important .news-item__category {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.news-item__title {
+  flex: 1 1 16em;
+}
+
+.news-empty {
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--color-text-subtle);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* ============================================================
+   4. 御祈祷案内
+   ============================================================ */
+.prayer-guide {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 840px) {
+  .prayer-guide {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+}
+
+.prayer-guide__points {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.prayer-point {
+  display: flex;
+  gap: var(--space-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.prayer-point__term {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--color-primary-deep);
+  min-width: 7em;
+}
+
+.prayer-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: var(--space-sm);
+}
+
+.prayer-times li {
+  background-color: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.6em;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--font-size-small);
+}
+
+.prayer-cta {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.prayer-cta__tel {
+  display: block;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-deep);
+  text-decoration: none;
+  margin-block: var(--space-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   5. 人生儀礼・願意カード / 授与品カード
+   ============================================================ */
+.card-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.card-grid--wide {
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+
+.rite-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.rite-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--color-primary-deep);
+}
+
+.rite-card__text {
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+  line-height: 1.6;
+}
+
+.omamori-card__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.omamori-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   6. 溝口神社について
+   ============================================================ */
+.about {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 840px) {
+  .about {
+    /* 写真を約55%使う非対称構成（AMAGI-PC-DESIGN-002 第10章） */
+    grid-template-columns: 11fr 9fr;
+    align-items: center;
+  }
+}
+
+.about__media img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.about__text p + p {
+  margin-top: var(--space-sm);
+}
+
+/* ============================================================
+   7. 年間行事
+   ============================================================ */
+.events-list {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.event-item {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: baseline;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.7rem var(--space-md);
+}
+
+.event-item__month {
+  flex-shrink: 0;
+  min-width: 3.4em;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.event-item__name {
+  font-weight: 600;
+}
+
+.event-item__note {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-text-subtle);
+}
+
+/* ============================================================
+   8. 境内案内
+   ============================================================ */
+.precincts {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 840px) {
+  .precincts {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.precincts__media img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.precincts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.35rem var(--space-md);
+}
+
+.precincts-list li {
+  position: relative;
+  padding-left: 1.5em;
+  font-size: var(--font-size-small);
+  line-height: 2;
+}
+
+.precincts-list li::before {
+  content: "\25C6"; /* ◆ */
+  position: absolute;
+  left: 0;
+  color: var(--color-gold-subtle);
+  font-size: 0.7em;
+  top: 0.55em;
+}
+
+/* ============================================================
+   9. アクセス
+   ============================================================ */
+.access {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 840px) {
+  .access {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.access__map {
+  background-color: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.access__address {
+  font-size: 1.0625rem;
+  line-height: 2;
+}
+
+.access__tel-fax {
+  margin-top: var(--space-sm);
+  line-height: 2;
+}
+
+.access dl.access__routes {
+  margin-top: var(--space-md);
+}
+
+.access__routes dt {
+  font-weight: 700;
+  color: var(--color-primary-deep);
+  margin-top: var(--space-sm);
+}
+
+.access__routes dd {
+  margin-left: 0;
+}
+
+/* ============================================================
+   10. 兼務神社
+   ============================================================ */
+.kenmu-groups {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.kenmu-group__area {
+  font-size: 1rem;
+  color: var(--color-text-subtle);
+  font-weight: 700;
+}
+
+.kenmu-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.kenmu-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0.3em 1em;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.kenmu-list a:hover {
+  border-color: var(--color-primary);
+}
+
+/* ============================================================
+   12. AMAGI-PC-DESIGN-002 刷新分
+   「静けさの中に、光と生命がある。」
+   ============================================================ */
+
+/* ---- 人生の流れ（御祈願） ---- */
+.life-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md) var(--space-lg);
+  counter-reset: stage;
+}
+
+.life-flow__stage {
+  position: relative;
+  padding-top: var(--space-sm);
+  border-top: 2px solid var(--color-border);
+}
+
+.life-flow__stage::before {
+  /* 段階を示す細い古金のしるし */
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--color-gold-subtle);
+}
+
+.life-flow__label {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  color: var(--color-primary-deep);
+  letter-spacing: 0.15em;
+}
+
+.life-flow__rites {
+  margin-top: 0.4rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.life-flow__note {
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+  line-height: 1.7;
+}
+
+/* ---- 年間行事：季節軸 ---- */
+.events-seasons {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+  .events-seasons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.events-season__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.3em;
+  color: var(--color-primary-deep);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-sm);
+}
+
+.events-season .events-list {
+  grid-template-columns: 1fr;
+}
+
+.event-item--featured {
+  border-color: var(--color-gold-subtle);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---- 授与品：非対称の代表紹介 ---- */
+.omamori-feature {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+  .omamori-feature {
+    grid-template-columns: 11fr 9fr;
+    align-items: start;
+  }
+}
+
+.omamori-feature__media img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.omamori-feature__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary-deep);
+  margin-bottom: 0.5rem;
+}
+
+.omamori-list {
+  margin-top: var(--space-md);
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.omamori-list__item {
+  border-left: 2px solid var(--color-border);
+  padding-left: var(--space-md);
+}
+
+.omamori-list__item dt {
+  font-weight: 700;
+  color: var(--color-primary-deep);
+}
+
+.omamori-list__item dd {
+  margin: 0.2rem 0 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text-subtle);
+  line-height: 1.7;
+}
+
+/* ---- 写真で伝える（3枚帯） ---- */
+.photo-story {
+  display: grid;
+  gap: var(--space-md);
+}
+
+@media (min-width: 840px) {
+  .photo-story {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.photo-story__item {
+  margin: 0;
+}
+
+.photo-story__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.photo-story__item figcaption {
+  margin-top: 0.5rem;
+  font-size: var(--font-size-small);
+  color: var(--color-text-subtle);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+/* ---- 余韻を残す大型写真 ---- */
+.closing-photo {
+  position: relative;
+  margin-top: var(--space-section);
+}
+
+.closing-photo__media {
+  margin: 0;
+  /* 本殿の屋根・彫刻・奥行きが見える高さへ拡大（■10 案C） */
+  height: clamp(320px, 52vh, 560px);
+  overflow: hidden;
+}
+
+.closing-photo__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 軽い明度調整（写真データは無加工。彫刻の暗部を見せる ■10） */
+  filter: brightness(1.12);
+}
+
+/* 文字の可読性を確保する控えめな下部グラデーション（暗幕は最小限 ■10） */
+.closing-photo::after {
+  content: "";
+  position: absolute;
+  inset: 62% 0 0 0;
+  background: linear-gradient(to top, rgb(20 30 24 / 0.45), rgb(20 30 24 / 0));
+  pointer-events: none;
+}
+
+.closing-photo__line {
+  z-index: 1;
+  position: absolute;
+  inset: auto 0 var(--space-lg) 0;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  letter-spacing: 0.25em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- 境内案内：番号付きの見どころ ---- */
+.precincts-list {
+  counter-reset: spot;
+}
+
+.precincts-list li {
+  counter-increment: spot;
+  padding-left: 2.1em;
+}
+
+.precincts-list li::before {
+  content: counter(spot, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-gold-subtle);
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   11. スマートフォン微調整
+   ============================================================ */
+@media (max-width: 480px) {
+  .hero__actions .button {
+    flex: 1 1 100%;
+  }
+
+  .prayer-point {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

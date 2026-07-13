@@ -1,0 +1,87 @@
+{
+  "_説明": "溝口神社公式ホームページの基本情報とブロック構成の正式な台帳。表示の実体はindex.html側にあり、このファイルは『どこに何があり、何が正しい値か』の基準となる記録簿。HTMLを変更したら必ずこのファイルも揃えること（逆も同じ）。",
+  "_運用ルール": "同じ情報を新しい場所に書き足す前に、このファイルと docs/AMAGI_OPERATION_GUIDE.md の編集場所一覧を確認する。値の変更は天城さんの確認を経ること。",
+
+  "shrine": {
+    "name": "溝口神社",
+    "nameReading": "みぞのくちじんじゃ",
+    "postalCode": "213-0001",
+    "address": "神奈川県川崎市高津区溝口2-25-1",
+    "tel": "044-822-3776",
+    "telLink": "0448223776",
+    "fax": "044-822-8968",
+    "instagram": "https://www.instagram.com/mizonokuchi_jinja/",
+    "_telの掲載箇所": "index.html内6ヶ所（ヘッダー／参拝のご案内／御祈祷2ヶ所／アクセス／フッター）＋head内構造化データ。変更時は全箇所を検索置換すること"
+  },
+
+  "hours": {
+    "normal": { "open": "午前6時", "close": "午後5時30分", "period": "1月4日〜12月31日" },
+    "reisai": { "open": "午前6時", "close": "午後9時", "period": "例大祭" },
+    "newYear": {
+      "jan1": "午前0時〜午後9時（お札・お守り対応も同時間）",
+      "jan2and3": "午前6時〜午後8時（お札・お守り対応 午前7時〜午後8時）"
+    },
+    "juyosho": "午前9時〜午後5時（お焚き上げ含む）",
+    "telReception": "午前9時〜午後5時",
+    "_掲載箇所": "index.html内2ヶ所（参拝のご案内／フッター）。変更時は両方を直す"
+  },
+
+  "prayer": {
+    "january": "予約不要（15分前までに受付）",
+    "febToDec": "予約制（電話・参拝月の2ヶ月前より受付）",
+    "duration": "およそ20分",
+    "startTimes": ["9:00","9:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00"],
+    "_掲載箇所": "index.html 御祈祷ブロック（BLOCK: prayer）内"
+  },
+
+  "catchcopy": {
+    "main": "光と調和を、日々の暮らしへ。",
+    "sub": "溝口の地を見守り、人々の節目と日々の平安に寄り添う氏神様。",
+    "status": "仮（橘隊の正式文章待ち）",
+    "_掲載箇所": "index.html ヒーローブロック（BLOCK: hero）内"
+  },
+
+  "theme": {
+    "current": "kuminsai（7月・高津区民祭テーマ／AMAGI-PC-DESIGN-002仮設定・裁可待ち）",
+    "_設定箇所": "index.html の <html data-theme=\"...\">（この1ヶ所のみ）",
+    "_定義": "assets/css/themes.css"
+  },
+
+  "mode": {
+    "current": "normal",
+    "_値": "normal / event / notice / disaster",
+    "_設定箇所": "index.html の <body data-mode=\"...\">（この1ヶ所のみ）",
+    "_備考": "AMAGI-PHASE2-004③。現在は器のみで表示への影響なし。完成版の実装は将来の裁可事項"
+  },
+
+  "blocks": [
+    { "order": 1,  "id": "emergency-notice",   "title": "緊急・重要告知",   "status": "published", "reviewStatus": "verified", "note": "告知なしの時は本文側の hidden で非表示" },
+    { "order": 2,  "id": "site-header",        "title": "ヘッダー",         "status": "published", "reviewStatus": "verified", "note": "" },
+    { "order": 3,  "id": "hero",               "title": "ファーストビュー", "status": "published", "reviewStatus": "needs-review", "note": "キャッチコピー仮／写真⑤の権利確認待ち" },
+    { "order": 4,  "id": "worship-guide",      "title": "参拝のご案内",     "status": "published", "reviewStatus": "verified", "note": "時間はフッターと2ヶ所管理" },
+    { "order": 5,  "id": "news",               "title": "お知らせ",         "status": "published", "reviewStatus": "needs-review", "note": "サンプル3件。公開前に差し替え必須" },
+    { "order": 5.5, "id": "photo-story",       "title": "写真で伝える、いまの溝口神社", "status": "published", "reviewStatus": "needs-review", "note": "新設(AMAGI-PC-DESIGN-002)。写真3枚は仮画像、区民祭写真変換後に差し替え" },
+    { "order": 6,  "id": "purpose-navigation", "title": "人生の節目のご祈願", "status": "published", "reviewStatus": "verified", "note": "料金は掲載しない方針" },
+    { "order": 7,  "id": "about",              "title": "溝口神社について", "status": "published", "reviewStatus": "verified", "note": "既存由緒の要約（意味の変更なし）" },
+    { "order": 8,  "id": "prayer",             "title": "御祈祷のご案内",   "status": "published", "reviewStatus": "verified", "note": "予約方針の最新運用は要確認" },
+    { "order": 9,  "id": "amulets",            "title": "授与品・御守り",   "status": "published", "reviewStatus": "verified", "note": "価格・在庫は掲載しない" },
+    { "order": 10, "id": "annual-events",      "title": "年間行事",         "status": "published", "reviewStatus": "verified", "note": "日付は月表示のみ（年度更新はお知らせ側）" },
+    { "order": 11, "id": "precincts",          "title": "境内のご案内",     "status": "published", "reviewStatus": "verified", "note": "12地点継承" },
+    { "order": 12, "id": "branch-shrines",     "title": "兼務神社",         "status": "published", "reviewStatus": "verified", "note": "5社の名称は個別ページで確認済み" },
+    { "order": 13, "id": "social",             "title": "公式の発信",       "status": "published", "reviewStatus": "verified", "note": "Instagramのみ（既存サイト掲載の公式アカウント）" },
+    { "order": 14, "id": "access",             "title": "アクセス",         "status": "published", "reviewStatus": "verified", "note": "駐車台数は確認待ちのため台数非表示" },
+    { "order": 14.5, "id": "closing-photo",    "title": "余韻を残す大型写真", "status": "published", "reviewStatus": "needs-review", "note": "新設(AMAGI-PC-DESIGN-002)。御神木と本殿の朝の写真受領後に差し替え。文言は仮" },
+    { "order": 15, "id": "site-footer",        "title": "フッター",         "status": "published", "reviewStatus": "verified", "note": "プライバシーポリシーは準備中表記" }
+  ],
+
+  "_statusの意味": {
+    "published": "公開中",
+    "draft": "下書き（非表示）",
+    "needs-review": "確認待ち（非表示にする場合に使用）",
+    "hidden": "一時非表示"
+  },
+  "_reviewStatusの意味": {
+    "verified": "内容確認済み",
+    "needs-review": "天城さん・部隊の確認待ちの内容を含む"
+  }
+}

@@ -1,0 +1,573 @@
+/* ============================================================
+   溝口神社公式ホームページ
+   components.css — 全ページで使う部品（ヘッダー・ボタン・カード等）
+   ============================================================ */
+
+/* ============================================================
+   1. 緊急・重要告知帯
+   お知らせがない時は index.html 側で hidden 属性を付ける
+   ============================================================ */
+.notice-bar {
+  background-color: var(--color-notice-bg);
+  border-bottom: 2px solid var(--color-notice-border);
+}
+
+.notice-bar__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+}
+
+.notice-bar__label {
+  flex-shrink: 0;
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-accent);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-sm);
+  padding: 0 0.5em;
+  margin-top: 0.2em;
+}
+
+.notice-bar__text {
+  font-size: var(--font-size-small);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   2. ヘッダー
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* 背景透過による文字の重なりを防止（■6） */
+  background-color: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(6px);
+  /* ノッチ・Safe Area対応（■6・■14） */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: var(--header-height);
+}
+
+.site-header__brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--color-text);
+  padding-block: 0.4rem;
+}
+
+.site-header__name {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.site-header__tagline {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+  letter-spacing: 0.05em;
+}
+
+/* ---- PC用グローバルナビゲーション ----
+   ナビ9項目（神社ガイド追加・AMAGI-KNOWLEDGE-001）のため、
+   PC全幅で「ブランド行＋ナビ行」の2段構成に統一
+   （9項目は最大コンテンツ幅1200pxの一段に収まらないため） */
+@media (min-width: 841px) {
+  .site-header__inner {
+    flex-wrap: wrap;
+  }
+
+  .global-nav {
+    flex: 1 1 100%;
+    border-top: 1px solid var(--color-border);
+  }
+
+  html {
+    /* 2段ヘッダー分、ページ内リンクの着地位置を調整 */
+    scroll-padding-top: 8rem;
+  }
+}
+
+
+.global-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.global-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  /* PC幅で8項目が1段に収まる寸法（2026-07-12調整） */
+  padding: 0.25rem 0.55rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.global-nav__link:hover {
+  background-color: var(--color-surface-soft);
+  color: var(--color-primary-deep);
+}
+
+/* 現在ページの識別 */
+.global-nav__link[aria-current="page"] {
+  color: var(--color-primary-deep);
+  font-weight: 700;
+  box-shadow: inset 0 -2px 0 var(--color-gold-subtle);
+}
+
+/* ---- ヘッダー右側の導線 ---- */
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.header-tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: var(--tap-target);
+  padding-inline: 0.75rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--color-primary-deep);
+  white-space: nowrap;
+}
+
+/* ---- スマートフォン用メニューボタン ---- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border-radius: var(--radius-sm);
+}
+
+.menu-toggle__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu-toggle__label {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ============================================================
+   3. ボタン
+   ============================================================ */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: var(--tap-target);
+  padding: 0.5em 1.5em;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--color-primary-deep);
+  color: var(--color-on-primary);
+}
+
+.button--secondary {
+  background-color: var(--color-surface);
+  color: var(--color-primary-deep);
+  border: 1px solid var(--color-primary);
+}
+
+.button--secondary:hover {
+  background-color: var(--color-surface-soft);
+}
+
+/* ヒーロー上の副リンク用：控えめなアウトライン（■5 第一推奨） */
+.button--ghost {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.4em 1.2em;
+}
+
+.button--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.button--tel {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.button--tel:hover {
+  background-color: #6f2525;
+  color: #fff;
+}
+
+/* ============================================================
+   4. カード
+   ============================================================ */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.card__body {
+  padding: var(--space-md);
+}
+
+.card__title {
+  font-size: 1.0625rem;
+  color: var(--color-primary-deep);
+}
+
+.card__text {
+  margin-top: 0.4rem;
+  font-size: var(--font-size-small);
+  color: var(--color-text-subtle);
+}
+
+/* カード全体をリンクにする場合の控えめなホバー */
+a.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+a.card:hover {
+  box-shadow: var(--shadow-raised);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   5. アコーディオン（details/summary ベース：JS無効でも動作）
+   ============================================================ */
+.accordion {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.accordion + .accordion {
+  margin-top: var(--space-sm);
+}
+
+.accordion__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-height: var(--tap-target);
+  padding: 0.6rem var(--space-md);
+  font-weight: 700;
+  list-style: none;
+}
+
+.accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion__summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.6em;
+  height: 0.6em;
+  border-right: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.accordion[open] .accordion__summary::after {
+  transform: rotate(-135deg);
+}
+
+.accordion__content {
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+/* ============================================================
+   6. 仮画像（プレースホルダー）
+   正式写真に差し替えるまでの仮表示。
+   差し替え方法は docs/AMAGI_OPERATION_GUIDE.md を参照。
+   ============================================================ */
+.placeholder-img {
+  background-color: var(--color-surface-soft);
+  border: 1px dashed var(--color-border);
+}
+
+/* ============================================================
+   7. フッター
+   ============================================================ */
+.site-footer {
+  background-color: var(--color-primary-deep);
+  color: var(--color-on-primary);
+  padding-block: var(--space-xl) var(--space-lg);
+  margin-top: var(--space-section);
+}
+
+.site-footer a {
+  color: var(--color-on-primary);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.site-footer__name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+}
+
+.site-footer__address {
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-small);
+  line-height: 1.9;
+}
+
+.site-footer__heading {
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  /* h2既定色(濃緑)は暗背景で不可視になるため明示指定（2026-07-12修正） */
+  color: var(--color-on-primary);
+  font-family: var(--font-body);
+  border-bottom: 1px solid rgba(246, 245, 239, 0.3);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.site-footer__links li {
+  margin-block: 0.35rem;
+}
+
+.site-footer__links a {
+  display: inline-block;
+  padding-block: 0.25rem; /* タップ領域の確保 */
+  font-size: var(--font-size-small);
+}
+
+.site-footer__hours {
+  font-size: var(--font-size-small);
+  line-height: 1.9;
+}
+
+.site-footer__hours dt {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.site-footer__bottom {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(246, 245, 239, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: 0.8125rem;
+}
+
+/* ============================================================
+   8. ページ上部へ戻るボタン
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--color-primary-deep);
+}
+
+/* ============================================================
+   9. スマートフォン対応（840px 以下）
+   ============================================================ */
+@media (max-width: 840px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .global-nav {
+    position: fixed;
+    inset: var(--header-height) 0 auto 0;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-raised);
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    /* メニューを閉じている間は非表示 */
+    display: none;
+    max-height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
+  }
+
+  .global-nav.is-open {
+    display: block;
+  }
+
+  .global-nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .global-nav__link {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+  }
+
+  .header-tel__text {
+    display: none; /* 狭い画面では電話アイコンのみ */
+  }
+
+  .site-header__tagline {
+    display: none;
+  }
+
+  /* スマホではヘッダーの存在感を抑える（■6：余白と線で品格を出す） */
+  .site-header__inner {
+    min-height: 3.25rem;
+  }
+
+  .site-header__name {
+    font-size: 1.1875rem;
+  }
+
+  .site-header__actions {
+    gap: 0.125rem;
+  }
+}
+
+/* ページ上部へ戻るボタン：ホームインジケーターとの干渉回避（■14） */
+.back-to-top {
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+/* メニュー下部の主要導線（MASTER-021 ■5。スマホのドロワー内のみ表示） */
+.global-nav__quick {
+  display: none;
+}
+
+@media (max-width: 840px) {
+  .global-nav__quick {
+    display: grid;
+    gap: 0.5rem;
+    padding: var(--space-md) 0 0.5rem;
+    border-top: 2px solid var(--color-border);
+    margin-top: 0.5rem;
+  }
+
+  .global-nav__quick a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--tap-target);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .global-nav__quick a:not(:first-child) {
+    background-color: var(--color-surface-soft);
+    color: var(--color-primary-deep);
+    border: 1px solid var(--color-border);
+  }
+}
+
+/* メニュー展開中の背景スクロール制御（JSが body に付与） */
+body.is-menu-open {
+  overflow: hidden;
+}
+
+/* ============================================================
+   10. 情報ブロックの公開状態（AMAGI-IA-001）
+   各ブロックは data-block-status で状態を持つ：
+     published    … 公開（表示）
+     draft        … 下書き（非表示・削除はしない）
+     needs-review … 確認待ち（非表示・削除はしない）
+     hidden       … 一時非表示（非表示・削除はしない）
+   確認前の情報は published にしないこと。
+   ============================================================ */
+[data-block-status="draft"],
+[data-block-status="needs-review"],
+[data-block-status="hidden"] {
+  display: none !important;
+}

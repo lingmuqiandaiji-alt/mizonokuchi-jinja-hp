@@ -1,0 +1,43 @@
+{
+  "_説明": "神社ガイド（参拝とご祈祷の質問箱）のQ&A台帳（AMAGI-GUIDE-GOSHUIN-100-002 ■21）。画面表示（guide.html）と内部管理を分離する。status=needs-confirmationの項目は画面上で断定せず『お問い合わせください』とし、構造化データにも含めない。",
+  "_status凡例": { "published": "公開中（内容確定）", "draft": "下書き", "needs-confirmation": "神社側確認待ち（画面では断定しない）", "hidden": "非表示" },
+  "page": "guide.html",
+  "categories": ["初めての参拝","日取り・六曜","安産・初宮詣","七五三・厄除","ご祈祷","御朱印","お札・お守り","境内・アクセス","その他"],
+  "questions": [
+    { "id": "q-fukusou", "category": "初めての参拝", "question": "服装に決まりはありますか？", "answer": "普段着で可。祈祷時はあらたまった服装推奨", "status": "published", "priority": "high", "source": "一般的な神社作法", "lastReviewed": "2026-07-13", "reviewedBy": "一条（橘隊検分待ち）", "relatedPage": "guide.html#sanpai" },
+    { "id": "q-satsuei", "category": "初めての参拝", "question": "写真撮影はできますか？", "answer": "マナー配慮のうえ可。本格撮影は要相談", "status": "published", "priority": "mid", "source": "一般作法＋要相談誘導", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#sanpai" },
+    { "id": "q-kodomo", "category": "初めての参拝", "question": "子ども連れでも大丈夫ですか？", "answer": "歓迎", "status": "published", "priority": "mid", "source": "神社の性格（七五三・初宮）", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#sanpai" },
+    { "id": "q-pet", "category": "初めての参拝", "question": "ペットは境内に入れますか？", "answer": "お問い合わせください（可否未確認）", "status": "needs-confirmation", "priority": "mid", "source": "未確認", "lastReviewed": "2026-07-13", "reviewedBy": "—", "relatedPage": "guide.html#sanpai" },
+    { "id": "q-taian-riyuu", "category": "日取り・六曜", "question": "大安にお参りする方が多いのはなぜ？", "answer": "本陣提供の回答案を使用（■8）", "status": "published", "priority": "high", "source": "AMAGI-GUIDE-GOSHUIN-100-002 ■8（北条検分待ち）", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#rokuyou" },
+    { "id": "q-butsumetsu", "category": "日取り・六曜", "question": "仏滅でも参拝・祈祷できますか？", "answer": "可。六曜は祭祀と無関係", "status": "published", "priority": "high", "source": "神道の一般理解＋指定文言", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#rokuyou" },
+    { "id": "q-hidori", "category": "日取り・六曜", "question": "日取りはどう選べばよい？", "answer": "体調と都合を最優先", "status": "published", "priority": "mid", "source": "一般案内", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#rokuyou" },
+    { "id": "q-anzan-1", "category": "安産・初宮詣", "question": "安産祈願の持ち物は？", "answer": "特別な準備不要・腹帯は持参。詳細は電話確認へ誘導", "status": "needs-confirmation", "priority": "high", "source": "既存サイト（腹帯祈祷の記載）＋詳細未確認", "lastReviewed": "2026-07-13", "reviewedBy": "—", "relatedPage": "guide.html#anzan" },
+    { "id": "q-anzan-2", "category": "安産・初宮詣", "question": "腹帯は持参した方がよい？", "answer": "祈祷希望なら持参。詳細は問い合わせ", "status": "needs-confirmation", "priority": "high", "source": "同上", "lastReviewed": "2026-07-13", "reviewedBy": "—", "relatedPage": "guide.html#anzan" },
+    { "id": "q-anzan-3", "category": "安産・初宮詣", "question": "戌の日以外でも受けられる？", "answer": "可（体調優先）", "status": "published", "priority": "high", "source": "一般理解", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#anzan" },
+    { "id": "q-anzan-4", "category": "安産・初宮詣", "question": "大安と戌の日どちらを優先？", "answer": "どちらでも可・体調最優先", "status": "published", "priority": "mid", "source": "一般理解＋六曜方針", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#anzan" },
+    { "id": "q-anzan-5", "category": "安産・初宮詣", "question": "本人不在で家族だけでも受けられる？", "answer": "お問い合わせください（代理祈祷の運用未確認）", "status": "needs-confirmation", "priority": "mid", "source": "未確認", "lastReviewed": "2026-07-13", "reviewedBy": "—", "relatedPage": "guide.html#anzan" },
+    { "id": "q-anzan-6", "category": "安産・初宮詣", "question": "服装は？", "answer": "体調優先・楽な服装で可", "status": "published", "priority": "low", "source": "一般案内", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#anzan" },
+    { "id": "q-anzan-7", "category": "安産・初宮詣", "question": "家族も参列できる？", "answer": "可（既存サイトの人数制限案内に基づき大人数は要相談）", "status": "published", "priority": "mid", "source": "既存サイトの案内", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#anzan" },
+    { "id": "q-anzan-8", "category": "安産・初宮詣", "question": "予約は必要？", "answer": "1月以外予約制（確認済み）", "status": "published", "priority": "high", "source": "既存サイト・確認済み", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#anzan" },
+    { "id": "q-hatsu-itsu", "category": "安産・初宮詣", "question": "お宮参りはいつ？", "answer": "生後1ヶ月〜100日目安", "status": "published", "priority": "mid", "source": "一般理解", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#hatsumiya" },
+    { "id": "q-753-yoyaku", "category": "七五三・厄除", "question": "七五三は予約が必要？", "answer": "予約制（確認済み）", "status": "published", "priority": "high", "source": "既存サイト・確認済み", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#shichigosan" },
+    { "id": "q-yaku-itsu", "category": "七五三・厄除", "question": "厄除はいつ受ける？", "answer": "年初が多いが通年可", "status": "published", "priority": "mid", "source": "一般理解", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#yakudoshi" },
+    { "id": "q-ame", "category": "ご祈祷", "question": "雨でも祈祷できる？", "answer": "可（社殿内）", "status": "published", "priority": "mid", "source": "祈祷は社殿内の事実", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#kitou" },
+    { "id": "q-yoyakunashi", "category": "ご祈祷", "question": "予約なしでも大丈夫？", "answer": "1月不要・2〜12月予約制（確認済み）", "status": "published", "priority": "high", "source": "既存サイト・確認済み", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#kitou" },
+    { "id": "q-goshuin-1", "category": "御朱印", "question": "御朱印はいただけますか？", "answer": "状態C：お問い合わせください", "status": "needs-confirmation", "priority": "high", "source": "有無未確認（運営判断⑤）", "lastReviewed": "2026-07-13", "reviewedBy": "—", "relatedPage": "guide.html#goshuin" },
+    { "id": "q-goshuin-2", "category": "御朱印", "question": "受付時間・初穂料・直書き・限定・郵送・兼務神社対応", "answer": "すべて確認待ち。画面では問い合わせ誘導のみ", "status": "needs-confirmation", "priority": "high", "source": "未確認12項目（■22台帳）", "lastReviewed": "2026-07-13", "reviewedBy": "—", "relatedPage": "guide.html#goshuin" },
+    { "id": "q-goshuin-3", "category": "御朱印", "question": "先に参拝した方がよい？", "answer": "参拝を先に（一般作法・穏やかな表現）", "status": "published", "priority": "mid", "source": "一般作法", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#goshuin" },
+    { "id": "q-goshuin-4", "category": "御朱印", "question": "御朱印帳を忘れたら？", "answer": "対応は神社により異なるため確認誘導", "status": "needs-confirmation", "priority": "low", "source": "未確認", "lastReviewed": "2026-07-13", "reviewedBy": "—", "relatedPage": "guide.html#goshuin" },
+    { "id": "q-ofuda-chigai", "category": "お札・お守り", "question": "お守りとお札の違い", "answer": "場を守る／身に着ける", "status": "published", "priority": "mid", "source": "一般理解", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#ofuda" },
+    { "id": "q-henno", "category": "お札・お守り", "question": "古いお札・お守りの返納", "answer": "お焚き上げ9〜17時（確認済み）", "status": "published", "priority": "high", "source": "既存サイト・確認済み", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#ofuda" },
+    { "id": "q-parking", "category": "境内・アクセス", "question": "駐車場はありますか？", "answer": "あり・台数限り（確認済み）", "status": "published", "priority": "high", "source": "既存サイト・確認済み", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#keidai" },
+    { "id": "q-omikuji-musubu", "category": "その他", "question": "おみくじは結ぶ？持ち帰る？", "answer": "どちらでも可", "status": "published", "priority": "low", "source": "一般理解", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#omikuji" },
+    { "id": "q-kamidana-junban", "category": "その他", "question": "神棚のお札の順番", "answer": "神宮大麻中央・氏神右・崇敬左", "status": "published", "priority": "mid", "source": "神社本庁の一般案内に沿う", "lastReviewed": "2026-07-13", "reviewedBy": "一条", "relatedPage": "guide.html#kamidana" }
+  ],
+  "六曜カレンダー構想": {
+    "現段階": "日付入りカレンダーは非掲載（誤表示防止・■6遵守）。見方・意味・神社との関係・選び方のみ掲載",
+    "将来案A": "六曜は旧暦（月＋日）を6で割った剰余で機械的に決まるため、信頼できる旧暦変換ライブラリによるJS自動計算＋年次の目視検証で静的生成する",
+    "将来案B": "国立天文台等の暦要項に基づき年1回、月別表を手動生成し天城さんが検分後に公開する",
+    "推奨": "案B（検証可能・誤表示リスク最小・静的サイトの方針に合致）。実装は裁可後"
+  }
+}

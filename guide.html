@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<!-- 神社ガイド（参拝とご祈祷の質問箱）AMAGI-GUIDE-GOSHUIN-100-002
+     回答は「結論→理由→補足→問い合わせ」の順。
+     神社固有で未確認の事項は断定せず「お問い合わせください」とし、
+     台帳（assets/data/guide-topics.json）で needs-confirmation 管理。
+     御朱印の表示状態はA/B/Cの3枠を用意（現在は状態C）。 -->
+<html lang="ja" data-theme="kuminsai">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>神社ガイド｜参拝とご祈祷の質問箱｜溝口神社</title>
+  <meta name="description" content="神社へのお参りやご祈祷について、初めての方にも分かりやすくご案内します。参拝方法、大安・仏滅などの六曜と日取り、安産祈願の持ち物、七五三、厄年、御朱印、お守りの返納まで。溝口神社の神社ガイド・質問箱です。">
+  <link rel="canonical" href="https://www.mizonokuchijinjya.org/guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="溝口神社">
+  <meta property="og:title" content="神社ガイド｜参拝とご祈祷の質問箱｜溝口神社">
+  <meta property="og:description" content="服装、持ち物、日取り、御朱印など、気になる項目からご覧いただける神社ガイドです。">
+  <meta property="og:url" content="https://www.mizonokuchijinjya.org/guide.html">
+  <meta property="og:image" content="https://www.mizonokuchijinjya.org/assets/images/common/ogp.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/themes.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/guide.css">
+  <!-- 構造化データ：画面に表示済みかつ内容が確定している質問のみ登録（■20）。
+       御朱印など確認中の項目は含めない -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"仏滅でも参拝やご祈祷を受けられますか？","acceptedAnswer":{"@type":"Answer","text":"はい、ご参拝・ご祈祷いただけます。六曜は暦に記される吉凶の目安の一つであり、神道の教えや神社の祭祀と直接関係するものではありません。ご自身やご家族の都合のよい日をお選びください。"}},
+      {"@type":"Question","name":"大安の日にお参りする方が多いのはなぜですか？","acceptedAnswer":{"@type":"Answer","text":"大安は、六曜の中で何事にも良い日とされることから、結婚、安産祈願、七五三など、人生の節目の日として選ばれることがあります。ただし、六曜は神道の教えや神社の祭祀と直接関係するものではありません。大安以外の日でも、心を込めてお参りできる日を選んでいただいて差し支えありません。"}},
+      {"@type":"Question","name":"七五三は予約が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、溝口神社の七五三詣は予約制です。ご希望の日時をお電話（044-822-3776・午前9時〜午後5時）にてお知らせください。"}},
+      {"@type":"Question","name":"古いお札やお守りはどうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"感謝とともに神社へお納めください。溝口神社では古いお札・お守りのお焚き上げを午前9時から午後5時までお受けしています。"}},
+      {"@type":"Question","name":"雨の日でもご祈祷できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。御祈祷は社殿の中で行いますので、天候に関わらずお受けいただけます。"}},
+      {"@type":"Question","name":"駐車場はありますか？","acceptedAnswer":{"@type":"Answer","text":"境内に駐車場がございますが台数に限りがあります。七五三やお正月、祭礼の時期は大変混み合いますので、公共交通機関のご利用をおすすめします。"}}
+    ]
+  }
+  </script>
+</head>
+<body data-mode="normal">
+
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="site-header" data-block="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__brand" href="index.html">
+        <span class="site-header__name">溝口神社</span>
+        <span class="site-header__tagline">川崎市高津区・溝の口の氏神様</span>
+      </a>
+      <div class="site-header__actions">
+        <a class="header-tel" href="tel:0448223776">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/>
+          </svg>
+          <span class="header-tel__text">044-822-3776</span>
+          <span class="visually-hidden">に電話をかける</span>
+        </a>
+        <button id="menu-toggle" class="menu-toggle" type="button"
+                aria-expanded="false" aria-controls="global-nav">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__label">メニューを開閉する</span>
+        </button>
+      </div>
+      <nav id="global-nav" class="global-nav" aria-label="サイト内メニュー">
+        <ul class="global-nav__list">
+          <li><a class="global-nav__link" href="index.html">ホーム</a></li>
+          <li><a class="global-nav__link" href="gosaijin.html">溝口神社について</a></li>
+          <li><a class="global-nav__link" href="gokitou.html">御祈祷</a></li>
+          <li><a class="global-nav__link" href="omamori.html">授与品・御守り</a></li>
+          <li><a class="global-nav__link" href="gyouji.html">年間行事</a></li>
+          <li><a class="global-nav__link" href="keidai.html">境内案内</a></li>
+          <li><a class="global-nav__link" href="kenmu.html">兼務神社</a></li>
+          <li><a class="global-nav__link" href="guide.html" aria-current="page">神社ガイド</a></li>
+          <li><a class="global-nav__link" href="access.html">アクセス</a></li>
+        </ul>
+        <!-- メニュー下部の主要導線（スマホのみ表示・MASTER-021 ■5） -->
+        <div class="global-nav__quick">
+          <a href="tel:0448223776">電話でお問い合わせ</a>
+          <a href="access.html">アクセスを見る</a>
+          <a href="guide.html">神社ガイドを見る</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1. 導入 -->
+    <div class="guide-hero">
+      <div class="container">
+        <nav aria-label="現在位置" class="note" style="margin-bottom: 1rem;">
+          <a href="index.html">ホーム</a> › 神社ガイド
+        </nav>
+        <h1 style="font-family: var(--font-heading); font-size: clamp(1.75rem, 4vw, 2.25rem); color: var(--color-primary-deep); line-height:1.3;">神社ガイド<span style="display:block; font-size:1.0625rem; font-weight:400; color:var(--color-text-subtle); letter-spacing:0.08em; margin-top:0.4rem;">— 参拝とご祈祷の質問箱 —</span></h1>
+        <p style="margin-top:1rem; max-width: var(--width-prose);">神社へのお参りやご祈祷について、初めての方にも分かりやすくご案内します。服装、持ち物、日取り、御朱印など、気になる項目からご覧ください。</p>
+
+        <!-- 2. よく見られる質問（■3：6件） -->
+        <section class="faq-featured" aria-labelledby="featured-t">
+          <h2 id="featured-t" style="font-size:1.125rem; color:var(--color-primary-deep);">よく見られる質問</h2>
+          <details class="accordion" id="q-anzan-mochimono">
+            <summary class="accordion__summary">安産祈願には何を持っていけばよいですか？</summary>
+            <div class="accordion__content"><p>特別なご準備がなくてもお受けいただけます。腹帯のお祓いをご希望の場合は、お持ちの腹帯をご持参ください。そのほかの持ち物については、ご予約のお電話の際にご確認いただくのが確実です（<a href="tel:0448223776">044-822-3776</a>）。<a href="#anzan">安産祈願の項目へ</a></p></div>
+          </details>
+          <details class="accordion" id="q-taian-riyuu">
+            <summary class="accordion__summary">大安の日にお参りする方が多いのはなぜですか？</summary>
+            <div class="accordion__content"><p>大安は、六曜の中で何事にも良い日とされることから、結婚、安産祈願、七五三など、人生の節目の日として選ばれることがあります。ただし、六曜は神道の教えや神社の祭祀と直接関係するものではありません。大安以外の日でも、ご自身やご家族にとって都合のよい日、心を込めてお参りできる日を選んでいただいて差し支えありません。<a href="#rokuyou">六曜と日取りの項目へ</a></p></div>
+          </details>
+          <details class="accordion" id="q-butsumetsu">
+            <summary class="accordion__summary">仏滅でも参拝やご祈祷を受けられますか？</summary>
+            <div class="accordion__content"><p>はい、ご参拝・ご祈祷いただけます。六曜は暦に記される吉凶の目安の一つであり、神道の教えや神社の祭祀と直接関係するものではありません。ご都合のよい日をお選びください。ご不安な場合は、お気軽に神社までお問い合わせください。</p></div>
+          </details>
+          <details class="accordion" id="q-753-yoyaku">
+            <summary class="accordion__summary">七五三は予約が必要ですか？</summary>
+            <div class="accordion__content"><p>はい、予約制です。時期は9月〜12月で、ご希望の日時をお電話（<a href="tel:0448223776">044-822-3776</a>・午前9時〜午後5時）にてお知らせください。<a href="#shichigosan">七五三の項目へ</a></p></div>
+          </details>
+          <details class="accordion" id="q-henno">
+            <summary class="accordion__summary">古いお札やお守りはどうすればよいですか？</summary>
+            <div class="accordion__content"><p>一年間お守りいただいた感謝とともに、神社へお納めください。溝口神社ではお焚き上げを午前9時〜午後5時にお受けしています。<a href="#ofuda">お札・お守りの項目へ</a></p></div>
+          </details>
+          <details class="accordion" id="q-goshuin-top">
+            <summary class="accordion__summary">御朱印はいただけますか？</summary>
+            <div class="accordion__content"><p>御朱印については、事前に神社までお問い合わせください（<a href="tel:0448223776">044-822-3776</a>・午前9時〜午後5時）。<a href="#goshuin">御朱印の項目へ</a></p></div>
+          </details>
+        </section>
+
+        <!-- 3. 目的から探す（■4：カテゴリー） -->
+        <nav aria-label="目的から探す" style="margin-top: var(--space-lg);">
+          <h2 style="font-size:1.125rem; color:var(--color-primary-deep);">目的から探す</h2>
+          <ul class="guide-cats" role="list">
+            <li><a href="#sanpai">初めての参拝</a></li>
+            <li><a href="#rokuyou">日取り・六曜</a></li>
+            <li><a href="#anzan">安産・初宮詣</a></li>
+            <li><a href="#shichigosan">七五三・厄除</a></li>
+            <li><a href="#kitou">ご祈祷</a></li>
+            <li><a href="#goshuin">御朱印</a></li>
+            <li><a href="#ofuda">お札・お守り</a></li>
+            <li><a href="#keidai">境内・アクセス</a></li>
+            <li><a href="#all-questions">すべての質問</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- 4. 参拝方法【初めての参拝】 -->
+      <section id="sanpai" class="guide-topic" aria-labelledby="sanpai-t">
+        <h2 id="sanpai-t" class="guide-topic__title"><span class="guide-topic__num">01</span>初めての参拝 — 参拝方法</h2>
+        <p class="guide-topic__lead">難しく考える必要はありません。基本の流れを知っておくと、落ち着いてお参りできます。</p>
+        <ol class="guide-steps">
+          <li><strong>鳥居のくぐり方</strong> — 鳥居は神様の領域への入口です。くぐる前に軽く一礼（会釈）をします。参道の中央は神様の通り道とされるため、少し端を歩くとより丁寧です。</li>
+          <li><strong>手水舎（てみずや）の作法</strong> — 右手で柄杓を取り左手を清める → 持ち替えて右手を清める → 右手に持ち替え左の手のひらに水を受けて口をすすぐ → 左手をもう一度清める → 柄杓を立てて柄に水を流し、元に戻す。ひと汲みの水で行います。</li>
+          <li><strong>二礼二拍手一礼</strong> — お賽銭を静かに納め、鈴があれば鳴らします。深いお辞儀を2回 → 胸の高さで拍手を2回 → 手を合わせて祈り → 最後に深いお辞儀を1回。</li>
+        </ol>
+        <details class="accordion" id="q-fukusou">
+          <summary class="accordion__summary">服装に決まりはありますか？</summary>
+          <div class="accordion__content"><p>普段のお参りは普段着で問題ありません。御祈祷を受けられる場合は、あらたまった場にふさわしい服装（襟のある服、落ち着いた色合いなど）がおすすめです。肌の露出が多い服装は避けると良いでしょう。</p></div>
+        </details>
+        <details class="accordion" id="q-satsuei">
+          <summary class="accordion__summary">写真撮影はできますか？</summary>
+          <div class="accordion__content"><p>境内での記念撮影は、他の参拝者のご迷惑にならないようご配慮ください。社殿内での撮影や、七五三・初宮詣などでの本格的な記念撮影をご希望の場合は、事前に社務所（<a href="tel:0448223776">044-822-3776</a>）へご相談ください。</p></div>
+        </details>
+        <details class="accordion" id="q-kodomo">
+          <summary class="accordion__summary">子ども連れでも大丈夫ですか？</summary>
+          <div class="accordion__content"><p>もちろんです。お子様の成長を祈る七五三や初宮詣の神社ですので、どうぞご一緒にお参りください。</p></div>
+        </details>
+        <details class="accordion" id="q-pet">
+          <summary class="accordion__summary">ペットは境内に入れますか？</summary>
+          <div class="accordion__content"><p>境内へのペットの同伴については、社務所（<a href="tel:0448223776">044-822-3776</a>）へお問い合わせください。</p></div>
+        </details>
+      </section>
+
+      <!-- 5. 六曜と日取り【日取り・六曜】 -->
+      <section id="rokuyou" class="guide-topic" aria-labelledby="rokuyou-t">
+        <h2 id="rokuyou-t" class="guide-topic__title"><span class="guide-topic__num">02</span>六曜と日取り — 大安・仏滅について</h2>
+        <p class="guide-topic__lead">日取りを考える際の参考として、大安・仏滅などの六曜を確認される方もいらっしゃいます。六曜にかかわらず、どの日でもご参拝いただけます。</p>
+
+        <div class="guide-note">
+          <p><strong>神社と六曜の関係</strong><br>
+          六曜は暦に記される吉凶の目安の一つであり、神道の教えや神社の祭祀と直接関係するものではありません。大安や仏滅にかかわらず、どの日でも安心してご参拝・ご祈祷いただけます。人生の節目に大安を選ばれるお気持ちも大切なものです。ご希望の日程でご予約いただけますので、お気軽にご相談ください。</p>
+        </div>
+
+        <dl class="guide-terms">
+          <div class="guide-term"><dt>先勝<small>せんしょう</small></dt><dd>「先んずれば勝つ」とされ、午前が吉といわれます。</dd></div>
+          <div class="guide-term"><dt>友引<small>ともびき</small></dt><dd>お祝い事には良い日とされます。葬儀を避ける習わしは後世の言い伝えによるものです。</dd></div>
+          <div class="guide-term"><dt>先負<small>せんぶ</small></dt><dd>「先んずれば負ける」とされ、午後が吉といわれます。静かに過ごすのが良い日とも。</dd></div>
+          <div class="guide-term"><dt>仏滅<small>ぶつめつ</small></dt><dd>六曜の中では凶日とされますが、「物滅」が転じた語で、仏教とも神道とも本来関係のない暦注です。</dd></div>
+          <div class="guide-term"><dt>大安<small>たいあん</small></dt><dd>「大いに安し」。何事にも良い日とされ、人生の節目に選ばれることが多い日です。</dd></div>
+          <div class="guide-term"><dt>赤口<small>しゃっこう</small></dt><dd>正午前後のみ吉とされる日といわれます。</dd></div>
+        </dl>
+
+        <details class="accordion" id="q-hidori">
+          <summary class="accordion__summary">日取りはどう選べばよいですか？</summary>
+          <div class="accordion__content"><p>ご家族の体調とご都合を最優先にお選びください。六曜を参考にされる場合も、それはお気持ちの整え方の一つです。安産祈願なら戌の日、七五三なら秋の週末など、行事ごとの習わしと組み合わせて、無理のない日をお選びください。日程のご相談は神社までお気軽にどうぞ。</p></div>
+        </details>
+        <p class="note" style="margin-top:0.75rem;">※月ごとの六曜カレンダーは、正確な暦データの検証が済み次第の掲載を予定しています。</p>
+      </section>
+
+      <!-- 6. ご祈祷【ご祈祷】 -->
+      <section id="kitou" class="guide-topic" aria-labelledby="kitou-t">
+        <h2 id="kitou-t" class="guide-topic__title"><span class="guide-topic__num">03</span>ご祈祷の受け方</h2>
+        <p class="guide-topic__lead">安産祈願、初宮詣、七五三、厄除、家内安全、商売繁盛、交通安全、合格祈願など、人生の節目のご祈祷を毎日ご奉仕しております。</p>
+        <ol class="guide-steps">
+          <li><strong>ご予約</strong> — 1月は原則予約不要です。2月〜12月は予約制のため、ご希望の時間をお電話（<a href="tel:0448223776">044-822-3776</a>・午前9時〜午後5時）でお知らせください。予約は参拝月の2ヶ月前より承ります。</li>
+          <li><strong>受付</strong> — 開式の15分前までに受付をお済ませください。</li>
+          <li><strong>御祈祷</strong> — 社殿にてご奉仕します。およそ20分です。</li>
+        </ol>
+        <details class="accordion" id="q-ame">
+          <summary class="accordion__summary">雨の日でもご祈祷できますか？</summary>
+          <div class="accordion__content"><p>はい。御祈祷は社殿の中で行いますので、天候に関わらずお受けいただけます。</p></div>
+        </details>
+        <details class="accordion" id="q-yoyakunashi">
+          <summary class="accordion__summary">予約なしでも大丈夫ですか？</summary>
+          <div class="accordion__content"><p>1月は原則予約不要です。2月〜12月は予約制のため、お電話でご予約のうえお越しください。</p></div>
+        </details>
+      </section>
+
+      <!-- 7. 安産祈願【安産・初宮詣】（■7：8問） -->
+      <section id="anzan" class="guide-topic" aria-labelledby="anzan-t">
+        <h2 id="anzan-t" class="guide-topic__title"><span class="guide-topic__num">04</span>安産祈願</h2>
+        <p class="guide-topic__lead">母子ともに健やかな出産を迎えられるよう祈るご祈祷です。溝口神社は安産・子育てのご祈願で古くから親しまれています。</p>
+        <details class="accordion" id="q-anzan-1">
+          <summary class="accordion__summary">安産祈願には何を持っていけばよいですか？</summary>
+          <div class="accordion__content"><p>特別なご準備がなくてもお受けいただけます。腹帯のお祓いをご希望の場合はご持参ください。そのほか必要なものは、ご予約のお電話の際にご確認いただくのが確実です。</p></div>
+        </details>
+        <details class="accordion" id="q-anzan-2">
+          <summary class="accordion__summary">腹帯は持参した方がよいですか？</summary>
+          <div class="accordion__content"><p>お手持ちの腹帯（コルセットタイプ含む）のお祓いをご希望の場合はご持参ください。腹帯は、お腹を支え冷えから守る帯で、安産の願いを込めて戌の日に巻き始める習わしがあります。詳しくは神社までお問い合わせください。</p></div>
+        </details>
+        <details class="accordion" id="q-anzan-3">
+          <summary class="accordion__summary">戌の日以外でもご祈祷を受けられますか？</summary>
+          <div class="accordion__content"><p>はい、お受けいただけます。戌の日は犬の多産にあやかった習わしであり、それ以外の日でもご利益に変わりはありません。体調の良い日を最優先にお選びください。</p></div>
+        </details>
+        <details class="accordion" id="q-anzan-4">
+          <summary class="accordion__summary">大安と戌の日はどちらを優先した方がよいですか？</summary>
+          <div class="accordion__content"><p>どちらを優先しても差し支えありません。安産祈願は戌の日の習わしと結びつきが深い一方、六曜は神社の祭祀と直接関係しません。いちばん大切なのは妊婦さんの体調です。ご都合の良い日をお選びください。</p></div>
+        </details>
+        <details class="accordion" id="q-anzan-5">
+          <summary class="accordion__summary">妊婦本人が行けない場合、家族だけでも受けられますか？</summary>
+          <div class="accordion__content"><p>ご本人がお越しになれない場合の代理でのご祈祷については、神社までお問い合わせください（<a href="tel:0448223776">044-822-3776</a>）。</p></div>
+        </details>
+        <details class="accordion" id="q-anzan-6">
+          <summary class="accordion__summary">服装に決まりはありますか？</summary>
+          <div class="accordion__content"><p>体調を最優先に、楽な服装でお越しください。あらたまった場ですので、落ち着いた色合いの服装ですと安心です。</p></div>
+        </details>
+        <details class="accordion" id="q-anzan-7">
+          <summary class="accordion__summary">子どもや家族も一緒に参列できますか？</summary>
+          <div class="accordion__content"><p>ご家族でのご参列いただけます。ただし混雑状況により人数のご案内をする場合がありますので、大人数の場合はご予約時にご相談ください。</p></div>
+        </details>
+        <details class="accordion" id="q-anzan-8">
+          <summary class="accordion__summary">予約は必要ですか？</summary>
+          <div class="accordion__content"><p>1月を除き予約制です。ご希望の日時をお電話（<a href="tel:0448223776">044-822-3776</a>・午前9時〜午後5時）でお知らせください。</p></div>
+        </details>
+        <p style="margin-top: var(--space-sm);"><a class="button button--secondary" href="anzan.html">令和8年 戌の日早見表を見る</a></p>
+      </section>
+
+      <!-- 8. 初宮詣 -->
+      <section id="hatsumiya" class="guide-topic" aria-labelledby="hatsu-t">
+        <h2 id="hatsu-t" class="guide-topic__title"><span class="guide-topic__num">05</span>初宮詣（お宮参り）</h2>
+        <p class="guide-topic__lead">赤ちゃんの誕生を神様に感謝し、健やかな成長を祈る、初めてのお参りです。</p>
+        <details class="accordion" id="q-hatsu-itsu">
+          <summary class="accordion__summary">いつお参りすればよいですか？</summary>
+          <div class="accordion__content"><p>生後1ヶ月〜100日頃が目安です。一般に男の子は生後31日目頃、女の子は32日目頃といわれますが、地域や家庭により様々です。赤ちゃんとお母様の体調を最優先にお選びください。</p></div>
+        </details>
+        <details class="accordion" id="q-hatsu-fukusou">
+          <summary class="accordion__summary">服装や写真撮影はどうすればよいですか？</summary>
+          <div class="accordion__content"><p>赤ちゃんは白羽二重に祝着を掛ける正式な形のほか、ベビードレスでも問題ありません。ご家族はあらたまった服装がおすすめです。記念撮影をご希望の場合は、ご予約時にご相談ください。</p></div>
+        </details>
+      </section>
+
+      <!-- 9. 七五三・厄除【七五三・厄除】 -->
+      <section id="shichigosan" class="guide-topic" aria-labelledby="753-t">
+        <h2 id="753-t" class="guide-topic__title"><span class="guide-topic__num">06</span>七五三</h2>
+        <p class="guide-topic__lead">お子様の健やかな成長を神様に感謝し、これからの無事を祈る行事です。3歳は男女、5歳は男の子、7歳は女の子のお祝いで、数え年・満年齢のどちらでも差し支えありません。</p>
+        <details class="accordion" id="q-753-when">
+          <summary class="accordion__summary">時期と予約方法は？</summary>
+          <div class="accordion__content"><p>溝口神社の七五三詣は9月〜12月の予約制です。ご希望の日時をお電話（<a href="tel:0448223776">044-822-3776</a>）でお知らせください。開式15分前までに受付、御祈祷はおよそ20分です。</p></div>
+        </details>
+      </section>
+
+      <section id="yakudoshi" class="guide-topic" aria-labelledby="yaku-t">
+        <h2 id="yaku-t" class="guide-topic__title"><span class="guide-topic__num">07</span>厄年・厄除</h2>
+        <p class="guide-topic__lead">厄年は、人生の節目にあたり心身の変化が起こりやすいとされる年齢です。神社でお祓いを受け、心を新たにする習わしがあります。年齢は数え年で見るのが一般的です。</p>
+        <table class="guide-table">
+          <caption class="visually-hidden">男女別の本厄の年齢（数え年）</caption>
+          <tr><th scope="row">男性の本厄</th><td>25歳・42歳（大厄）・61歳</td></tr>
+          <tr><th scope="row">女性の本厄</th><td>19歳・33歳（大厄）・37歳・61歳</td></tr>
+          <tr><th scope="row">前厄・後厄</th><td>本厄の前後1年ずつ。あわせて3年間を丁寧に過ごすとされます</td></tr>
+        </table>
+        <details class="accordion" id="q-yaku-itsu">
+          <summary class="accordion__summary">厄除はいつ受ければよいですか？</summary>
+          <div class="accordion__content"><p>年の初めにお受けになる方が多いですが、一年を通していつでもお受けいただけます。ご自身の厄年は早見表でご確認ください。</p></div>
+        </details>
+        <p style="margin-top: var(--space-sm);"><a class="button button--secondary" href="yakuyoke.html">令和8年 厄年・八方除け早見表を見る</a></p>
+      </section>
+
+      <!-- 10. 地鎮祭 -->
+      <section id="jichinsai" class="guide-topic" aria-labelledby="jichin-t">
+        <h2 id="jichin-t" class="guide-topic__title"><span class="guide-topic__num">08</span>地鎮祭（出張祭典）</h2>
+        <p class="guide-topic__lead">家や建物を建てる前に、その土地の神様に工事の無事と末永い加護を祈るお祭りです。溝口神社では出張祭典として承っております。</p>
+        <ol class="guide-steps">
+          <li><strong>ご予約</strong> — 建築会社様と日程を調整のうえ、お電話（<a href="tel:0448223776">044-822-3776</a>）でご相談ください。</li>
+          <li><strong>準備</strong> — 祭壇・お供え物などの準備物は、ご予約の際にご案内します。建築会社様が手配される場合も多いので、あわせてご確認ください。</li>
+          <li><strong>当日</strong> — 神職が現地へ出向き、土地のお祓いと工事の安全祈願を行います。</li>
+        </ol>
+        <p class="note" style="margin-top:0.75rem;">上棟祭・竣工祭・会社や店舗の清祓いなども承ります。</p>
+      </section>
+
+      <!-- 11. お札・お守り【お札・お守り】 -->
+      <section id="ofuda" class="guide-topic" aria-labelledby="ofuda-t">
+        <h2 id="ofuda-t" class="guide-topic__title"><span class="guide-topic__num">09</span>お札・お守り</h2>
+        <details class="accordion" id="q-ofuda-chigai">
+          <summary class="accordion__summary">お守りとお札の違いは？</summary>
+          <div class="accordion__content"><p>お札は家や職場にお祀りして場を守っていただくもの、お守りは身に着けて持ち歩き、いつもおそばでお守りいただくものです。</p></div>
+        </details>
+        <details class="accordion" id="q-ofuda-mochikata">
+          <summary class="accordion__summary">お守りはどう持てばよいですか？複数持ってもいい？</summary>
+          <div class="accordion__content"><p>かばんや財布など、普段身近に置くものに付けてください。複数のお守りを持っても「神様がけんかする」ことはありません。</p></div>
+        </details>
+        <details class="accordion" id="q-ofuda-henno">
+          <summary class="accordion__summary">古いお札やお守りはどうすればよいですか？</summary>
+          <div class="accordion__content"><p>一年間、または願いが成就した際には、感謝とともに神社へお納めください。溝口神社では古いお札・お守りのお焚き上げを午前9時〜午後5時にお受けしています。</p></div>
+        </details>
+      </section>
+
+      <!-- 12. 御朱印【御朱印】（■9〜■13） -->
+      <section id="goshuin" class="guide-topic" aria-labelledby="goshuin-t">
+        <h2 id="goshuin-t" class="guide-topic__title"><span class="guide-topic__num">10</span>御朱印</h2>
+        <p class="guide-topic__lead">御朱印は、神社へ参拝した証としてお受けいただくものです。御朱印を受ける際は、まずお参りをしてから受付へお越しいただくのが丁寧な流れです。</p>
+
+        <!-- 御朱印の受付状態（■10：状態A/B/Cの切替枠）
+             神社確認後、該当する状態の hidden を外し、他に hidden を付ける。
+             断定表示（「御朱印あり」のみ等）はしないこと。 -->
+        <div class="goshuin-box" data-goshuin-state="C">
+          <!-- 状態A：通常受付（確認後に有効化）
+          <p hidden><span class="goshuin-box__status">御朱印のご案内</span><br>
+          御朱印をお受けいただけます。受付時間・初穂料は受付にてご案内します。</p>
+          -->
+          <!-- 状態B：条件付き受付（確認後に有効化）
+          <p hidden><span class="goshuin-box__status">御朱印のご案内</span><br>
+          御朱印をお受けいただけますが、祭典や神職不在等により、お受けいただけない場合があります。</p>
+          -->
+          <!-- 状態C：確認中（現在有効） -->
+          <p><span class="goshuin-box__status">御朱印のご案内</span><br>
+          御朱印については、事前に神社までお問い合わせください（<a href="tel:0448223776">044-822-3776</a>・午前9時〜午後5時）。祭典や繁忙期などにより、ご対応できない場合もございます。</p>
+        </div>
+
+        <details class="accordion" id="q-goshuin-1">
+          <summary class="accordion__summary">御朱印はいただけますか？</summary>
+          <div class="accordion__content"><p>御朱印の対応については、事前に神社までお問い合わせください。祭典や繁忙期などにより、ご対応できない場合もございます。</p></div>
+        </details>
+        <details class="accordion" id="q-goshuin-2">
+          <summary class="accordion__summary">受付時間・初穂料・直書きの可否・限定御朱印・郵送・兼務神社の御朱印は？</summary>
+          <div class="accordion__content"><p>いずれも、お電話（<a href="tel:0448223776">044-822-3776</a>・午前9時〜午後5時）にてご確認ください。確認が取れ次第、このページでご案内します。</p></div>
+        </details>
+        <details class="accordion" id="q-goshuin-3">
+          <summary class="accordion__summary">御朱印を受ける際は、先に参拝した方がよいですか？</summary>
+          <div class="accordion__content"><p>はい、まずお参りをおすすめします。御朱印は参拝の証としてお受けいただくものです。お参りのあと、落ち着いて受付へお越しください。</p></div>
+        </details>
+        <details class="accordion" id="q-goshuin-4">
+          <summary class="accordion__summary">御朱印帳を忘れた場合はどうなりますか？</summary>
+          <div class="accordion__content"><p>当日の対応方法（書置きの有無など）は神社により異なりますので、受付またはお電話でご確認ください。</p></div>
+        </details>
+      </section>
+
+      <!-- 13. おみくじ -->
+      <section id="omikuji" class="guide-topic" aria-labelledby="omikuji-t">
+        <h2 id="omikuji-t" class="guide-topic__title"><span class="guide-topic__num">11</span>おみくじ</h2>
+        <p class="guide-topic__lead">おみくじは吉凶を競うものではなく、神様からのお言葉として、これからの過ごし方の指針をいただくものです。</p>
+        <details class="accordion" id="q-omikuji-musubu">
+          <summary class="accordion__summary">結ぶ？持ち帰る？</summary>
+          <div class="accordion__content"><p>どちらでもかまいません。境内の所定の場所に結んで神様とのご縁を結ぶ方も、持ち帰って折にふれて読み返す方もいらっしゃいます。大切なのは、書かれた内容をこれからの生活に活かすことです。</p></div>
+        </details>
+      </section>
+
+      <!-- 14. 神棚 -->
+      <section id="kamidana" class="guide-topic" aria-labelledby="kamidana-t">
+        <h2 id="kamidana-t" class="guide-topic__title"><span class="guide-topic__num">12</span>神棚について</h2>
+        <details class="accordion" id="q-kamidana-matsuri">
+          <summary class="accordion__summary">祀り方は？</summary>
+          <div class="accordion__content"><p>目線より高く、明るく清らかな場所に、お札の正面が南向きまたは東向きになるように設けるのが良いとされます。毎朝、お水（できればお米・お塩も）をお供えし、感謝の気持ちでお参りします。</p></div>
+        </details>
+        <details class="accordion" id="q-kamidana-junban">
+          <summary class="accordion__summary">お札の順番は？</summary>
+          <div class="accordion__content"><p>三社造りの場合は、中央に神宮大麻（伊勢神宮のお札）、向かって右に氏神様（溝口神社）のお札、左に崇敬する神社のお札をお祀りします。一社造りの場合は、神宮大麻・氏神様・崇敬神社の順に重ねます。</p></div>
+        </details>
+        <details class="accordion" id="q-kamidana-koukan">
+          <summary class="accordion__summary">交換時期は？</summary>
+          <div class="accordion__content"><p>年末に新しいお札をお受けし、新年を新しいお札でお迎えするのが習わしです。古いお札は神社へお納めください（午前9時〜午後5時）。</p></div>
+        </details>
+      </section>
+
+      <!-- 15. 境内・アクセス【境内・アクセス】 -->
+      <section id="keidai" class="guide-topic" aria-labelledby="keidai-t">
+        <h2 id="keidai-t" class="guide-topic__title"><span class="guide-topic__num">13</span>境内・アクセス</h2>
+        <details class="accordion" id="q-parking">
+          <summary class="accordion__summary">駐車場はありますか？</summary>
+          <div class="accordion__content"><p>境内に駐車場がございますが、台数に限りがあります。七五三・お正月・祭礼の時期は大変混み合いますので、公共交通機関のご利用をおすすめします（溝の口駅・武蔵溝ノ口駅から徒歩約5分）。</p></div>
+        </details>
+        <details class="accordion" id="q-jikan">
+          <summary class="accordion__summary">開門時間は？</summary>
+          <div class="accordion__content"><p>通常は開門 午前6時・閉門 午後5時30分です（1月4日〜12月31日）。お札・お守りの授与とお焚き上げは午前9時〜午後5時です。正月三箇日・例大祭は時間が異なります。<a href="index.html#visit-info">参拝のご案内へ</a></p></div>
+        </details>
+        <p style="margin-top: var(--space-sm);"><a href="keidai.html">境内案内図を見る</a>／<a href="access.html">アクセスを見る</a></p>
+      </section>
+
+      <!-- 16. すべての質問（■2-17） -->
+      <section id="all-questions" class="guide-topic" aria-labelledby="allq-t">
+        <h2 id="allq-t" class="guide-topic__title"><span class="guide-topic__num">14</span>すべての質問</h2>
+        <div style="columns: 2; column-gap: 2rem; column-width: 18rem; font-size: var(--font-size-small); line-height: 2.1;">
+          <p style="margin:0;"><strong>【初めての参拝】</strong><br>
+          <a href="#q-fukusou">服装に決まりはありますか？</a><br>
+          <a href="#q-satsuei">写真撮影はできますか？</a><br>
+          <a href="#q-kodomo">子ども連れでも大丈夫ですか？</a><br>
+          <a href="#q-pet">ペットは境内に入れますか？</a></p>
+          <p><strong>【日取り・六曜】</strong><br>
+          <a href="#q-taian-riyuu">大安にお参りする方が多い理由は？</a><br>
+          <a href="#q-butsumetsu">仏滅でも参拝できますか？</a><br>
+          <a href="#q-hidori">日取りはどう選べばよい？</a></p>
+          <p><strong>【安産・初宮詣】</strong><br>
+          <a href="#q-anzan-1">安産祈願の持ち物は？</a><br>
+          <a href="#q-anzan-2">腹帯は持参した方がよい？</a><br>
+          <a href="#q-anzan-3">戌の日以外でも受けられる？</a><br>
+          <a href="#q-anzan-4">大安と戌の日はどちらを優先？</a><br>
+          <a href="#q-anzan-5">家族だけでも受けられる？</a><br>
+          <a href="#q-anzan-6">服装は？</a>／<a href="#q-anzan-7">家族も参列できる？</a><br>
+          <a href="#q-anzan-8">予約は必要？</a><br>
+          <a href="#q-hatsu-itsu">お宮参りはいつ？</a><br>
+          <a href="#q-hatsu-fukusou">お宮参りの服装・撮影は？</a></p>
+          <p><strong>【七五三・厄除】</strong><br>
+          <a href="#q-753-yoyaku">七五三は予約が必要？</a><br>
+          <a href="#q-753-when">七五三の時期と予約方法は？</a><br>
+          <a href="#q-yaku-itsu">厄除はいつ受ける？</a></p>
+          <p><strong>【ご祈祷】</strong><br>
+          <a href="#q-ame">雨の日でもご祈祷できる？</a><br>
+          <a href="#q-yoyakunashi">予約なしでも大丈夫？</a></p>
+          <p><strong>【御朱印】</strong><br>
+          <a href="#q-goshuin-1">御朱印はいただけますか？</a><br>
+          <a href="#q-goshuin-2">受付時間・初穂料などは？</a><br>
+          <a href="#q-goshuin-3">先に参拝した方がよい？</a><br>
+          <a href="#q-goshuin-4">御朱印帳を忘れたら？</a></p>
+          <p><strong>【お札・お守り】</strong><br>
+          <a href="#q-ofuda-chigai">お守りとお札の違いは？</a><br>
+          <a href="#q-ofuda-mochikata">持ち方は？複数OK？</a><br>
+          <a href="#q-henno">古いお札・お守りは？</a></p>
+          <p><strong>【境内・アクセス】</strong><br>
+          <a href="#q-parking">駐車場はありますか？</a><br>
+          <a href="#q-jikan">開門時間は？</a></p>
+          <p><strong>【その他】</strong><br>
+          <a href="#q-omikuji-musubu">おみくじは結ぶ？持ち帰る？</a><br>
+          <a href="#q-kamidana-matsuri">神棚の祀り方は？</a><br>
+          <a href="#q-kamidana-junban">お札の順番は？</a><br>
+          <a href="#q-kamidana-koukan">お札の交換時期は？</a></p>
+        </div>
+      </section>
+
+      <!-- 17. お問い合わせ導線 -->
+      <div class="guide-contact">
+        <p style="font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 0.1em;">解決しないことは、どうぞお気軽に</p>
+        <p style="margin-top: 0.5rem; font-size: var(--font-size-small);">神社のことは、直接お尋ねいただくのがいちばん確実です。<br>社務所にて丁寧にご案内いたします（午前9時〜午後5時）。</p>
+        <a class="button button--primary" href="tel:0448223776">044-822-3776 に電話する</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer" data-block="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__name">溝口神社</p>
+          <address class="site-footer__address">
+            〒213-0001<br>
+            神奈川県川崎市高津区溝口2-25-1<br>
+            TEL：<a href="tel:0448223776">044-822-3776</a><br>
+            FAX：044-822-8968
+          </address>
+          <p style="margin-top:0.75rem;">
+            <a href="https://www.instagram.com/mizonokuchi_jinja/"
+               target="_blank" rel="noopener noreferrer">公式Instagram（外部サイト）</a>
+          </p>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">参拝時間</h2>
+          <dl class="site-footer__hours">
+            <dt>通常（1月4日〜12月31日）</dt>
+            <dd>開門 午前6時／閉門 午後5時30分</dd>
+            <dt>例大祭</dt>
+            <dd>開門 午前6時／閉門 午後9時</dd>
+            <dt>正月三箇日</dt>
+            <dd>
+              1月1日：午前0時〜午後9時<br>
+              1月2日・3日：午前6時〜午後8時
+            </dd>
+          </dl>
+        </div>
+        <nav aria-label="フッターメニュー">
+          <h2 class="site-footer__heading">メニュー</h2>
+          <ul class="site-footer__links">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="gosaijin.html">御祭神・由緒沿革</a></li>
+            <li><a href="gokitou.html">御祈祷紹介</a></li>
+            <li><a href="omamori.html">御守り</a></li>
+            <li><a href="gyouji.html">神社行事</a></li>
+            <li><a href="keidai.html">境内案内図</a></li>
+            <li><a href="kenmu.html">兼務神社</a></li>
+            <li><a href="guide.html">神社ガイド</a></li>
+            <li><a href="access.html">アクセス</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p><small>Copyright &copy; Mizonokuchi-jinjya, All rights reserved.</small></p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="ページの先頭へ戻る">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polyline points="6 15 12 9 18 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

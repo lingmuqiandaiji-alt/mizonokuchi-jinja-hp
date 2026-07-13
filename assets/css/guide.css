@@ -1,0 +1,346 @@
+/* ============================================================
+   溝口神社公式ホームページ
+   guide.css — 神社ガイド（神社の知恵袋）専用スタイル
+   AMAGI-KNOWLEDGE-001
+   ============================================================ */
+
+/* ---- 目次（テーマ一覧カード） ---- */
+.guide-toc {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.guide-toc a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: var(--tap-target);
+  padding: 0.6rem var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-primary-deep);
+}
+
+.guide-toc a:hover {
+  border-color: var(--color-primary);
+}
+
+.guide-toc a::before {
+  content: "";
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-gold-subtle);
+  transform: rotate(45deg);
+}
+
+/* ---- 各テーマ ---- */
+.guide-topic {
+  padding-block: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.guide-topic__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  color: var(--color-primary-deep);
+}
+
+.guide-topic__num {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-gold-subtle);
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.guide-topic__lead {
+  margin-top: var(--space-sm);
+  max-width: var(--width-prose);
+}
+
+.guide-topic .accordion {
+  margin-top: var(--space-sm);
+}
+
+/* ---- 手順（参拝方法など） ---- */
+.guide-steps {
+  counter-reset: gstep;
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding: 0;
+}
+
+.guide-steps li {
+  counter-increment: gstep;
+  list-style: none;
+  position: relative;
+  padding: 0.6rem var(--space-md) 0.6rem 3.2rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.guide-steps li::before {
+  content: counter(gstep, decimal-leading-zero);
+  position: absolute;
+  left: var(--space-md);
+  top: 0.7rem;
+  font-weight: 700;
+  color: var(--color-gold-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.guide-steps li strong {
+  color: var(--color-primary-deep);
+}
+
+/* ---- 六曜などの用語カード ---- */
+.guide-terms {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin-top: var(--space-md);
+}
+
+.guide-term {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.guide-term dt {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--color-primary-deep);
+}
+
+.guide-term dt small {
+  font-size: 0.75rem;
+  color: var(--color-text-subtle);
+  margin-left: 0.5em;
+}
+
+.guide-term dd {
+  margin: 0.35rem 0 0;
+  font-size: var(--font-size-small);
+  line-height: 1.7;
+  color: var(--color-text-subtle);
+}
+
+/* ---- 大切な注記（神道的に正しい説明の強調） ---- */
+.guide-note {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border-left: 3px solid var(--color-gold-subtle);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  max-width: var(--width-prose);
+}
+
+/* ---- 厄年表 ---- */
+.guide-table {
+  width: 100%;
+  margin-top: var(--space-md);
+  font-size: var(--font-size-small);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 0.6rem var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.guide-table th {
+  background-color: var(--color-surface-soft);
+  color: var(--color-primary-deep);
+  white-space: nowrap;
+}
+
+.guide-table tr:last-child th,
+.guide-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* 厄年早見表：スマホでは横スクロールさせず縦カード化（MASTER-021 ■23） */
+@media (max-width: 640px) {
+  .guide-table--yaku thead {
+    display: none;
+  }
+
+  .guide-table--yaku tr {
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .guide-table--yaku tr:last-child {
+    border-bottom: none;
+  }
+
+  .guide-table--yaku td {
+    display: block;
+    border-bottom: none;
+    padding: 0.25rem var(--space-md);
+  }
+
+  .guide-table--yaku td::before {
+    font-weight: 700;
+    color: var(--color-primary-deep);
+    margin-right: 0.6em;
+  }
+
+  .guide-table--yaku td:nth-child(1)::before { content: "前厄"; }
+  .guide-table--yaku td:nth-child(2)::before { content: "本厄"; }
+  .guide-table--yaku td:nth-child(3)::before { content: "後厄"; }
+}
+
+/* ---- ページ上部の導入 ---- */
+.guide-hero {
+  background-color: var(--color-surface-soft);
+  padding-block: var(--space-xl);
+}
+
+/* ---- よく見られる質問（冒頭・AMAGI-GUIDE-GOSHUIN-100-002 ■3） ---- */
+.faq-featured {
+  margin-top: var(--space-lg);
+}
+
+.faq-featured .accordion__summary {
+  font-weight: 700;
+}
+
+.faq-featured .accordion__summary::before {
+  content: "Q";
+  flex-shrink: 0;
+  width: 1.7em;
+  height: 1.7em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: 50%;
+  font-size: 0.8125rem;
+}
+
+/* ---- カテゴリー導線（■4） ---- */
+.guide-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+}
+
+.guide-cats a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0.3em 1em;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary-deep);
+}
+
+.guide-cats a:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-soft);
+}
+
+/* ---- 御朱印の独立案内枠（■9・■10） ---- */
+.goshuin-box {
+  margin-top: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-gold-subtle);
+  border-radius: var(--radius-md);
+  max-width: var(--width-prose);
+}
+
+.goshuin-box__status {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary-deep);
+  background-color: var(--color-surface-soft);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.8em;
+  margin-bottom: 0.6rem;
+}
+
+/* ---- お問い合わせ導線（■2-18） ---- */
+.guide-contact {
+  margin-block: var(--space-xl);
+  padding: var(--space-lg);
+  background-color: var(--color-primary-deep);
+  color: var(--color-on-primary);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.guide-contact a.button--primary {
+  background-color: var(--color-surface);
+  color: var(--color-primary-deep);
+  margin-top: var(--space-sm);
+}
+
+.guide-contact a.button--primary:hover {
+  background-color: var(--color-surface-soft);
+  color: var(--color-primary-deep);
+}
+
+/* Q&Aの質問文は太字（■15） */
+.guide-topic .accordion__summary {
+  font-weight: 700;
+}
+
+/* ---- 下層ページ用の写真グリッド（150年事業ページ等）
+   ※index.css の .photo-story と同仕様。guide.css は下層専用のため競合しない ---- */
+.photo-story {
+  display: grid;
+  gap: var(--space-md);
+}
+
+@media (min-width: 840px) {
+  .photo-story {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.photo-story__item {
+  margin: 0;
+}
+
+.photo-story__item img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.photo-story__item figcaption {
+  margin-top: 0.5rem;
+  font-size: var(--font-size-small);
+  color: var(--color-text-subtle);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
