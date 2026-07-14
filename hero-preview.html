@@ -13,7 +13,7 @@
        現在は AMAGI-PC-DESIGN-002 による仮設定（裁可待ち）。
        行事終了後は default へ戻すこと。
      ========================================================== -->
-<html lang="ja" data-build="MIZONO-M029-HERO-01">
+<html lang="ja" data-build="MIZONO-M030-HERO-02">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -268,7 +268,7 @@
 
           <!-- 7月・高津区民祭テーマの季節見出し（仮文言：北条言葉検分隊の検分待ち）
                data-theme="kuminsai" のときだけ表示される -->
-          <div class="theme-only--kuminsai">
+          <div class="theme-only--kuminsai" hidden aria-hidden="true">
             <p class="hero__copy">高津の夏、神輿がつなぐ。</p>
             <p class="hero__sub">地域とともに受け継がれる、祈りと祭りの一日。</p>
           </div>
@@ -281,7 +281,7 @@
             <a class="button button--ghost" href="access.html">アクセス</a>
           </div>
           <p class="hp-skip theme-hide--kuminsai"><a href="#visit-info">参拝のご案内へ</a></p>
-          <div class="hero__actions theme-only--kuminsai">
+          <div class="hero__actions theme-only--kuminsai" hidden aria-hidden="true">
             <a class="button button--primary" href="#prayer">御祈祷のご案内</a>
             <a class="button button--ghost" href="#annual-events">年間行事を見る</a>
           </div>
@@ -390,8 +390,7 @@
         </ul>
 
         <!-- お知らせが0件の場合に表示される案内（JSが自動制御） -->
-        <p id="news-empty" class="news-empty" hidden>現在、新しいお知らせはありません。</p>
-        <noscript><p class="news-empty">現在、新しいお知らせはありません。</p></noscript>
+        <p id="news-empty" class="news-empty">現在、新しいお知らせはありません。</p>
 
         <!-- お知らせ一覧ページは第2回以降に作成予定
         <p style="margin-top:1rem;"><a href="news.html">お知らせ一覧を見る</a></p>
