@@ -1,0 +1,540 @@
+{
+ "ledger": "keidai-spots",
+ "mission": "MIZONO-HP-MASTER-031-REV2",
+ "createdAt": "2026-07-14",
+ "mapCoordinateNote": "draftMapX/Yは手書き境内図(IMG_8241/8245)由来の仮座標(%)。手書き図の比率は未検証のため、C/D確信度の地点は公開版で位置確定しない(■1■13)。",
+ "photoNamingRule": "K-番号-英字名-用途(main/detail/route/wide/mobile/desktop/season/archive/pending)-連番",
+ "spots": [
+  {
+   "id": "K-01",
+   "name": "正面入口",
+   "nameEn": "entrance",
+   "category": "入口",
+   "mainPhoto": null,
+   "subPhotos": [],
+   "confidence": "C",
+   "status": "needs-photo",
+   "draftMapX": 46,
+   "draftMapY": 96,
+   "note": "正面入口",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-02",
+   "name": "大鳥居",
+   "nameEn": "otorii",
+   "category": "建造物",
+   "mainPhoto": null,
+   "subPhotos": [],
+   "confidence": "C",
+   "status": "needs-photo",
+   "draftMapX": 46,
+   "draftMapY": 90,
+   "note": "境内正面の大鳥居",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-03",
+   "name": "神橋",
+   "nameEn": "shinkyo",
+   "category": "建造物",
+   "mainPhoto": "IMG_8174",
+   "subPhotos": [],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 46,
+   "draftMapY": 72,
+   "note": "参道入口の石橋",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-04",
+   "name": "参道",
+   "nameEn": "sando",
+   "category": "通路",
+   "mainPhoto": "IMG_8173",
+   "subPhotos": [],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 47,
+   "draftMapY": 55,
+   "note": "神橋から拝殿へ延びる道",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-05",
+   "name": "手水舎",
+   "nameEn": "temizu",
+   "category": "建造物",
+   "mainPhoto": "IMG_8178",
+   "subPhotos": [
+    "IMG_8180",
+    "IMG_8182"
+   ],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 61,
+   "draftMapY": 58,
+   "note": "参拝前に手と口を清める",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-06",
+   "name": "拝殿",
+   "nameEn": "haiden",
+   "category": "社殿",
+   "mainPhoto": "IMG_8175",
+   "subPhotos": [
+    "IMG_8067",
+    "IMG_8184"
+   ],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 46,
+   "draftMapY": 33,
+   "note": "祈りの中心",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-07",
+   "name": "御神木・長寿けやき",
+   "nameEn": "goshinboku",
+   "category": "御神木",
+   "mainPhoto": "IMG_8083",
+   "subPhotos": [
+    "IMG_8198"
+   ],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 45,
+   "draftMapY": 12,
+   "note": "境内の象徴の古木",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-08",
+   "name": "垂乳根の銀杏と歯固め塚",
+   "nameEn": "tarachine",
+   "category": "御神木",
+   "mainPhoto": "IMG_8201",
+   "subPhotos": [
+    "IMG_8072"
+   ],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 49,
+   "draftMapY": 22,
+   "note": "歯固め石の奉納場所",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-09",
+   "name": "稲荷社",
+   "nameEn": "inari",
+   "category": "摂末社",
+   "mainPhoto": "IMG_8085",
+   "subPhotos": [
+    "IMG_8086"
+   ],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 11,
+   "draftMapY": 12,
+   "note": "北西の摂末社",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-10",
+   "name": "浜縁・回廊(150年整備)",
+   "nameEn": "hamaen",
+   "category": "社殿",
+   "mainPhoto": "IMG_8185",
+   "subPhotos": [
+    "IMG_8187"
+   ],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 60,
+   "draftMapY": 33,
+   "note": "改修された回廊",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-11",
+   "name": "社務所(外観)",
+   "nameEn": "shamusho",
+   "category": "施設",
+   "mainPhoto": "IMG_8207",
+   "subPhotos": [],
+   "confidence": "B",
+   "status": "needs-photo",
+   "draftMapX": 13,
+   "draftMapY": 48,
+   "note": "受付の窓口",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-12",
+   "name": "御祈祷受付",
+   "nameEn": "reception",
+   "category": "施設",
+   "mainPhoto": "IMG_8079",
+   "subPhotos": [],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 15,
+   "draftMapY": 52,
+   "note": "御祈祷受付所",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-13",
+   "name": "授与所",
+   "nameEn": "juyosho",
+   "category": "施設",
+   "mainPhoto": "IMG_7846",
+   "subPhotos": [
+    "IMG_7865",
+    "IMG_7866"
+   ],
+   "confidence": "B",
+   "status": "needs-location-check",
+   "draftMapX": 14,
+   "draftMapY": 50,
+   "note": "御守・御札(社務所内)",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-14",
+   "name": "駐車場",
+   "nameEn": "parking",
+   "category": "施設",
+   "mainPhoto": "IMG_8205",
+   "subPhotos": [
+    "IMG_8089"
+   ],
+   "confidence": "C",
+   "status": "needs-location-check",
+   "draftMapX": 75,
+   "draftMapY": 55,
+   "note": "位置要確認",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-15",
+   "name": "お手洗い",
+   "nameEn": "restroom",
+   "category": "施設",
+   "mainPhoto": null,
+   "subPhotos": [],
+   "confidence": "C",
+   "status": "needs-photo",
+   "draftMapX": 12,
+   "draftMapY": 55,
+   "note": "社務所内",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-16",
+   "name": "松尾大明神(石碑)",
+   "nameEn": "matsuo",
+   "category": "石碑",
+   "mainPhoto": "IMG_8162",
+   "subPhotos": [
+    "IMG_8163"
+   ],
+   "confidence": "B",
+   "status": "needs-name-check",
+   "draftMapX": 62,
+   "draftMapY": 88,
+   "note": "由緒宮司確認待ち",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-17",
+   "name": "狛犬",
+   "nameEn": "komainu",
+   "category": "石造物",
+   "mainPhoto": null,
+   "subPhotos": [],
+   "confidence": "D",
+   "status": "needs-photo",
+   "draftMapX": null,
+   "draftMapY": null,
+   "note": "存在含め現地確認",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-18",
+   "name": "境内全景",
+   "nameEn": "overview",
+   "category": "風景",
+   "mainPhoto": "IMG_8205",
+   "subPhotos": [
+    "IMG_8089"
+   ],
+   "confidence": "B",
+   "status": "confirmed",
+   "draftMapX": null,
+   "draftMapY": null,
+   "note": "広場からの全景",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-19",
+   "name": "百度石",
+   "nameEn": "hyakudoishi",
+   "category": "石造物",
+   "mainPhoto": null,
+   "subPhotos": [],
+   "confidence": "C",
+   "status": "needs-photo",
+   "draftMapX": 58,
+   "draftMapY": 71,
+   "note": "手書き図記載・写真待ち",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-20",
+   "name": "水神宮",
+   "nameEn": "suijingu",
+   "category": "摂末社",
+   "mainPhoto": "IMG_8161",
+   "subPhotos": [],
+   "confidence": "C",
+   "status": "needs-name-check",
+   "draftMapX": 28,
+   "draftMapY": 78,
+   "note": "IMG_8161との同定要確認",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-21",
+   "name": "くじ神社",
+   "nameEn": "kujijinja",
+   "category": "摂末社",
+   "mainPhoto": "IMG_8170",
+   "subPhotos": [],
+   "confidence": "C",
+   "status": "needs-name-check",
+   "draftMapX": 28,
+   "draftMapY": 74,
+   "note": "名称・位置宮司確認待ち",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-22",
+   "name": "親楠",
+   "nameEn": "oyakusu",
+   "category": "御神木",
+   "mainPhoto": "IMG_8071",
+   "subPhotos": [
+    "IMG_8084"
+   ],
+   "confidence": "C",
+   "status": "needs-photo",
+   "draftMapX": 12,
+   "draftMapY": 28,
+   "note": "本体写真の同定要確認",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-23",
+   "name": "子楠",
+   "nameEn": "kokusu",
+   "category": "御神木",
+   "mainPhoto": null,
+   "subPhotos": [
+    "IMG_8076"
+   ],
+   "confidence": "C",
+   "status": "needs-photo",
+   "draftMapX": 83,
+   "draftMapY": 30,
+   "note": "本体写真なし",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-24",
+   "name": "願掛けの夫婦銀杏",
+   "nameEn": "meoto",
+   "category": "御神木",
+   "mainPhoto": "IMG_8077",
+   "subPhotos": [],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 63,
+   "draftMapY": 50,
+   "note": "願掛けの銀杏",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-25",
+   "name": "交通安全旗",
+   "nameEn": "kotsu-flag",
+   "category": "掲示",
+   "mainPhoto": "IMG_8070",
+   "subPhotos": [],
+   "confidence": "B",
+   "status": "confirmed",
+   "draftMapX": 79,
+   "draftMapY": 10,
+   "note": "交通安全の幟",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-26",
+   "name": "掲示板(年中行事ほか)",
+   "nameEn": "boards",
+   "category": "掲示",
+   "mainPhoto": "IMG_8164",
+   "subPhotos": [
+    "IMG_8165",
+    "IMG_8168",
+    "IMG_8169"
+   ],
+   "confidence": "A",
+   "status": "confirmed",
+   "draftMapX": 58,
+   "draftMapY": 77,
+   "note": "公式掲示",
+   "kuninConfirm": "要最終確認"
+  },
+  {
+   "id": "K-27",
+   "name": "顔はめパネル",
+   "nameEn": "panel",
+   "category": "その他",
+   "mainPhoto": "IMG_8078",
+   "subPhotos": [],
+   "confidence": "B",
+   "status": "confirmed",
+   "draftMapX": 20,
+   "draftMapY": 60,
+   "note": "記念撮影パネル",
+   "kuninConfirm": "宮司確認待ち"
+  },
+  {
+   "id": "K-28",
+   "name": "神輿・曳太鼓",
+   "nameEn": "mikoshi",
+   "category": "収蔵",
+   "mainPhoto": null,
+   "subPhotos": [],
+   "confidence": "C",
+   "status": "needs-photo",
+   "draftMapX": null,
+   "draftMapY": null,
+   "note": "常設収蔵写真待ち",
+   "kuninConfirm": "宮司確認待ち"
+  }
+ ],
+ "shamushoSpots": [
+  {
+   "id": "S-01",
+   "name": "社務所入口",
+   "nameEn": "shamusho-entrance",
+   "photo": null,
+   "status": "needs-photo",
+   "source": "社務所内図(IMG_8243)"
+  },
+  {
+   "id": "S-02",
+   "name": "御祈祷受付(内部)",
+   "nameEn": "kito-reception",
+   "photo": null,
+   "status": "needs-photo",
+   "source": "社務所内図(IMG_8243)"
+  },
+  {
+   "id": "S-03",
+   "name": "授与所(お守り)",
+   "nameEn": "omamori-counter",
+   "photo": "IMG_7846",
+   "status": "confirmed",
+   "source": "社務所内図(IMG_8243)"
+  },
+  {
+   "id": "S-04",
+   "name": "祈祷控室",
+   "nameEn": "waiting-room",
+   "photo": null,
+   "status": "needs-photo",
+   "source": "社務所内図(IMG_8243)"
+  },
+  {
+   "id": "S-05",
+   "name": "案内表示・御神札",
+   "nameEn": "signage",
+   "photo": "IMG_7864",
+   "status": "confirmed",
+   "source": "社務所内図(IMG_8243)"
+  },
+  {
+   "id": "S-06",
+   "name": "オムツ替え・授乳スペース",
+   "nameEn": "nursing-space",
+   "photo": "IMG_8208",
+   "status": "confirmed",
+   "source": "社務所内図(IMG_8243)"
+  },
+  {
+   "id": "S-07",
+   "name": "古札納所",
+   "nameEn": "kosatsu",
+   "photo": "IMG_8206",
+   "status": "needs-location-check",
+   "source": "社務所内図(IMG_8243)"
+  }
+ ],
+ "routes": {
+  "R-01": {
+   "name": "通常参拝",
+   "spots": [
+    "K-01",
+    "K-02",
+    "K-03",
+    "K-04",
+    "K-05",
+    "K-06",
+    "K-07",
+    "K-08"
+   ],
+   "status": "needs-confirmation"
+  },
+  "R-02": {
+   "name": "御祈祷受付",
+   "spots": [
+    "K-01",
+    "K-02",
+    "K-03",
+    "K-04",
+    "K-05",
+    "K-11",
+    "S-02",
+    "K-06"
+   ],
+   "status": "needs-confirmation"
+  },
+  "R-03": {
+   "name": "車・駐車場",
+   "spots": [
+    "K-14",
+    "K-04",
+    "K-05",
+    "K-06"
+   ],
+   "status": "needs-location-check"
+  },
+  "R-04": {
+   "name": "ベビーカー",
+   "spots": [],
+   "status": "needs-site-check(段差情報なし・推測禁止)"
+  },
+  "R-05": {
+   "name": "車椅子・段差配慮",
+   "spots": [],
+   "status": "needs-site-check(段差情報なし・推測禁止)"
+  }
+ }
+}
