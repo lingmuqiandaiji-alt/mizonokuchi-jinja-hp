@@ -1,184 +1,164 @@
 <!DOCTYPE html>
-<html lang="ja" data-build="MIZONO-M033-KEIDAI-02">
+<html lang="ja" data-build="MIZONO-M032-WALK-04">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>【試作】境内のご案内(地図)｜溝口神社</title>
+<title>【試作】境内のご案内(順路つき)｜溝口神社</title>
 <style>
-:root{--ink:#1e1d1a;--sub:#5f5c54;--bg:#fafaf7;--line:#e3e1d9;--green:#1f4633;--acc:#0b62a4}
+:root{--ink:#1c1b18;--sub:#5f5c54;--bg:#ffffff;--line:#e6e4dd;--green:#1f4633;--acc:#0b62a4}
 *{box-sizing:border-box;margin:0}
 body{font-family:"Hiragino Sans","Yu Gothic",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:16px}
 .note-lab{background:#fff3e0;border-bottom:1px solid #e0b678;color:#5c4008;font-size:.78rem;padding:.45rem .8rem;text-align:center}
-header.top{position:sticky;top:0;z-index:40;background:rgba(250,250,247,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(4px)}
+header.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(4px)}
 .top-in{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem}
 .top-in a{text-decoration:none;color:var(--green)}
 .brand{font-weight:700;letter-spacing:.1em}
 .brand small{display:block;font-weight:400;font-size:.68rem;color:var(--sub)}
 h1{font-size:clamp(1.3rem,3.5vw,1.8rem);letter-spacing:.12em;font-weight:600}
-.wrap{max-width:1240px;margin:0 auto;padding:1.5rem 1rem 4rem}
-.lead{color:var(--sub);max-width:44em;margin:.6rem 0 1.6rem;font-size:.95rem}
-.modes{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
-.modes button{min-height:44px;padding:.3rem 1.1rem;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:.9rem;cursor:pointer}
-.modes button[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
-.layout{display:grid;gap:2rem}
-@media(min-width:980px){.layout{grid-template-columns:minmax(400px,46%) 1fr;align-items:start}.map-col{position:sticky;top:66px}}
-.map-box{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.wrap{max-width:1240px;margin:0 auto;padding:1.6rem 1rem 4rem}
+.lead{color:var(--sub);max-width:44em;margin:.6rem 0 1.8rem;font-size:.95rem}
+.layout{display:grid;gap:2.2rem}
+@media(min-width:980px){.layout{grid-template-columns:minmax(400px,44%) 1fr;align-items:start}.map-col{position:sticky;top:64px}}
+.map-box{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;scroll-margin-top:80px}
 .map-box svg{width:100%;height:auto;display:block}
 .pin{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;display:flex;align-items:center;justify-content:center;text-decoration:none;border-radius:50%}
-.pin span{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.pin span{width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 .pin:hover span,.pin:focus-visible span{background:var(--acc)}
 .pin[aria-current="true"] span{background:var(--acc);outline:3px solid rgba(11,98,164,.3)}
 .pin:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .maplegend{font-size:.75rem;color:var(--sub);margin-top:.6rem;display:flex;gap:1rem;flex-wrap:wrap}
-.route-strip{display:none;gap:.4rem;flex-wrap:wrap;align-items:center;margin:.8rem 0 0;font-size:.85rem}
-body[data-mode="r01"] #strip-r01,body[data-mode="r02"] #strip-r02{display:flex}
-.route-strip b{background:var(--green);color:#fff;border-radius:4px;padding:.05rem .5rem;font-weight:600}
-svg .rt{fill:none;stroke:var(--acc);stroke-width:1.6;stroke-dasharray:3 2;marker-end:url(#arr);opacity:0}
-body[data-mode="r01"] svg .rt-r01,body[data-mode="r02"] svg .rt-r02{opacity:1}
-.spots{display:grid;gap:2.6rem}
-.spot{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;scroll-margin-top:90px}
+.curname{margin-top:.5rem;font-size:.85rem;color:var(--acc);min-height:1.5em}
+.spots{display:grid;gap:3rem}
+.spot{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;scroll-margin-top:84px}
 .spot.sel{border-color:var(--acc);box-shadow:0 0 0 2px rgba(11,98,164,.25)}
+.spot-h{display:flex;align-items:center;gap:.9rem;padding:1rem 1.2rem;border-bottom:1px solid var(--line)}
+.spot-h .no{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.spot-h h2{font-size:1.15rem;font-weight:600;letter-spacing:.06em;line-height:1.3}
+.spot-h .kana{font-size:.72rem;color:var(--sub)}
+.spot-h .onmap{margin-left:auto;font-size:.78rem;color:var(--acc);text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;text-align:right}
 .spot>img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
-.nophoto{width:100%;aspect-ratio:4/1.6;display:flex;align-items:center;justify-content:center;background:#f1efe8;color:var(--sub);font-size:.9rem;letter-spacing:.1em}
+.nophoto{width:100%;aspect-ratio:4/1.4;display:flex;align-items:center;justify-content:center;background:#f3f1ea;color:var(--sub);font-size:.9rem;letter-spacing:.1em}
 .spot-body{padding:1.1rem 1.3rem 1.4rem}
-.spot-num{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--sub)}
-.spot-num b{background:var(--green);color:#fff;border-radius:4px;padding:.05rem .55rem;font-size:.8rem;letter-spacing:.05em}
-.spot h2{font-size:1.15rem;margin:.35rem 0 .4rem;font-weight:600;letter-spacing:.06em}
-.spot p{font-size:.92rem;color:var(--sub)}
-.spot details{margin-top:.6rem}
+.spot-body>p{font-size:.93rem;color:var(--sub)}
+.spot details{margin-top:.55rem}
 .spot summary{cursor:pointer;font-size:.85rem;color:var(--acc);min-height:44px;display:flex;align-items:center}
 .spot details img{margin-top:.6rem;border-radius:8px;width:100%;height:auto}
 .spot details img.board{max-width:420px}
-.routes-text{margin-top:3.5rem;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.3rem 1.5rem}
-.routes-text h2{font-size:1.05rem;letter-spacing:.1em}
-.routes-text ol{margin:.6rem 0 1.2rem 1.4rem;font-size:.92rem}
-.routes-text .note{font-size:.8rem;color:var(--sub)}
+a.next{display:inline-flex;align-items:center;min-height:48px;margin-top:1.2rem;padding:0 1.3rem;background:var(--green);color:#fff;border-radius:6px;text-decoration:none;font-size:.92rem}
+a.next:hover{background:#173628}
 footer{padding:2rem 1rem;text-align:center;font-size:.75rem;color:var(--sub)}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+svg .walk{fill:none;stroke:#9db5c8;stroke-width:1.1;stroke-dasharray:2.5 2}
 </style>
 </head>
-<body data-mode="normal">
-<div class="note-lab">試作版(第一版)・本番サイトではありません</div>
+<body>
+<div class="note-lab">試作版(順路つき境内案内)・本番サイトではありません</div>
 <header class="top"><div class="top-in">
   <a class="brand" href="https://lingmuqiandaiji-alt.github.io/mizonokuchi-jinja-hp/">溝口神社<small>川崎市高津区・溝の口の氏神様</small></a>
   <a href="tel:0448223776" style="min-height:44px;display:inline-flex;align-items:center">044-822-3776</a>
 </div></header>
 <main class="wrap">
   <h1>境内のご案内</h1>
-  <p class="lead">地図の番号を選ぶと、その場所の実際の写真とご案内を表示します。順路ボタンで、参拝の流れもご確認いただけます。</p>
-  <div class="modes" role="group" aria-label="表示の切り替え">
-    <button type="button" data-set="normal" aria-pressed="true">通常表示</button>
-    <button type="button" data-set="r01" aria-pressed="false">通常参拝の順路</button>
-    <button type="button" data-set="r02" aria-pressed="false">御祈祷受付への順路</button>
-  </div>
+  <p class="lead">入口から順路にそって、境内を歩くようにご案内します。地図の番号を押すとその場所へ、各場所の「次へ進む」で順路どおりに進めます。</p>
   <div class="layout">
     <div class="map-col">
-      <div class="map-box" id="mapbox">
-        <svg viewBox="0 0 100 100" role="img" aria-labelledby="map-t map-d">
-          <title id="map-t">溝口神社 境内図(第一版)</title>
-          <desc id="map-d">南の大鳥居から神橋を渡り参道を北へ進むと、拝殿と本殿があります。参道の東に手水舎と夫婦銀杏、西に社務所と祈祷受付所。北側に長寿けやき・垂乳根・親楠などの木々、北西に稲荷社、北東に小楠と交通安全横断幕、南東に百度石・掲示板・松尾大明神、東側に駐車場があります。</desc>
-          <defs><marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0b62a4"/></marker></defs>
-          <rect x="4" y="3" width="92" height="94" rx="3" fill="#fff" stroke="#c9c6ba"/>
-          <rect x="46" y="38" width="8" height="56" fill="#efece2"/>
-          <rect x="44" y="72" width="12" height="4.5" rx="1" fill="#dcd7c6" stroke="#b9b3a0" stroke-width=".5"/>
-          <rect x="38" y="18" width="24" height="20" rx="1.5" fill="#e7e3d6" stroke="#a89f88" stroke-width=".8"/>
-          <rect x="58" y="20" width="4.5" height="16" fill="#f3efe2" stroke="#a89f88" stroke-width=".6"/>
-          <rect x="10" y="44" width="16" height="18" rx="1.5" fill="#eceadf" stroke="#b9b3a0" stroke-width=".7"/>
-          <rect x="8" y="7" width="10" height="8" rx="1" fill="#f0e7e2" stroke="#b9a49a" stroke-width=".7"/>
-          <rect x="72" y="52" width="18" height="14" rx="1" fill="#f2f1ea" stroke="#c2beb0" stroke-width=".6"/>
-          <circle cx="46" cy="9" r="5" fill="#e2e8dc" stroke="#8fa08a" stroke-width=".8"/>
-          <circle cx="54" cy="16" r="4" fill="#e2e8dc" stroke="#8fa08a" stroke-width=".8"/>
-          <circle cx="16" cy="26" r="5" fill="#e2e8dc" stroke="#8fa08a" stroke-width=".8"/>
-          <circle cx="80" cy="28" r="4.5" fill="#e2e8dc" stroke="#8fa08a" stroke-width=".8"/>
-          <circle cx="66" cy="44" r="4" fill="#e2e8dc" stroke="#8fa08a" stroke-width=".8"/>
-          <rect x="62" y="52.5" width="3.5" height="3.5" fill="#eceadf" stroke="#b9b3a0" stroke-width=".6"/>
-          <text x="50" y="99" text-anchor="middle" font-size="3.4" fill="#5f5c54">↓ 入口(大鳥居)側</text>
-          <text x="50" y="30" text-anchor="middle" font-size="3.6" fill="#4a4437">社殿</text>
-          <text x="18" y="54" text-anchor="middle" font-size="3.1" fill="#4a4437">社務所</text>
-          <text x="81" y="60" text-anchor="middle" font-size="3.1" fill="#4a4437">駐車場</text>
-          <path class="rt rt-r01" d="M50,87 L50,76 L50,60 L61,55 L52,44 L50,38"/>
-          <path class="rt rt-r02" d="M50,87 L50,76 L50,58 L30,46 L24,43"/>
+      <div class="map-box" id="top-map">
+        <svg viewBox="0 0 100 104" role="img" aria-labelledby="map-t map-d">
+          <title id="map-t">溝口神社 境内図(順路つき)</title>
+          <desc id="map-d">南の入口から大鳥居、神橋を渡って参道を北へ進むと本殿と拝殿。参道の東に手水舎と絵馬掛け、西に社務所。北側に長寿ケヤキ・垂乳根・親楠、北西に稲荷社、北東に小楠、東側に駐車場があります。順路は1番から27番まで続きます。</desc>
+          <rect x="4" y="2" width="92" height="98" rx="3" fill="#fff" stroke="#c9c6ba"/>
+          <polyline class="walk" points="50,95 50,88 63,84 34,82 60,78 44,74 50,70 50,52 64,56 50,24 43,30 50,34 60,28 26,64 18,52 32,40 16,26 12,12 24,20 54,16 46,9 58,12 82,12 80,55 80,28 66,36 66,46"/>
+          <rect x="46" y="40" width="8" height="56" fill="#efece2" opacity=".7"/>
+          <rect x="38" y="20" width="24" height="20" rx="1.5" fill="#e7e3d6" stroke="#a89f88" stroke-width=".8"/>
+          <rect x="10" y="44" width="16" height="16" rx="1.5" fill="#eceadf" stroke="#b9b3a0" stroke-width=".7"/>
+          <rect x="72" y="48" width="18" height="14" rx="1" fill="#f2f1ea" stroke="#c2beb0" stroke-width=".6"/>
+          <text x="50" y="102.5" text-anchor="middle" font-size="3.2" fill="#5f5c54">↓ 入口(府中街道)側</text>
+          <text x="50" y="32" text-anchor="middle" font-size="3.4" fill="#4a4437">社殿</text>
+          <text x="18" y="53" text-anchor="middle" font-size="3" fill="#4a4437">社務所</text>
+          <text x="81" y="56" text-anchor="middle" font-size="3" fill="#4a4437">駐車場</text>
         </svg>
-        <a class="pin" href="#K-01" style="left:50%;top:89%" aria-label="地点1 大鳥居。写真と説明を表示"><span>1</span></a>
-<a class="pin" href="#K-02" style="left:50%;top:74%" aria-label="地点2 神橋。写真と説明を表示"><span>2</span></a>
-<a class="pin" href="#K-03" style="left:64%;top:54%" aria-label="地点3 手水舎。写真と説明を表示"><span>3</span></a>
-<a class="pin" href="#K-04" style="left:50%;top:22%" aria-label="地点4 本殿。写真と説明を表示"><span>4</span></a>
-<a class="pin" href="#K-05" style="left:42%;top:30%" aria-label="地点5 東郷平八郎奉納碑。写真と説明を表示"><span>5</span></a>
-<a class="pin" href="#K-06" style="left:50%;top:34%" aria-label="地点6 拝殿。写真と説明を表示"><span>6</span></a>
-<a class="pin" href="#K-07" style="left:60%;top:26%" aria-label="地点7 浜縁・回廊。写真と説明を表示"><span>7</span></a>
-<a class="pin" href="#K-08" style="left:18%;top:50%" aria-label="地点8 社務所。写真と説明を表示"><span>8</span></a>
-<a class="pin" href="#K-09" style="left:22%;top:42%" aria-label="地点9 祈祷受付所。写真と説明を表示"><span>9</span></a>
-<a class="pin" href="#K-10" style="left:14%;top:56%" aria-label="地点10 社務所内のご案内。写真と説明を表示"><span>10</span></a>
-<a class="pin" href="#K-11" style="left:63%;top:84%" aria-label="地点11 松尾大明神。写真と説明を表示"><span>11</span></a>
-<a class="pin" href="#K-12" style="left:12%;top:11%" aria-label="地点12 稲荷社。写真と説明を表示"><span>12</span></a>
-<a class="pin" href="#K-13" style="left:60%;top:72%" aria-label="地点13 百度石。写真と説明を表示"><span>13</span></a>
-<a class="pin" href="#K-14" style="left:62%;top:66%" aria-label="地点14 参道掲示板。写真と説明を表示"><span>14</span></a>
-<a class="pin" href="#K-15" style="left:26%;top:64%" aria-label="地点15 顔はめパネル。写真と説明を表示"><span>15</span></a>
-<a class="pin" href="#K-16" style="left:16%;top:26%" aria-label="地点16 親楠。写真と説明を表示"><span>16</span></a>
-<a class="pin" href="#K-17" style="left:80%;top:28%" aria-label="地点17 小楠。写真と説明を表示"><span>17</span></a>
-<a class="pin" href="#K-18" style="left:54%;top:16%" aria-label="地点18 垂乳根。写真と説明を表示"><span>18</span></a>
-<a class="pin" href="#K-19" style="left:46%;top:9%" aria-label="地点19 長寿けやき。写真と説明を表示"><span>19</span></a>
-<a class="pin" href="#K-20" style="left:66%;top:44%" aria-label="地点20 願掛け夫婦銀杏。写真と説明を表示"><span>20</span></a>
-<a class="pin" href="#K-21" style="left:82%;top:12%" aria-label="地点21 交通安全横断幕。写真と説明を表示"><span>21</span></a>
-<a class="pin" href="#K-22" style="left:80%;top:58%" aria-label="地点22 駐車場。写真と説明を表示"><span>22</span></a>
+        <a class="pin" href="#p01" style="left:50%;top:95%" aria-label="順路1 入口。写真と説明を表示"><span>1</span></a>
+<a class="pin" href="#p02" style="left:50%;top:88%" aria-label="順路2 大鳥居。写真と説明を表示"><span>2</span></a>
+<a class="pin" href="#p03" style="left:63%;top:84%" aria-label="順路3 松尾大明神。写真と説明を表示"><span>3</span></a>
+<a class="pin" href="#p04" style="left:34%;top:82%" aria-label="順路4 水神宮。写真と説明を表示"><span>4</span></a>
+<a class="pin" href="#p05" style="left:60%;top:78%" aria-label="順路5 参道掲示板。写真と説明を表示"><span>5</span></a>
+<a class="pin" href="#p06" style="left:44%;top:74%" aria-label="順路6 狛犬。写真と説明を表示"><span>6</span></a>
+<a class="pin" href="#p07" style="left:50%;top:70%" aria-label="順路7 百度石・神橋。写真と説明を表示"><span>7</span></a>
+<a class="pin" href="#p08" style="left:50%;top:52%" aria-label="順路8 本殿正面周辺。写真と説明を表示"><span>8</span></a>
+<a class="pin" href="#p09" style="left:64%;top:56%" aria-label="順路9 手水舎・絵馬掛け。写真と説明を表示"><span>9</span></a>
+<a class="pin" href="#p10" style="left:50%;top:24%" aria-label="順路10 本殿。写真と説明を表示"><span>10</span></a>
+<a class="pin" href="#p11" style="left:43%;top:30%" aria-label="順路11 東郷平八郎碑。写真と説明を表示"><span>11</span></a>
+<a class="pin" href="#p12" style="left:50%;top:34%" aria-label="順路12 拝殿。写真と説明を表示"><span>12</span></a>
+<a class="pin" href="#p13" style="left:60%;top:28%" aria-label="順路13 浜縁・回廊。写真と説明を表示"><span>13</span></a>
+<a class="pin" href="#p14" style="left:26%;top:64%" aria-label="順路14 顔ハメパネル。写真と説明を表示"><span>14</span></a>
+<a class="pin" href="#p15" style="left:18%;top:52%" aria-label="順路15 社務所。写真と説明を表示"><span>15</span></a>
+<a class="pin" href="#p16" style="left:32%;top:40%" aria-label="順路16 祈祷後の順路。写真と説明を表示"><span>16</span></a>
+<a class="pin" href="#p17" style="left:16%;top:26%" aria-label="順路17 親楠。写真と説明を表示"><span>17</span></a>
+<a class="pin" href="#p18" style="left:12%;top:12%" aria-label="順路18 稲荷社。写真と説明を表示"><span>18</span></a>
+<a class="pin" href="#p19" style="left:24%;top:20%" aria-label="順路19 稲荷社からの順路。写真と説明を表示"><span>19</span></a>
+<a class="pin" href="#p20" style="left:54%;top:16%" aria-label="順路20 垂乳根・歯固め塚。写真と説明を表示"><span>20</span></a>
+<a class="pin" href="#p21" style="left:46%;top:9%" aria-label="順路21 長寿ケヤキ。写真と説明を表示"><span>21</span></a>
+<a class="pin" href="#p22" style="left:58%;top:12%" aria-label="順路22 ケヤキからの順路。写真と説明を表示"><span>22</span></a>
+<a class="pin" href="#p23" style="left:82%;top:12%" aria-label="順路23 交通安全横断幕。写真と説明を表示"><span>23</span></a>
+<a class="pin" href="#p24" style="left:80%;top:55%" aria-label="順路24 駐車場。写真と説明を表示"><span>24</span></a>
+<a class="pin" href="#p25" style="left:80%;top:28%" aria-label="順路25 小楠。写真と説明を表示"><span>25</span></a>
+<a class="pin" href="#p26" style="left:66%;top:36%" aria-label="順路26 小楠からの順路。写真と説明を表示"><span>26</span></a>
+<a class="pin" href="#p27" style="left:66%;top:46%" aria-label="順路27 願掛け夫婦銀杏。写真と説明を表示"><span>27</span></a>
       </div>
-      <p class="maplegend"><span>■ 建物</span><span>● 樹木</span><span>数字 = 地点番号</span><span>青点線 = 選択中の順路</span></p>
-      <div class="route-strip" id="strip-r01" aria-label="通常参拝の順路"><b>1</b>大鳥居 →<b>2</b>神橋 →<b>3</b>手水舎 →<b>6</b>拝殿</div>
-      <div class="route-strip" id="strip-r02" aria-label="御祈祷受付への順路"><b>1</b>大鳥居 →<b>2</b>神橋 →<b>9</b>祈祷受付所</div>
+      <p class="curname" id="curname" aria-live="polite"></p>
+      <p class="maplegend"><span>■ 建物</span><span>点線 = 順路(1→27)</span><span>数字 = 順路番号</span></p>
     </div>
     <div class="spots" id="spots">
-<article class="spot" id="K-01"><div class="nophoto" role="img" aria-label="写真は撮影後に掲載します">写真は近日掲載</div><div class="spot-body"><p class="spot-num"><b>K-01</b>おおとりい</p><h2>大鳥居</h2><p>境内の正面に立つ大鳥居。(写真は撮影後に掲載いたします)</p></div></article>
-<article class="spot" id="K-02"><img src="keidai-map-img/K-02-shinkyo-main-01.webp" width="900" height="675" alt="石柱に神橋と刻まれた石の橋" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-02</b>しんきょう</p><h2>神橋</h2><p>参道の入口に据えられた石の橋。ここを渡って境内へ進みます。</p><details><summary>神橋から拝殿方向の眺めを見る</summary><img src="keidai-map-img/K-02-shinkyo-route-01.webp" width="900" height="675" alt="神橋から拝殿へまっすぐ延びる参道" loading="lazy"></details></div></article>
-<article class="spot" id="K-03"><img src="keidai-map-img/K-03-temizu-main-01.webp" width="900" height="675" alt="木組みの手水舎" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-03</b>てみずや</p><h2>手水舎</h2><p>参拝の前に、手と口を清める場所です。</p><details><summary>手水舎まわりの様子を見る</summary><img src="keidai-map-img/K-03-temizu-detail-01.webp" width="900" height="675" alt="手水舎周辺の眺め" loading="lazy"></details><details><summary>木彫と屋根組を見る</summary><img src="keidai-map-img/K-03-temizu-detail-02.webp" width="900" height="675" alt="手水舎の木彫と屋根組" loading="lazy"></details><details><summary>格天井を見る</summary><img src="keidai-map-img/K-03-temizu-detail-03.webp" width="900" height="675" alt="手水舎の格天井" loading="lazy"></details><details><summary>記念碑を見る</summary><img class="board" src="keidai-map-img/K-03-temizu-detail-04.webp" width="900" height="675" alt="手水舎そばの記念碑" loading="lazy"></details></div></article>
-<article class="spot" id="K-04"><img src="keidai-map-img/K-04-honden-main-01.webp" width="900" height="675" alt="注連縄と鈴の下がる本殿正面" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-04</b>ほんでん</p><h2>本殿</h2><p>御祭神をお祀りする、神社の中心となる建物です。</p><details><summary>鈴緒と奉納額を見る</summary><img src="keidai-map-img/K-04-honden-detail-01.webp" width="900" height="675" alt="鈴緒の下がる社殿正面" loading="lazy"></details></div></article>
-<article class="spot" id="K-05"><img src="keidai-map-img/K-05-togo-main-01.webp" width="900" height="675" alt="溝口神社の扁額と向拝" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-05</b>とうごうへいはちろうほうのうひ</p><h2>東郷平八郎奉納碑</h2><p>社殿に掲げられた扁額。詳しい由来は確認ののちご案内いたします。</p><details><summary>扁額の近景を見る</summary><img src="keidai-map-img/K-05-togo-detail-01.webp" width="900" height="675" alt="東郷平八郎の名が刻まれた扁額の近景" loading="lazy"></details></div></article>
-<article class="spot" id="K-06"><img src="keidai-map-img/K-06-haiden-main-01.webp" width="900" height="675" alt="祈祷席の並ぶ拝殿の内部" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-06</b>はいでん</p><h2>拝殿</h2><p>御祈祷が行われる拝殿です。</p><details><summary>別の角度からを見る</summary><img src="keidai-map-img/K-06-haiden-detail-01.webp" width="900" height="675" alt="拝殿内部の別の角度" loading="lazy"></details></div></article>
-<article class="spot" id="K-07"><img src="keidai-map-img/K-07-hamaen-main-01.webp" width="900" height="675" alt="改修を終えた社殿の浜縁" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-07</b>はまえん・かいろう</p><h2>浜縁・回廊</h2><p>改名150年記念事業で改修された、社殿をめぐる回廊です。</p><details><summary>回廊と社殿を見る</summary><img src="keidai-map-img/K-07-hamaen-detail-01.webp" width="900" height="675" alt="新しい浜縁と社殿" loading="lazy"></details><details><summary>床面を見る</summary><img src="keidai-map-img/K-07-hamaen-detail-02.webp" width="900" height="675" alt="浜縁の新しい床面" loading="lazy"></details></div></article>
-<article class="spot" id="K-08"><img src="keidai-map-img/K-08-shamusho-main-01.webp" width="900" height="675" alt="社務所の入口" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-08</b>しゃむしょ</p><h2>社務所</h2><p>各種お手続きの窓口です。</p></div></article>
-<article class="spot" id="K-09"><img src="keidai-map-img/K-09-reception-main-01.webp" width="900" height="675" alt="御祈祷受付所の外観" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-09</b>きとううけつけしょ</p><h2>祈祷受付所</h2><p>御祈祷のお申し込みはこちらで承ります。お電話は<a href="tel:0448223776">044-822-3776</a>へ。</p></div></article>
-<article class="spot" id="K-10"><img src="keidai-map-img/K-10-otakiage-main-01.webp" width="900" height="675" alt="古札納所(お焚き上げ)" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-10</b>しゃむしょない</p><h2>社務所内のご案内</h2><p>お焚き上げ(古札納所)、絵馬の願い事書き、授乳室がございます。(内部写真は順次追加いたします)</p><details><summary>絵馬の願い事書きを見る</summary><img src="keidai-map-img/K-10-ema-main-01.webp" width="900" height="675" alt="絵馬に願い事を書く場所" loading="lazy"></details><details><summary>授乳室を見る</summary><img src="keidai-map-img/K-10-nursing-main-01.webp" width="900" height="675" alt="オムツ替えと授乳スペースの案内" loading="lazy"></details></div></article>
-<article class="spot" id="K-11"><img src="keidai-map-img/K-11-matsuo-main-01.webp" width="900" height="675" alt="松尾大明神の石碑" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-11</b>まつおだいみょうじん</p><h2>松尾大明神</h2><p>境内の石碑。詳しい由緒は確認ののちご案内いたします。</p></div></article>
-<article class="spot" id="K-12"><img src="keidai-map-img/K-12-inari-main-01.webp" width="900" height="675" alt="のぼりの立つ稲荷社" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-12</b>いなりしゃ</p><h2>稲荷社</h2><p>境内に鎮座する社です。</p><details><summary>参道と提灯を見る</summary><img src="keidai-map-img/K-12-inari-detail-01.webp" width="900" height="675" alt="のぼりと提灯の並ぶ稲荷社の参道" loading="lazy"></details></div></article>
-<article class="spot" id="K-13"><img src="keidai-map-img/K-13-hyakudo-main-01.webp" width="900" height="675" alt="百度石" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-13</b>ひゃくどいし</p><h2>百度石</h2><p>お百度参りの起点となる石です。</p></div></article>
-<article class="spot" id="K-14"><img src="keidai-map-img/K-14-boards-main-01.webp" width="900" height="675" alt="年中行事などの掲示板" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-14</b>さんどうけいじばん</p><h2>参道掲示板</h2><p>年中行事やお参りの作法をご案内しています。</p></div></article>
-<article class="spot" id="K-15"><img src="keidai-map-img/K-15-panel-main-01.webp" width="900" height="675" alt="神職と巫女の顔はめパネル" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-15</b>かおはめぱねる</p><h2>顔はめパネル</h2><p>ご参拝の記念にどうぞ。</p></div></article>
-<article class="spot" id="K-16"><img src="keidai-map-img/K-16-oyakusu-main-01.webp" width="900" height="675" alt="注連縄が巻かれた親楠の全景" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-16</b>おやくす</p><h2>親楠</h2><p>境内で大切に守られている楠の古木です。</p><details><summary>幹の近景を見る</summary><img src="keidai-map-img/K-16-oyakusu-detail-01.webp" width="900" height="675" alt="親楠の幹と注連縄" loading="lazy"></details><details><summary>説明板を見る</summary><img class="board" src="keidai-map-img/K-16-oyakusu-board-01.webp" width="900" height="675" alt="親楠の説明板" loading="lazy"></details></div></article>
-<article class="spot" id="K-17"><img src="keidai-map-img/K-17-kokusu-main-01.webp" width="900" height="675" alt="小楠の遠景" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-17</b>こくす</p><h2>小楠</h2><p>親楠とともに親しまれている楠です。</p><details><summary>説明板を見る</summary><img class="board" src="keidai-map-img/K-17-kokusu-board-01.webp" width="900" height="675" alt="小楠の説明板" loading="lazy"></details></div></article>
-<article class="spot" id="K-18"><img src="keidai-map-img/K-18-tarachine-main-01.webp" width="900" height="675" alt="垂乳根の銀杏と川崎の祈願所の看板" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-18</b>たらちね</p><h2>垂乳根</h2><p>お食い初めの歯固め石をご奉納いただく場所です。</p><details><summary>説明板を見る</summary><img class="board" src="keidai-map-img/K-18-tarachine-board-01.webp" width="900" height="675" alt="垂乳根の銀杏と歯固め塚の説明板" loading="lazy"></details></div></article>
-<article class="spot" id="K-19"><img src="keidai-map-img/K-19-keyaki-main-01.webp" width="900" height="675" alt="注連縄が巻かれた長寿けやき" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-19</b>ちょうじゅけやき</p><h2>長寿けやき</h2><p>境内で大切に守られているけやきの古木です。</p><details><summary>説明板を見る</summary><img class="board" src="keidai-map-img/K-19-keyaki-board-01.webp" width="900" height="675" alt="長寿けやきの説明板" loading="lazy"></details></div></article>
-<article class="spot" id="K-20"><img src="keidai-map-img/K-20-meoto-main-01.webp" width="900" height="675" alt="願掛けの夫婦銀杏" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-20</b>がんかけめおといちょう</p><h2>願掛け夫婦銀杏</h2><p>願掛けの銀杏として親しまれています。</p></div></article>
-<article class="spot" id="K-21"><img src="keidai-map-img/K-21-kotsu-main-01.webp" width="900" height="675" alt="交通安全と書かれた横断幕" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-21</b>こうつうあんぜんおうだんまく</p><h2>交通安全横断幕</h2><p>交通安全祈願のご案内です。</p></div></article>
-<article class="spot" id="K-22"><img src="keidai-map-img/K-22-parking-main-01.webp" width="900" height="675" alt="境内の駐車スペース" loading="lazy"><div class="spot-body"><p class="spot-num"><b>K-22</b>ちゅうしゃじょう</p><h2>駐車場</h2><p>台数に限りがあります。混雑時は公共交通機関をご利用ください。</p></div></article>
+<article class="spot" id="p01"><header class="spot-h"><span class="no">1</span><div><h2>入口</h2><span class="kana">いりぐち</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8251.webp" width="1200" height="900" alt="道路側から見た溝口神社の入口" loading="lazy"><div class="spot-body"><p>府中街道側の入口。ここから境内へ入ります。</p><details><summary>参道の入口を見る</summary><img src="keidai-map-img/IMG8252.webp" width="1200" height="900" alt="灯篭の並ぶ参道の入口" loading="lazy"></details><a class="next" href="#p02">次へ進む: 2 大鳥居 →</a></div></article>
+<article class="spot" id="p02"><header class="spot-h"><span class="no">2</span><div><h2>大鳥居</h2><span class="kana">おおとりい</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8253.webp" width="1200" height="900" alt="改名150年の幕が掛かる大鳥居" loading="lazy"><div class="spot-body"><p>境内の正面に立つ大鳥居。一礼してからくぐります。</p><a class="next" href="#p03">次へ進む: 3 松尾大明神 →</a></div></article>
+<article class="spot" id="p03"><header class="spot-h"><span class="no">3</span><div><h2>松尾大明神</h2><span class="kana">まつおだいみょうじん</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-11-matsuo-main-01.webp" width="1200" height="900" alt="松尾大明神の石碑" loading="lazy"><div class="spot-body"><p>参道の入口近くにある石碑。詳しい由緒は確認ののちご案内いたします。</p><a class="next" href="#p04">次へ進む: 4 水神宮 →</a></div></article>
+<article class="spot" id="p04"><header class="spot-h"><span class="no">4</span><div><h2>水神宮</h2><span class="kana">すいじんぐう</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8161.webp" width="1200" height="900" alt="水神宮の石祠" loading="lazy"><div class="spot-body"><p>参道の西側にある石の祠。詳しい由緒は確認ののちご案内いたします。</p><a class="next" href="#p05">次へ進む: 5 参道掲示板 →</a></div></article>
+<article class="spot" id="p05"><header class="spot-h"><span class="no">5</span><div><h2>参道掲示板</h2><span class="kana">さんどうけいじばん</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8254.webp" width="1200" height="900" alt="参道沿いの掲示板" loading="lazy"><div class="spot-body"><p>年中行事やお参りの作法をご案内する掲示板です。</p><details><summary>右側の掲示(年中行事)を見る</summary><img src="keidai-map-img/K-14-boards-main-01.webp" width="1200" height="900" alt="年中行事の掲示" loading="lazy"></details><details><summary>右側の掲示(神棚のおまつり)を見る</summary><img src="keidai-map-img/IMG8165.webp" width="1200" height="900" alt="神棚のおまつりの仕方の掲示" loading="lazy"></details><details><summary>右側の掲示(ご奉賛)を見る</summary><img src="keidai-map-img/IMG8166.webp" width="1200" height="900" alt="ご奉賛のお願いの掲示" loading="lazy"></details><details><summary>右側の掲示(案内板)を見る</summary><img src="keidai-map-img/IMG8171.webp" width="1200" height="900" alt="記念事業の案内板" loading="lazy"></details><details><summary>左側の掲示(御神札)を見る</summary><img src="keidai-map-img/IMG8167.webp" width="1200" height="900" alt="御神札の並べ方の掲示" loading="lazy"></details><details><summary>左側の掲示(ご祈祷)を見る</summary><img src="keidai-map-img/IMG8168.webp" width="1200" height="900" alt="ご祈祷の掲示" loading="lazy"></details><details><summary>左側の掲示(由緒)を見る</summary><img src="keidai-map-img/IMG8169.webp" width="1200" height="900" alt="由緒の掲示" loading="lazy"></details><details><summary>左側の掲示(お守り)を見る</summary><img src="keidai-map-img/IMG8170.webp" width="1200" height="900" alt="お守りの掲示" loading="lazy"></details><a class="next" href="#p06">次へ進む: 6 狛犬 →</a></div></article>
+<article class="spot" id="p06"><header class="spot-h"><span class="no">6</span><div><h2>狛犬</h2><span class="kana">こまいぬ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><div class="nophoto">写真は近日掲載</div><div class="spot-body"><p>参道の両脇で神社をお守りしています。(写真は近日掲載いたします)</p><a class="next" href="#p07">次へ進む: 7 百度石・神橋 →</a></div></article>
+<article class="spot" id="p07"><header class="spot-h"><span class="no">7</span><div><h2>百度石・神橋</h2><span class="kana">ひゃくどいし・しんきょう</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8256.webp" width="1200" height="900" alt="百度石と神橋のあたりの全景" loading="lazy"><div class="spot-body"><p>お百度参りの起点となる百度石と、境内へ渡る神橋です。</p><details><summary>百度石を見る</summary><img src="keidai-map-img/K-13-hyakudo-main-01.webp" width="1200" height="900" alt="百度石" loading="lazy"></details><details><summary>神橋を見る</summary><img src="keidai-map-img/K-02-shinkyo-main-01.webp" width="1200" height="900" alt="石柱に神橋と刻まれた石の橋" loading="lazy"></details><details><summary>神橋から拝殿方向を見る</summary><img src="keidai-map-img/K-02-shinkyo-route-01.webp" width="1200" height="900" alt="神橋から拝殿へまっすぐ延びる参道" loading="lazy"></details><a class="next" href="#p08">次へ進む: 8 本殿正面周辺 →</a></div></article>
+<article class="spot" id="p08"><header class="spot-h"><span class="no">8</span><div><h2>本殿正面周辺</h2><span class="kana">ほんでんしょうめんしゅうへん</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8257.webp" width="1200" height="900" alt="本殿正面周辺の全景" loading="lazy"><div class="spot-body"><p>参道を抜けると、正面に社殿が広がります。</p><details><summary>左側の眺めを見る</summary><img src="keidai-map-img/IMG8259.webp" width="1200" height="900" alt="広場から見た社務所方向" loading="lazy"></details><a class="next" href="#p09">次へ進む: 9 手水舎・絵馬掛け →</a></div></article>
+<article class="spot" id="p09"><header class="spot-h"><span class="no">9</span><div><h2>手水舎・絵馬掛け</h2><span class="kana">てみずや・えまかけ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-03-temizu-detail-01.webp" width="1200" height="900" alt="手水舎と絵馬掛けの全景" loading="lazy"><div class="spot-body"><p>参拝の前に手と口を清めます。隣には絵馬掛けがあります。</p><details><summary>絵馬掛けを見る</summary><img src="keidai-map-img/IMG8177.webp" width="1200" height="900" alt="絵馬の掛かる絵馬掛け" loading="lazy"></details><details><summary>手水舎を見る</summary><img src="keidai-map-img/K-03-temizu-main-01.webp" width="1200" height="900" alt="木組みの手水舎" loading="lazy"></details><details><summary>木彫と屋根組を見る</summary><img src="keidai-map-img/K-03-temizu-detail-02.webp" width="1200" height="900" alt="手水舎の木彫と屋根組" loading="lazy"></details><details><summary>格天井を見る</summary><img src="keidai-map-img/K-03-temizu-detail-03.webp" width="1200" height="900" alt="手水舎の格天井" loading="lazy"></details><details><summary>記念碑を見る</summary><img src="keidai-map-img/K-03-temizu-detail-04.webp" width="1200" height="900" alt="手水舎そばの記念碑" loading="lazy"></details><a class="next" href="#p10">次へ進む: 10 本殿 →</a></div></article>
+<article class="spot" id="p10"><header class="spot-h"><span class="no">10</span><div><h2>本殿</h2><span class="kana">ほんでん</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8258.webp" width="1200" height="900" alt="青空の下の本殿正面" loading="lazy"><div class="spot-body"><p>御祭神をお祀りする、神社の中心となる建物です。</p><details><summary>正面の近景を見る</summary><img src="keidai-map-img/K-04-honden-detail-01.webp" width="1200" height="900" alt="鈴緒の下がる本殿正面" loading="lazy"></details><a class="next" href="#p11">次へ進む: 11 東郷平八郎碑 →</a></div></article>
+<article class="spot" id="p11"><header class="spot-h"><span class="no">11</span><div><h2>東郷平八郎碑</h2><span class="kana">とうごうへいはちろうひ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-05-togo-main-01.webp" width="1200" height="900" alt="溝口神社の扁額と向拝" loading="lazy"><div class="spot-body"><p>社殿に掲げられた扁額。詳しい由来は確認ののちご案内いたします。</p><details><summary>扁額の近景を見る</summary><img src="keidai-map-img/K-05-togo-detail-01.webp" width="1200" height="900" alt="東郷平八郎の名が刻まれた扁額の近景" loading="lazy"></details><a class="next" href="#p12">次へ進む: 12 拝殿 →</a></div></article>
+<article class="spot" id="p12"><header class="spot-h"><span class="no">12</span><div><h2>拝殿</h2><span class="kana">はいでん</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8287.webp" width="1200" height="900" alt="拝殿の全景" loading="lazy"><div class="spot-body"><p>御祈祷が行われる拝殿です。</p><details><summary>拝殿の内部を見る</summary><img src="keidai-map-img/K-06-haiden-main-01.webp" width="1200" height="900" alt="祈祷席の並ぶ拝殿の内部" loading="lazy"></details><details><summary>別の角度からを見る</summary><img src="keidai-map-img/K-06-haiden-detail-01.webp" width="1200" height="900" alt="拝殿内部の別の角度" loading="lazy"></details><a class="next" href="#p13">次へ進む: 13 浜縁・回廊 →</a></div></article>
+<article class="spot" id="p13"><header class="spot-h"><span class="no">13</span><div><h2>浜縁・回廊</h2><span class="kana">はまえん・かいろう</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-07-hamaen-main-01.webp" width="1200" height="900" alt="改修を終えた社殿の浜縁" loading="lazy"><div class="spot-body"><p>改名150年記念事業で改修された、社殿をめぐる回廊です。</p><details><summary>回廊と社殿を見る</summary><img src="keidai-map-img/K-07-hamaen-detail-01.webp" width="1200" height="900" alt="新しい浜縁と社殿" loading="lazy"></details><details><summary>木肌の近景を見る</summary><img src="keidai-map-img/IMG8284.webp" width="1200" height="900" alt="浜縁の木肌" loading="lazy"></details><details><summary>床板を見る</summary><img src="keidai-map-img/IMG8285.webp" width="1200" height="900" alt="浜縁の床板" loading="lazy"></details><details><summary>手すりを見る</summary><img src="keidai-map-img/IMG8286.webp" width="1200" height="900" alt="浜縁の手すり" loading="lazy"></details><details><summary>床下の構造を見る</summary><img src="keidai-map-img/IMG8288.webp" width="1200" height="900" alt="浜縁の床下の構造" loading="lazy"></details><a class="next" href="#p14">次へ進む: 14 顔ハメパネル →</a></div></article>
+<article class="spot" id="p14"><header class="spot-h"><span class="no">14</span><div><h2>顔ハメパネル</h2><span class="kana">かおはめぱねる</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-15-panel-main-01.webp" width="1200" height="900" alt="神職と巫女の顔はめパネル" loading="lazy"><div class="spot-body"><p>ご参拝の記念にどうぞ。</p><a class="next" href="#p15">次へ進む: 15 社務所 →</a></div></article>
+<article class="spot" id="p15"><header class="spot-h"><span class="no">15</span><div><h2>社務所</h2><span class="kana">しゃむしょ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8260.webp" width="1200" height="900" alt="社務所の全景" loading="lazy"><div class="spot-body"><p>御祈祷の受付、お守り・御札の授与、お焚き上げなどの窓口です。</p><details><summary>外のおみくじを見る</summary><img src="keidai-map-img/IMG8261.webp" width="1200" height="900" alt="開運みくじなどのおみくじ台" loading="lazy"></details><details><summary>祈祷控室を見る</summary><img src="keidai-map-img/IMG8262.webp" width="1200" height="900" alt="祈祷控室の入口" loading="lazy"></details><details><summary>授与所を見る</summary><img src="keidai-map-img/IMG8263.webp" width="1200" height="900" alt="お守りの並ぶ授与所" loading="lazy"></details><details><summary>授与所(絵馬・木札)を見る</summary><img src="keidai-map-img/IMG8264.webp" width="1200" height="900" alt="しゃもじ絵馬や木札の並ぶ授与所" loading="lazy"></details><details><summary>社務所内の待合を見る</summary><img src="keidai-map-img/IMG8265.webp" width="1200" height="900" alt="社務所内の待合スペース" loading="lazy"></details><details><summary>絵馬の願い事書きを見る</summary><img src="keidai-map-img/K-10-ema-main-01.webp" width="1200" height="900" alt="絵馬に願い事を書く場所" loading="lazy"></details><details><summary>お焚き上げ(古札納所)を見る</summary><img src="keidai-map-img/K-10-otakiage-main-01.webp" width="1200" height="900" alt="古札納所" loading="lazy"></details><details><summary>授乳室を見る</summary><img src="keidai-map-img/K-10-nursing-main-01.webp" width="1200" height="900" alt="オムツ替えと授乳スペースの案内" loading="lazy"></details><details><summary>社務所内の様子を見る</summary><img src="keidai-map-img/IMG8266.webp" width="1200" height="900" alt="天照皇大神の掛け軸のある室内" loading="lazy"></details><details><summary>装飾を見る</summary><img src="keidai-map-img/IMG8267.webp" width="1200" height="900" alt="社務所内の装飾" loading="lazy"></details><details><summary>お手洗いを見る</summary><img src="keidai-map-img/IMG8268.webp" width="1200" height="900" alt="お手洗いの入口" loading="lazy"></details><a class="next" href="#p16">次へ進む: 16 祈祷後の順路 →</a></div></article>
+<article class="spot" id="p16"><header class="spot-h"><span class="no">16</span><div><h2>祈祷後の順路</h2><span class="kana">きとうごのじゅんろ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8269.webp" width="1200" height="900" alt="回廊沿いの通路" loading="lazy"><div class="spot-body"><p>御祈祷のあとは、回廊沿いに御神木のほうへ進めます。</p><details><summary>御神木のほうへを見る</summary><img src="keidai-map-img/IMG8271.webp" width="1200" height="900" alt="御神木と社殿のあいだの通路" loading="lazy"></details><a class="next" href="#p17">次へ進む: 17 親楠 →</a></div></article>
+<article class="spot" id="p17"><header class="spot-h"><span class="no">17</span><div><h2>親楠</h2><span class="kana">おやくす</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-16-oyakusu-main-01.webp" width="1200" height="900" alt="注連縄が巻かれた親楠の全景" loading="lazy"><div class="spot-body"><p>境内で大切に守られている楠の古木です。</p><details><summary>幹の近景を見る</summary><img src="keidai-map-img/K-16-oyakusu-detail-01.webp" width="1200" height="900" alt="親楠の幹と注連縄" loading="lazy"></details><details><summary>説明板を見る</summary><img class=board src="keidai-map-img/K-16-oyakusu-board-01.webp" width="1200" height="900" alt="親楠の説明板" loading="lazy"></details><a class="next" href="#p18">次へ進む: 18 稲荷社 →</a></div></article>
+<article class="spot" id="p18"><header class="spot-h"><span class="no">18</span><div><h2>稲荷社</h2><span class="kana">いなりしゃ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8085.webp" width="1200" height="900" alt="のぼりの立つ稲荷社" loading="lazy"><div class="spot-body"><p>境内の北西に鎮座する社です。</p><details><summary>社の正面を見る</summary><img src="keidai-map-img/IMG8272.webp" width="1200" height="900" alt="稲荷社の正面" loading="lazy"></details><details><summary>社の内部を見る</summary><img src="keidai-map-img/IMG8273.webp" width="1200" height="900" alt="狐の像が並ぶ稲荷社の内部" loading="lazy"></details><a class="next" href="#p19">次へ進む: 19 稲荷社からの順路 →</a></div></article>
+<article class="spot" id="p19"><header class="spot-h"><span class="no">19</span><div><h2>稲荷社からの順路</h2><span class="kana">いなりしゃからのじゅんろ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8274.webp" width="1200" height="900" alt="稲荷社から広場への通路" loading="lazy"><div class="spot-body"><p>稲荷社から広場のほうへ戻ります。</p><a class="next" href="#p20">次へ進む: 20 垂乳根・歯固め塚 →</a></div></article>
+<article class="spot" id="p20"><header class="spot-h"><span class="no">20</span><div><h2>垂乳根・歯固め塚</h2><span class="kana">たらちね・はがためづか</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-18-tarachine-main-01.webp" width="1200" height="900" alt="垂乳根の銀杏と川崎の祈願所の看板" loading="lazy"><div class="spot-body"><p>お食い初めの歯固め石をご奉納いただく場所です。</p><details><summary>幹の近景を見る</summary><img src="keidai-map-img/IMG8275.webp" width="1200" height="900" alt="垂乳根の銀杏の幹" loading="lazy"></details><details><summary>歯固め石を見る</summary><img src="keidai-map-img/IMG8276.webp" width="1200" height="900" alt="奉納された歯固め石" loading="lazy"></details><details><summary>説明板を見る</summary><img class=board src="keidai-map-img/K-18-tarachine-board-01.webp" width="1200" height="900" alt="垂乳根の銀杏と歯固め塚の説明板" loading="lazy"></details><a class="next" href="#p21">次へ進む: 21 長寿ケヤキ →</a></div></article>
+<article class="spot" id="p21"><header class="spot-h"><span class="no">21</span><div><h2>長寿ケヤキ</h2><span class="kana">ちょうじゅけやき</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-19-keyaki-main-01.webp" width="1200" height="900" alt="注連縄が巻かれた長寿ケヤキ" loading="lazy"><div class="spot-body"><p>境内で大切に守られているケヤキの古木です。</p><details><summary>幹の近景を見る</summary><img src="keidai-map-img/IMG8289.webp" width="1200" height="900" alt="長寿ケヤキの幹と注連縄" loading="lazy"></details><details><summary>幹の洞を見る</summary><img src="keidai-map-img/IMG8290.webp" width="1200" height="900" alt="長寿ケヤキの幹" loading="lazy"></details><details><summary>説明板を見る</summary><img class=board src="keidai-map-img/K-19-keyaki-board-01.webp" width="1200" height="900" alt="長寿ケヤキの説明板" loading="lazy"></details><a class="next" href="#p22">次へ進む: 22 ケヤキからの順路 →</a></div></article>
+<article class="spot" id="p22"><header class="spot-h"><span class="no">22</span><div><h2>ケヤキからの順路</h2><span class="kana">けやきからのじゅんろ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8088.webp" width="1200" height="900" alt="境内の通路" loading="lazy"><div class="spot-body"><p>社殿の東側を通って進みます。</p><a class="next" href="#p23">次へ進む: 23 交通安全横断幕 →</a></div></article>
+<article class="spot" id="p23"><header class="spot-h"><span class="no">23</span><div><h2>交通安全横断幕</h2><span class="kana">こうつうあんぜんおうだんまく</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-21-kotsu-main-01.webp" width="1200" height="900" alt="交通安全と書かれた横断幕" loading="lazy"><div class="spot-body"><p>交通安全祈願のご案内です。</p><a class="next" href="#p24">次へ進む: 24 駐車場 →</a></div></article>
+<article class="spot" id="p24"><header class="spot-h"><span class="no">24</span><div><h2>駐車場</h2><span class="kana">ちゅうしゃじょう</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8281.webp" width="1200" height="900" alt="駐車場と社殿" loading="lazy"><div class="spot-body"><p>台数に限りがあります。混雑時は公共交通機関をご利用ください。</p><details><summary>入口を見る</summary><img src="keidai-map-img/IMG8277.webp" width="1200" height="900" alt="道路側の駐車場入口" loading="lazy"></details><details><summary>全景を見る</summary><img src="keidai-map-img/IMG8280.webp" width="1200" height="900" alt="駐車場の全景" loading="lazy"></details><details><summary>駐車スペースを見る</summary><img src="keidai-map-img/IMG8279.webp" width="1200" height="900" alt="白線の引かれた駐車スペース" loading="lazy"></details><a class="next" href="#p25">次へ進む: 25 小楠 →</a></div></article>
+<article class="spot" id="p25"><header class="spot-h"><span class="no">25</span><div><h2>小楠</h2><span class="kana">こくす</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8291.webp" width="1200" height="900" alt="支柱に支えられた小楠の全景" loading="lazy"><div class="spot-body"><p>親楠とともに親しまれている楠です。</p><details><summary>幹の近景を見る</summary><img src="keidai-map-img/IMG8292.webp" width="1200" height="900" alt="注連縄の巻かれた小楠の幹" loading="lazy"></details><details><summary>説明板を見る</summary><img class=board src="keidai-map-img/K-17-kokusu-board-01.webp" width="1200" height="900" alt="小楠の説明板" loading="lazy"></details><a class="next" href="#p26">次へ進む: 26 小楠からの順路 →</a></div></article>
+<article class="spot" id="p26"><header class="spot-h"><span class="no">26</span><div><h2>小楠からの順路</h2><span class="kana">こくすからのじゅんろ</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/IMG8282.webp" width="1200" height="900" alt="小楠から本殿前への通路" loading="lazy"><div class="spot-body"><p>本殿前の広場へ戻ります。</p><a class="next" href="#p27">次へ進む: 27 願掛け夫婦銀杏 →</a></div></article>
+<article class="spot" id="p27"><header class="spot-h"><span class="no">27</span><div><h2>願掛け夫婦銀杏</h2><span class="kana">がんかけめおといちょう</span></div><a class="onmap" href="#top-map">地図で現在地を見る</a></header><img src="keidai-map-img/K-20-meoto-main-01.webp" width="1200" height="900" alt="願掛けの夫婦銀杏" loading="lazy"><div class="spot-body"><p>願掛けの銀杏として親しまれています。ご参拝ありがとうございました。</p><a class="next" href="#top-map">↑ 境内図へ戻る</a></div></article>
     </div>
   </div>
-  <section class="routes-text" aria-labelledby="rt-t">
-    <h2 id="rt-t">順路のご案内(文字版)</h2>
-    <p style="font-size:.85rem;margin-top:.4rem">通常参拝の順路</p>
-    <ol><li>大鳥居(K-01)</li><li>神橋(K-02)</li><li>手水舎(K-03)</li><li>拝殿(K-06)</li></ol>
-    <p style="font-size:.85rem">御祈祷受付への順路</p>
-    <ol><li>大鳥居(K-01)</li><li>神橋(K-02)</li><li>祈祷受付所(K-09)</li></ol>
-    <p class="note">※車椅子・ベビーカー・お車の経路は、現地確認ののち追加いたします。係員の案内がある場合はそちらに従ってください。</p>
-  </section>
 </main>
-<footer>【試作・第一版】｜<a href="https://lingmuqiandaiji-alt.github.io/mizonokuchi-jinja-hp/keidai.html">境内案内(本番ページ)へ</a></footer>
+<footer>【試作】掲載写真は2026年7月撮影。狛犬の写真は近日追加します。｜<a href="https://lingmuqiandaiji-alt.github.io/mizonokuchi-jinja-hp/keidai.html">境内案内(本番ページ)へ</a></footer>
 <script>
 (function(){
   var pins=[].slice.call(document.querySelectorAll('.pin'));
   var spots=[].slice.call(document.querySelectorAll('.spot'));
-  function select(id){
+  var cur=document.getElementById('curname');
+  function select(id,label){
     spots.forEach(function(s){s.classList.toggle('sel',s.id===id);});
     pins.forEach(function(p){p.setAttribute('aria-current',p.getAttribute('href')==='#'+id?'true':'false');});
+    if(label&&cur){cur.textContent='現在地: '+label;}
   }
-  pins.forEach(function(p){p.addEventListener('click',function(){select(p.getAttribute('href').slice(1));});});
-  if(location.hash){select(location.hash.slice(1));}
-  addEventListener('hashchange',function(){select(location.hash.slice(1));});
-  var btns=[].slice.call(document.querySelectorAll('.modes button'));
-  btns.forEach(function(b){b.addEventListener('click',function(){
-    document.body.setAttribute('data-mode',b.getAttribute('data-set'));
-    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
-  });});
+  pins.forEach(function(p){p.addEventListener('click',function(){select(p.getAttribute('href').slice(1),p.getAttribute('aria-label').split('。')[0]);});});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ var id=e.target.id; var h=e.target.querySelector('h2'); var no=e.target.querySelector('.no');
+      select(id,(no?('順路'+no.textContent+' '):'')+(h?h.textContent:'')); } });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  spots.forEach(function(s){io.observe(s);});
+  if(location.hash){select(location.hash.slice(1),null);}
 })();
 </script>
 </body>
