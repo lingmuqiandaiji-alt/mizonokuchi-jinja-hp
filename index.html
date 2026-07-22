@@ -13,7 +13,7 @@
        現在は AMAGI-PC-DESIGN-002 による仮設定（裁可待ち）。
        行事終了後は default へ戻すこと。
      ========================================================== -->
-<html lang="ja" data-theme="kuminsai">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -204,21 +204,22 @@
              掲載権限・写り込み確認前のため一般公開不可。
              ▼テーマをdefaultへ戻す時は、このpictureを下の
                コメント内の通常ヒーローと差し替えること。 -->
-        <picture>
+        <!-- 【kuminsaiテーマ用ヒーロー(季節保管・M040で通常へ復帰)】
+<picture>
           <source media="(max-width: 640px)"
                   srcset="assets/images/seasonal/kuminsai/hero-kuminsai-mobile.webp"
                   width="828" height="1104" type="image/webp">
           <source srcset="assets/images/seasonal/kuminsai/hero-kuminsai.webp"
                   type="image/webp">
-          <!-- ファーストビュー画像のため遅延読み込みはしない -->
+          <!–- ファーストビュー画像のため遅延読み込みはしない –->
           <img src="assets/images/seasonal/kuminsai/hero-kuminsai.jpg"
                width="1600" height="1200"
                alt="高津区民祭で広場に集う神輿と緑の法被の担ぎ手たち。夏空と大樹"
                fetchpriority="high">
         </picture>
+        -->
 
-        <!-- ▼通常テーマ（default）用ヒーロー。テーマ復帰時に有効化する
-        <picture>
+                <picture>
           <source media="(max-width: 640px)"
                   srcset="assets/images/hero/hero-main-mobile.webp"
                   width="828" height="1104" type="image/webp">
@@ -229,7 +230,6 @@
                alt="青空の下に建つ溝口神社の社殿。唐破風の屋根飾りと注連縄"
                fetchpriority="high">
         </picture>
-        -->
       </div>
       <div class="hero__body">
         <div class="container hero__inner">
@@ -258,8 +258,9 @@
           <!-- 主ボタン=御祈祷／副導線=年間行事（MASTER-021 ■8） -->
           <div class="hero__actions theme-hide--kuminsai">
             <a class="button button--primary" href="#prayer">御祈祷のご案内</a>
-            <a class="button button--ghost" href="#annual-events">年間行事を見る</a>
+            <a class="button button--ghost" href="access.html">アクセス</a>
           </div>
+          <p class="theme-hide--kuminsai" style="margin-top:0.9rem;"><a href="#visit-info" style="color:rgba(255,255,255,.88);font-size:0.8125rem;text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;">参拝のご案内へ</a></p>
           <div class="hero__actions theme-only--kuminsai">
             <a class="button button--primary" href="#prayer">御祈祷のご案内</a>
             <a class="button button--ghost" href="#annual-events">年間行事を見る</a>
