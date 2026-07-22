@@ -1,0 +1,337 @@
+/* ==========================================================
+   MASTER-019 ホーム100点化レイヤー(2026年版)
+   既存CSSの後に読み込む追記専用ファイル。index.htmlのみが使用。
+   色は「装飾」ではなく「情報分類」(第五章)。
+   常磐=御祈祷・主要導線 / 深朱=祭事・重要 / 生成り=本文和紙 /
+   薄金=見出し・区切り / 墨=文字 / 石=案内補助 / 若葉=自然・境内 /
+   淡朱=重要案内の背景
+   ========================================================== */
+:root {
+  --m19-tokiwa: #234638;
+  --m19-shu: #8A2F2B;
+  --m19-kinari: #F5F0E6;
+  --m19-kin: #B79A5B;
+  --m19-sumi: #2B2926;
+  --m19-ishi: #D8D3C9;
+  --m19-wakaba: #DDE6D8;
+  --m19-awashu: #F0DEDA;
+}
+
+/* ---------- 第三章 ヒーロー(端末別) ---------- */
+.hero { min-height: 0; }
+.hero .hero__media img {
+  object-fit: cover;
+  object-position: 50% 55%; /* PC: 千木・屋根全体と空が入る位置 */
+}
+@media (min-width: 1025px) {
+  .hero { height: clamp(620px, 72vh, 840px); }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero { height: clamp(520px, 68vh, 760px); }
+  .hero .hero__media img { object-position: 50% 52%; }
+}
+@media (max-width: 640px) {
+  /* 画面いっぱいにしすぎず、次の情報が少し見える(第三章/十五章) */
+  .hero { height: min(78svh, 640px); }
+  .hero .hero__media img { object-position: 50% 42%; }
+}
+/* 黒帯ではなく局所グラデーションで可読性確保(第三章 七) */
+.hero .hero__body {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 28, 24, 0) 0%,
+    rgba(30, 28, 24, 0.14) 46%,
+    rgba(30, 28, 24, 0.58) 100%
+  );
+}
+
+/* ---------- 第四章 ヒーロー内ボタン階層 ---------- */
+.hero__actions .button--primary {
+  background: var(--m19-tokiwa);
+  color: #fff;
+  border: 1px solid rgba(183, 154, 91, 0.75); /* 薄金の境界 */
+  box-shadow: 0 2px 10px rgba(20, 30, 24, 0.28);
+}
+.hero__actions .button--primary:hover {
+  background: #2c5646; /* わずかな明度変化のみ */
+}
+.hero__actions .button--ghost {
+  background: rgba(245, 240, 230, 0.16); /* 半透明の生成り */
+  color: #fff;
+  border: 1px solid rgba(245, 240, 230, 0.65);
+  backdrop-filter: blur(2px);
+}
+.hero__actions .button--ghost:hover {
+  background: rgba(245, 240, 230, 0.28);
+}
+
+/* ---------- 第十一章 見出し(英字小見出し+薄金線) ---------- */
+.m19-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  color: var(--m19-kin);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.section__header .section__title,
+.visit-info .section__title {
+  color: var(--m19-sumi);
+}
+.m19-kicker + .section__title::after,
+.m19-title-line::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  background: var(--m19-kin);
+  margin: 0.7rem auto 0;
+  border-radius: 2px;
+}
+.section__header--left .m19-kicker + .section__title::after { margin-left: 0; }
+
+/* ---------- 第七章 参拝のご案内(3枚の案内カード) ---------- */
+.visit-info { background: #fff; }
+.m19-visit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.m19-visit-card {
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem 1.35rem;
+  text-align: center;
+  border: 1px solid rgba(43, 41, 38, 0.08);
+}
+.m19-visit-card--kinari { background: var(--m19-kinari); }
+.m19-visit-card--wakaba { background: var(--m19-wakaba); }
+.m19-visit-card--ishi   { background: #E7E3DA; }
+.m19-visit-card .m19-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.6rem;
+  color: var(--m19-tokiwa);
+}
+.m19-visit-card--ishi .m19-icon { color: var(--m19-sumi); }
+.m19-visit-card .visit-info__label {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--m19-sumi);
+  font-weight: 600;
+}
+.m19-visit-card .visit-info__value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--m19-sumi);
+  margin: 0.35rem 0 0.2rem;
+}
+.m19-visit-card .visit-info__value a { color: var(--m19-tokiwa); }
+.m19-visit-card .visit-info__note {
+  font-size: 0.875rem; /* 小さすぎない補足(第七章) */
+  color: #5a564f;
+}
+/* 正月三箇日・例大祭=別枠の重要案内(淡朱+深朱) */
+.m19-important {
+  margin-top: 1.25rem;
+  background: var(--m19-awashu);
+  border-left: 4px solid var(--m19-shu);
+  border-radius: 0 12px 12px 0;
+}
+.m19-important .accordion__summary {
+  color: var(--m19-shu);
+  font-weight: 700;
+}
+
+/* ---------- 第八章 主要案内カード ---------- */
+.m19-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.m19-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(43, 41, 38, 0.1);
+  text-decoration: none;
+  color: var(--m19-sumi);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.m19-card:hover {
+  transform: translateY(-2px); /* 静かな反応(第十四章) */
+  box-shadow: 0 8px 22px rgba(43, 41, 38, 0.12);
+}
+.m19-card__media { position: relative; }
+.m19-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.m19-card--prayer { grid-column: span 3; grid-row: span 2; background: var(--m19-tokiwa); color: #fff; }
+.m19-card--keidai { grid-column: span 3; }
+.m19-card--omamori { grid-column: span 2; }
+.m19-card--goshuin { grid-column: span 1; background: var(--m19-kinari); }
+.m19-card--events { grid-column: span 3; background: var(--m19-awashu); }
+.m19-card--access { grid-column: span 3; background: #E7E3DA; }
+.m19-card--prayer .m19-card__media { height: 240px; }
+.m19-card--keidai .m19-card__media { height: 170px; }
+.m19-card--omamori .m19-card__media { height: 150px; }
+.m19-card__body { padding: 1.1rem 1.2rem 1.15rem; flex: 1; display: flex; flex-direction: column; }
+.m19-card__title {
+  font-family: var(--font-serif, serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.m19-card--prayer .m19-card__title { font-size: 1.45rem; }
+.m19-card__desc { font-size: 0.9rem; line-height: 1.7; margin-top: 0.35rem; }
+.m19-card--prayer .m19-card__desc { color: rgba(255, 255, 255, 0.88); }
+.m19-card__link {
+  margin-top: auto;
+  padding-top: 0.7rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--m19-tokiwa);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+.m19-card--prayer .m19-card__link { color: #f0e6cf; }
+.m19-card--events .m19-card__link,
+.m19-card--goshuin .m19-card__link { color: var(--m19-shu); }
+.m19-card__link .m19-arrow { transition: transform 0.25s ease; }
+.m19-card:hover .m19-arrow { transform: translateX(3px); }
+.m19-card--goshuin .m19-icon,
+.m19-card--events .m19-icon,
+.m19-card--access .m19-icon {
+  width: 40px; height: 40px; color: var(--m19-tokiwa);
+  margin-bottom: 0.5rem;
+}
+.m19-card--goshuin .m19-icon { color: var(--m19-shu); }
+
+/* ---------- 第五章 セクションの情報分類トーン ---------- */
+.m19-tone--kinari { background: #FAF6EE; }
+.m19-tone--wakaba { background: #F1F5EF; }
+.m19-tone--awashu { background: #F8F0ED; }
+.m19-tone--ishi   { background: #F2F0EB; }
+section.m19-tone--kinari.section--alt,
+section.m19-tone--wakaba.section--alt,
+section.m19-tone--awashu.section--alt,
+section.m19-tone--ishi.section--alt { background-color: transparent; }
+.m19-tone--kinari.section--alt { background: #FAF6EE; }
+.m19-tone--wakaba.section--alt { background: #F1F5EF; }
+.m19-tone--awashu.section--alt { background: #F8F0ED; }
+.m19-tone--ishi.section--alt   { background: #F2F0EB; }
+
+/* ---------- 第十二章 余白 ---------- */
+@media (min-width: 1025px) {
+  main .section, main .visit-info { padding-top: 96px; padding-bottom: 96px; }
+}
+@media (max-width: 640px) {
+  main .section, main .visit-info { padding-top: 64px; padding-bottom: 64px; }
+}
+
+/* ---------- 第十五章 iPhone最適化+下部固定導線 ---------- */
+@media (max-width: 900px) {
+  .m19-visit-grid { grid-template-columns: 1fr; }
+  .m19-cards { grid-template-columns: 1fr 1fr; }
+  .m19-card--prayer, .m19-card--keidai,
+  .m19-card--events, .m19-card--access { grid-column: span 2; }
+  .m19-card--omamori, .m19-card--goshuin { grid-column: span 1; }
+}
+.m19-bottom-nav { display: none; }
+@media (max-width: 640px) {
+  .m19-bottom-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 60;
+    background: rgba(250, 247, 240, 0.96);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(43, 41, 38, 0.14);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .m19-bottom-nav a {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--m19-sumi);
+    text-decoration: none;
+  }
+  .m19-bottom-nav a + a { border-left: 1px solid rgba(43, 41, 38, 0.12); }
+  .m19-bottom-nav .m19-icon { width: 18px; height: 18px; color: var(--m19-tokiwa); }
+  body { padding-bottom: calc(52px + env(safe-area-inset-bottom)); }
+}
+
+/* ---------- 第十四章/第十六章 動きと配慮 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .m19-card, .m19-card .m19-arrow { transition: none; }
+  .m19-card:hover { transform: none; }
+}
+.m19-card:focus-visible {
+  outline: 3px solid var(--m19-kin);
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   MASTER-020 追記: 写真主役の最終調整
+   ========================================================== */
+/* 第二章: ヒーロー=枠を画像へ合わせる(3:2素材・本殿全体) */
+@media (min-width: 1025px) {
+  .hero { height: clamp(660px, 84vh, 940px); }
+  .hero .hero__media img { object-position: 50% 62%; }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero { height: clamp(560px, 74vh, 820px); }
+  .hero .hero__media img { object-position: 50% 60%; }
+}
+/* 第四章: カード写真の高さ・比率・角丸統一(3:2) */
+.m19-card__media { aspect-ratio: 3 / 2; height: auto !important; }
+.m19-card--omamori .m19-card__media { background: #fff; }
+.m19-card__media .m19-contain { object-fit: contain; padding: 6%; }
+/* 第七章: 境内代表写真 */
+.m19-keidai-feature { margin: 0 auto; max-width: 880px; }
+.m19-keidai-feature a { display: block; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(43,41,38,.1); }
+.m19-keidai-feature img { width: 100%; height: auto; display: block;
+  transition: transform .5s ease; }
+.m19-keidai-feature a:hover img { transform: scale(1.02); }
+.m19-keidai-feature figcaption { text-align: center; font-size: .8rem;
+  color: #5a564f; margin-top: .6rem; letter-spacing: .08em; }
+/* 第五章: ご祈願の線画 */
+.m19-rite-icon { width: 38px; height: 38px; color: var(--m19-tokiwa);
+  display: block; margin: 0 auto .5rem; }
+/* 第十章: 見出しアイコン */
+.m19-head-icon { width: 30px; height: 30px; color: var(--m19-kin);
+  display: block; margin: 0 auto .45rem; }
+.section__header--left .m19-head-icon { margin-left: 0; }
+/* 第九章: 四季カード(高さ統一) */
+.m19-seasons { display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; margin-top: 2rem; align-items: stretch; }
+.m19-season-card { background: #fff; border-radius: 16px;
+  border: 1px solid rgba(43,41,38,.1); padding: 1.4rem 1.3rem;
+  display: flex; flex-direction: column; }
+.m19-season-card--natsu { border-top: 3px solid #4a7a5e; }
+.m19-season-card--aki   { border-top: 3px solid var(--m19-shu); }
+.m19-season-card--fuyu  { border-top: 3px solid #6b7f8c; }
+.m19-season-icon { width: 40px; height: 40px; margin: 0 auto; }
+.m19-season-card--natsu .m19-season-icon { color: #4a7a5e; }
+.m19-season-card--aki   .m19-season-icon { color: var(--m19-shu); }
+.m19-season-card--fuyu  .m19-season-icon { color: #6b7f8c; }
+.m19-season-card__title { text-align: center; font-size: 1.15rem;
+  margin: .5rem 0 .75rem; letter-spacing: .3em; color: var(--m19-sumi); }
+.m19-season-card__desc { font-size: .85rem; color: #5a564f;
+  margin-top: auto; padding-top: .75rem; line-height: 1.7; }
+@media (max-width: 900px) { .m19-seasons { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .m19-keidai-feature img { transition: none; } }
