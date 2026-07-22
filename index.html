@@ -215,7 +215,7 @@
         -->
 
                 <!-- 【MASTER-045】正式Hero写真=IMG_8258(2026-07-15撮影・青空の本殿正面)。
-             原本無加工。PC=5712x3213+0+300 / iPhone=2900x3867+1406+120 の専用トリミング。
+             原本無加工。PC=5712x3808+0+330(M020: 階段・基壇まで本殿全体) / iPhone=2900x3867+1406+120。
              旧hero-main(写真⑤)はclosing-photo等で継続使用のため保持。 -->
         <picture>
           <source media="(max-width: 640px)"
@@ -224,7 +224,7 @@
           <source srcset="assets/images/hero/hero-honden.webp"
                   type="image/webp">
           <img src="assets/images/hero/hero-honden.jpg"
-               width="1600" height="900"
+               width="1600" height="1067"
                alt="青空の下に建つ溝口神社の本殿正面。注連縄と鈴、改名百五十年の幟"
                fetchpriority="high">
         </picture>
@@ -331,7 +331,7 @@
         </div>
         <div class="m19-cards">
           <a class="m19-card m19-card--prayer" href="gokitou.html">
-            <div class="m19-card__media"><img src="assets/images/shrine/prayer-scene.webp" alt="幟の立つ拝殿正面。御祈祷が執り行われる社殿" width="1600" height="1000" loading="lazy"></div>
+            <div class="m19-card__media"><img src="assets/images/home/card-gokitou.webp" alt="扉が開かれた拝殿の内部。御祈祷の参列席が整えられている" width="1200" height="800" loading="lazy"></div>
             <div class="m19-card__body">
               <p class="m19-card__title">御祈祷</p>
               <p class="m19-card__desc">安産祈願・初宮詣・七五三詣・厄除など、人生の節目の御祈祷を毎日ご奉仕しております。</p>
@@ -339,7 +339,7 @@
             </div>
           </a>
           <a class="m19-card m19-card--keidai" href="keidai-map.html">
-            <div class="m19-card__media"><img src="assets/images/shrine/keidai-tree.webp" alt="注連縄が巻かれた御神木のクスノキと境内の緑" width="1600" height="1000" loading="lazy"></div>
+            <div class="m19-card__media"><img src="assets/images/home/card-keidai.webp" alt="石畳の参道の先に社殿を望む。緑と石灯籠が続く境内" width="1200" height="800" loading="lazy"></div>
             <div class="m19-card__body">
               <p class="m19-card__title">境内案内</p>
               <p class="m19-card__desc">御神木や社殿など、境内の見どころを地図と順路つきでご覧いただけます。</p>
@@ -347,7 +347,7 @@
             </div>
           </a>
           <a class="m19-card m19-card--omamori" href="omamori.html">
-            <div class="m19-card__media"><img src="assets/images/shrine/omamori-kizuna.webp" alt="絆御守。白地に金の刺繍と紺色の紐" width="1200" height="900" loading="lazy"></div>
+            <div class="m19-card__media"><img class="m19-contain" src="assets/images/shrine/omamori-kizuna.webp" alt="絆御守の全体。白地に金の刺繍と紺色の紐" width="1200" height="900" loading="lazy"></div>
             <div class="m19-card__body">
               <p class="m19-card__title">御守り・御札</p>
               <p class="m19-card__desc">常時100種類以上を授与しております。</p>
@@ -418,6 +418,7 @@
     <section class="section section--alt m19-tone--kinari" data-block="purpose-navigation" data-block-status="published" aria-labelledby="rites-title">
       <div class="container">
         <div class="section__header">
+          <svg class="m19-icon m19-head-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8v5"/><path d="M14 25a10 10 0 0 1 20 0c0 4.5-1.6 7-1.6 7H15.6S14 29.5 14 25z"/><path d="M18 36h12"/><circle cx="24" cy="39" r="2.2"/></svg>
           <p class="m19-kicker">PRAYER</p>
           <h2 id="rites-title" class="section__title">人生の節目のご祈願</h2>
           <p class="section__lead">はじめての方もご安心ください。代表的なご祈願をご紹介します。このほかの諸願もご相談いただけます。</p>
@@ -427,31 +428,37 @@
              祈願の種類は従来の8種をすべて維持 -->
         <ol class="life-flow" role="list">
           <li class="life-flow__stage">
+            <svg class="m19-icon m19-rite-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="20" r="9"/><path d="M24 29v11"/><path d="M12 15l4 3M36 15l-4 3"/><circle cx="12" cy="14" r="2.2"/><circle cx="36" cy="14" r="2.2"/></svg>
             <span class="life-flow__label">誕生</span>
             <p class="life-flow__rites">安産祈願<br>初宮詣</p>
             <p class="life-flow__note">戌の日の安産祈願から、お子様の初めてのお参りへ</p>
           </li>
           <li class="life-flow__stage">
+            <svg class="m19-icon m19-rite-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 8h8v6l3 4v22a2 2 0 0 1-2 2H19a2 2 0 0 1-2-2V18l3-4z"/><path d="M17 26h14"/></svg>
             <span class="life-flow__label">成長</span>
             <p class="life-flow__rites">七五三詣</p>
             <p class="life-flow__note">三歳・五歳・七歳の節目に成長を感謝します</p>
           </li>
           <li class="life-flow__stage">
+            <svg class="m19-icon m19-rite-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20l14-9 14 9v14H10z"/><path d="M24 11V6"/><path d="M18 26h12M18 30h8"/></svg>
             <span class="life-flow__label">門出</span>
             <p class="life-flow__rites">合格祈願<br>交通安全</p>
             <p class="life-flow__note">受験や新生活、お車のお祓いなど新しい一歩に</p>
           </li>
           <li class="life-flow__stage">
+            <svg class="m19-icon m19-rite-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M38 10L14 34"/><path d="M38 10h-8M38 10v8"/><path d="M14 34l-5 2 3-6"/><path d="M20 28l4 4"/></svg>
             <span class="life-flow__label">厄年</span>
             <p class="life-flow__rites">厄除</p>
             <p class="life-flow__note">厄年のお祓いを受け、一年の平安を祈ります</p>
           </li>
           <li class="life-flow__stage">
+            <svg class="m19-icon m19-rite-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24L24 10l16 14"/><path d="M13 22v16h22V22"/><path d="M21 38v-8h6v8"/></svg>
             <span class="life-flow__label">家族</span>
             <p class="life-flow__rites">家内安全</p>
             <p class="life-flow__note">ご家族の健康と暮らしの平安を祈ります</p>
           </li>
           <li class="life-flow__stage">
+            <svg class="m19-icon m19-rite-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="12" width="20" height="12" rx="3"/><path d="M30 18h4"/><path d="M22 24l8 14"/><path d="M20 8v4"/></svg>
             <span class="life-flow__label">仕事</span>
             <p class="life-flow__rites">商売繁盛</p>
             <p class="life-flow__note">事業の発展と繁栄を祈ります</p>
@@ -467,6 +474,7 @@
     <section id="prayer" class="section section--alt m19-tone--kinari" data-block="prayer" data-block-status="published" aria-labelledby="prayer-title">
       <div class="container">
         <div class="section__header">
+          <svg class="m19-icon m19-head-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 8v5"/><path d="M14 25a10 10 0 0 1 20 0c0 4.5-1.6 7-1.6 7H15.6S14 29.5 14 25z"/><path d="M18 36h12"/><circle cx="24" cy="39" r="2.2"/></svg>
           <p class="m19-kicker">RECEPTION</p>
           <h2 id="prayer-title" class="section__title">御祈祷のご案内</h2>
           <p class="section__lead">安産祈願、初宮詣、七五三詣、厄除など、人生の節目の御祈祷を毎日ご奉仕しております。</p>
@@ -538,6 +546,7 @@
     <section class="section" data-block="amulets" data-block-status="published" aria-labelledby="omamori-title">
       <div class="container">
         <div class="section__header">
+          <svg class="m19-icon m19-head-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 16l6-9 6 9"/><rect x="15" y="16" width="18" height="24" rx="7"/><path d="M21 26h6M24 23v6"/></svg>
           <p class="m19-kicker">OMAMORI</p>
           <h2 id="omamori-title" class="section__title">授与品・御守り</h2>
           <p class="section__lead">溝口神社では、常時100種類以上の御守・御札を授与しております。授与所の対応時間は午前9時〜午後5時です。</p>
@@ -587,30 +596,18 @@
     <section class="section m19-tone--wakaba" data-block="precincts" data-block-status="published" aria-labelledby="precincts-title">
       <div class="container">
         <div class="section__header">
+          <svg class="m19-icon m19-head-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12c12 4.2 24 4.2 36 0"/><path d="M10 21h28"/><path d="M13.5 13.6V40M34.5 13.6V40"/><path d="M24 13.9V21"/></svg>
           <p class="m19-kicker">PRECINCTS</p>
           <h2 id="precincts-title" class="section__title">境内のご案内</h2>
-          <p class="section__lead">境内の全体は、こちらの境内案内図でご覧いただけます。</p>
+          <p class="section__lead">御神木の緑に包まれた境内を、地図と順路つきでご案内します。</p>
         </div>
         <!-- 【M047①】正式版境内案内図をトップの主役として掲載(タップで順路つき案内へ) -->
-        <figure style="margin:0 auto;max-width:640px;">
-          <a href="keidai-map.html" aria-label="境内案内図を開く(順路つきのご案内へ)" style="display:block;background:#fff;border:1px solid var(--color-border);border-radius:14px;padding:14px;">
-            <svg viewBox="0 0 100 104" role="img" aria-labelledby="top-map-t top-map-d">
-          <title id="top-map-t">溝口神社 境内図(順路つき)</title>
-          <desc id="top-map-d">南の入口から大鳥居、神橋を渡って参道を北へ進むと本殿と拝殿。参道の東(右手)に手水舎と絵馬掛け、西(左手)に社務所。北側に長寿ケヤキ・垂乳根・親楠、北西に稲荷社、北東に小楠、東側に駐車場があります。順路は1番から27番まで続きます。</desc>
-          <rect x="4" y="2" width="92" height="98" rx="3" fill="#fff" stroke="#c9c6ba"/>
-          <polyline style="fill:none;stroke:#1f4633;stroke-width:1.1;opacity:.85;stroke-dasharray:2.5 2" points="50,95 50,88 63,84 34,82 60,78 44,74 50,70 50,52 64,56 50,24 43,30 50,34 60,28 26,64 18,52 32,40 16,26 12,12 24,20 54,16 46,9 58,12 82,12 80,55 80,28 66,36 66,46"/>
-          <rect x="46" y="40" width="8" height="56" fill="#f0eee6" opacity=".7"/>
-          <rect x="38" y="20" width="24" height="20" rx="1.5" fill="#e9e5d9" stroke="#a89f88" stroke-width=".8"/>
-          <rect x="10" y="44" width="16" height="16" rx="1.5" fill="#eeece2" stroke="#b9b3a0" stroke-width=".7"/>
-          <rect x="72" y="48" width="18" height="14" rx="1" fill="#f3f2ec" stroke="#c2beb0" stroke-width=".6"/>
-          
-          <text x="50" y="102.5" text-anchor="middle" font-size="3.2" fill="#6a675e">↓ 入口(府中街道)側</text>
-          <text x="50" y="32" text-anchor="middle" font-size="3.4" fill="#4a4437">社殿(本殿・拝殿)</text>
-          <text x="18" y="53" text-anchor="middle" font-size="3" fill="#4a4437">社務所</text>
-          <text x="81" y="56" text-anchor="middle" font-size="3" fill="#4a4437">駐車場</text>
-        </svg>
+        <!-- 【M020第七章】抽象図はトップ廃止(正式境内図はkeidai-map.htmlで使用)。代表写真=IMG8271(御神木と社殿) -->
+        <figure class="m19-keidai-feature">
+          <a href="keidai-map.html" aria-label="境内案内(地図と順路つき)を開く">
+            <img src="assets/images/home/keidai-feature.webp" alt="大きく枝を広げる御神木と社殿。木漏れ日の境内" width="1600" height="1000" loading="lazy">
           </a>
-          <figcaption style="text-align:center;font-size:0.8rem;color:var(--color-text-subtle);margin-top:0.6rem;letter-spacing:0.08em;">図を選ぶと、順路と写真つきの境内案内が開きます</figcaption>
+          <figcaption>写真を選ぶと、地図と順路つきの境内案内が開きます</figcaption>
         </figure>
         <p style="margin-top:1.5rem;text-align:center;">
           <a class="button button--primary" href="keidai-map.html">境内案内を見る</a>
@@ -620,6 +617,7 @@
     <section id="annual-events" class="section section--alt m19-tone--awashu" data-block="annual-events" data-block-status="published" aria-labelledby="events-title">
       <div class="container">
         <div class="section__header">
+          <svg class="m19-icon m19-head-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 10h10M19 38h10"/><ellipse cx="24" cy="24" rx="9.5" ry="11.5"/><path d="M15 19.5h18M14.6 24h18.8M15 28.5h18"/><path d="M24 10v-3"/></svg>
           <p class="m19-kicker">EVENTS</p>
           <h2 id="events-title" class="section__title">年間行事</h2>
           <p class="section__lead">四季を通じて、様々なお祭りが斎行されます。開催日は年により変わるものがあります。最新の日程は年間行事ページ・お知らせをご確認ください。</p>
@@ -629,28 +627,36 @@
         <!-- 掲載は実際に行われる祭典のみ（MIZONO-HP-FINAL-QA-001②）。
              春季祖霊祭・宵宮祭・秋季祖霊祭・新嘗祭は現在実施していないため
              非掲載（旧サイトには記載あり。gyouji.html再構築時も反映のこと） -->
-        <div class="events-seasons">
-          <div class="events-season events-season--now">
-            <h3 class="events-season__title">夏</h3>
+        <!-- 【M020第八・九章】四季カード化。各行事の専用写真が台帳に無いため、
+             別行事写真の流用はせず(第八章)、季節の和風線画で統一。行事11件の情報は完全維持 -->
+        <div class="m19-seasons">
+          <div class="m19-season-card m19-season-card--natsu">
+            <div class="m19-season-card__art"><svg class="m19-icon m19-season-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="22" r="11"/><circle cx="24" cy="22" r="11" stroke-dasharray="2.4 3.4"/><path d="M13 40h22M17 33v7M31 33v7"/></svg></div>
+            <h3 class="m19-season-card__title">夏</h3>
             <ul class="events-list" role="list">
               <li class="event-item"><span class="event-item__month">6月</span><span class="event-item__name">夏越の大祓<span class="event-item__note">6月30日</span></span></li>
             </ul>
+            <p class="m19-season-card__desc">茅の輪をくぐり、半年の罪穢れを祓います。</p>
           </div>
-          <div class="events-season">
-            <h3 class="events-season__title">秋</h3>
+          <div class="m19-season-card m19-season-card--aki">
+            <div class="m19-season-card__art"><svg class="m19-icon m19-season-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 10h10M19 38h10"/><ellipse cx="24" cy="24" rx="9.5" ry="11.5"/><path d="M15 19.5h18M14.6 24h18.8M15 28.5h18"/><path d="M24 10v-3"/></svg></div>
+            <h3 class="m19-season-card__title">秋</h3>
             <ul class="events-list" role="list">
               <li class="event-item"><span class="event-item__month">9月</span><span class="event-item__name">例祭<span class="event-item__note">9月15日に近い日曜日</span></span></li>
               <li class="event-item"><span class="event-item__month">9〜12月</span><span class="event-item__name">七五三詣<span class="event-item__note">予約制</span></span></li>
               <li class="event-item"><span class="event-item__month">11月</span><span class="event-item__name">酉の市<span class="event-item__note">11月中の酉の日</span></span></li>
             </ul>
+            <p class="m19-season-card__desc">一年で最も賑わう、実りと感謝の季節です。</p>
           </div>
-          <div class="events-season">
-            <h3 class="events-season__title">冬</h3>
+          <div class="m19-season-card m19-season-card--fuyu">
+            <div class="m19-season-card__art"><svg class="m19-icon m19-season-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 10v28M12 17l24 14M36 17L12 31"/><circle cx="24" cy="24" r="5"/></svg></div>
+            <h3 class="m19-season-card__title">冬</h3>
             <ul class="events-list" role="list">
               <li class="event-item"><span class="event-item__month">12月</span><span class="event-item__name">年越の大祓</span></li>
               <li class="event-item"><span class="event-item__month">1月</span><span class="event-item__name">元旦祭</span></li>
               <li class="event-item"><span class="event-item__month">2月</span><span class="event-item__name">節分祭<span class="event-item__note">式典・豆まき</span></span></li>
             </ul>
+            <p class="m19-season-card__desc">年送りと年迎え。新しい一年の平安を祈ります。</p>
           </div>
         </div>
 
@@ -744,6 +750,7 @@
     <section id="access" class="section section--alt m19-tone--ishi" data-block="access" data-block-status="published" aria-labelledby="access-title">
       <div class="container">
         <div class="section__header">
+          <svg class="m19-icon m19-head-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 41c8-8.5 12-14.6 12-20a12 12 0 1 0-24 0c0 5.4 4 11.5 12 20z"/><circle cx="24" cy="20" r="4.5"/></svg>
           <p class="m19-kicker">ACCESS</p>
           <h2 id="access-title" class="section__title">アクセス</h2>
         </div>
@@ -812,6 +819,7 @@
     <section class="section m19-tone--kinari" data-block="guide-teaser" data-block-status="published" aria-labelledby="guide-teaser-title">
       <div class="container">
         <div class="section__header">
+          <svg class="m19-icon m19-head-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h30v20H24l-8 7v-7H9z"/><path d="M20 21c0-4.5 8-4.5 8 0 0 2.8-4 2.5-4 5.5"/><path d="M24 30v.5"/></svg>
           <p class="m19-kicker">FAQ</p>
           <h2 id="guide-teaser-title" class="section__title">初めての方へ — 神社の質問箱</h2>
           <p class="section__lead">お参りやご祈祷の「これで合ってる？」に、神社ガイドでお答えします。</p>
