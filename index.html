@@ -177,98 +177,48 @@
 
   <main id="main">
 
-    <section class="hero" data-block="hero" data-block-status="published" aria-label="溝口神社のご紹介">
-      <div class="hero__media">
-        <!-- ==================================================
-             【Phase2-2】正式ヒーロー画像（写真⑤：社殿正面アップ）
-             元画像：assets/images/hero/hero-main-original.heic
-             （IMG_0243.HEIC。保管用につき削除しないこと）
-             Web用3点はEXIF除去済み：
-               hero-main.webp        PC用 1600x900
-               hero-main-mobile.webp スマホ用 828x1104
-               hero-main.jpg         WebP非対応環境用の予備
-             トリミング（原寸3024x4032から）：
-               PC   crop 3024x1701+0+574（唐破風の飾り〜注連縄）
-               スマホ crop 1745x2326+639+388（社殿正面中央）
-               参拝者は両クロップとも範囲外（文字・ボタンを
-               人物に重ねないため）
-             再生成コマンドは docs/AMAGI_OPERATION_GUIDE.md 9-2節。
-             ================================================== -->
-        <!-- 【7月・kuminsaiテーマ用ヒーロー（仮組み込み・裁可待ち）】
+    <section class="hero-m022" data-block="hero" data-block-status="published" aria-label="溝口神社のご紹介" data-build="M022-HERO-B">
+      <!-- 【MASTER-022第二章・比較案B採用】写真は一切隠さない(帯・オーバーレイなし)。
+           文字・ボタンは写真下の常磐色エリアへ配置。
+           写真=IMG_8258(2026-07-15撮影) 3:2トリミング 5712x3808+0+330
+           (石段・基壇〜屋根全体・左右の木々と空まで本殿全景)。EXIF除去・原本無加工。
+           旧ヒーロー構造はバックアップ(homepage-site-backup-20260722-M021前/index-M022前.html)参照 -->
+      <picture>
+        <source type="image/webp"
+                srcset="assets/images/hero/hero-honden-960.webp 960w, assets/images/hero/hero-honden.webp 1920w"
+                sizes="100vw">
+        <img src="assets/images/hero/hero-honden.jpg" width="1600" height="1067"
+             alt="青空の下、石段から屋根まで一望できる溝口神社の本殿全景。注連縄と改名百五十年の幟"
+             fetchpriority="high" style="width:100%;height:auto;display:block;">
+      </picture>
+      <div style="background:#234638;color:#fff;text-align:center;padding:30px 20px 38px;">
+        <h1 style="font-family:var(--font-serif,'Hiragino Mincho ProN',serif);font-size:clamp(2rem,4.5vw,3.25rem);letter-spacing:0.2em;margin:0;font-weight:600;">溝口神社</h1>
+        <p style="margin:0.5em 0 0;font-size:0.875rem;letter-spacing:0.3em;color:#d9cfae;">川崎の祈願所</p>
+        <p style="margin:0.9em 0 0;font-size:clamp(1rem,2vw,1.2rem);letter-spacing:0.14em;">人生の節目に、祈りを。</p>
+        <p style="margin:0.4em 0 0;font-size:0.9rem;color:rgba(255,255,255,0.82);letter-spacing:0.08em;">地域とともに歩む、溝口の氏神さま。</p>
+        <div style="margin-top:1.4em;display:flex;gap:0.8em;justify-content:center;flex-wrap:wrap;">
+          <a href="#prayer" style="background:#fff;color:#234638;border:1px solid #B79A5B;border-radius:999px;padding:0.85em 2em;font-weight:700;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;">御祈祷のご案内</a>
+          <a href="access.html" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.75);border-radius:999px;padding:0.85em 2em;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;">アクセス</a>
+        </div>
+        <p style="margin:1.1em 0 0;"><a href="#visit-info" style="color:rgba(255,255,255,0.85);font-size:0.8125rem;text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;">参拝のご案内へ</a></p>
+      </div>
+      <!-- 【7月・kuminsaiテーマ用ヒーロー（仮組み込み・裁可待ち）】
              IMG_2894：広場に集う神輿と緑法被の人々、大樹と夏空。
              掲載権限・写り込み確認前のため一般公開不可。
              ▼テーマをdefaultへ戻す時は、このpictureを下の
                コメント内の通常ヒーローと差し替えること。 -->
-        <!-- 【kuminsaiテーマ用ヒーロー(季節保管・M040で通常へ復帰)】
-<picture>
-          <source media="(max-width: 640px)"
-                  srcset="assets/images/seasonal/kuminsai/hero-kuminsai-mobile.webp"
-                  width="828" height="1104" type="image/webp">
-          <source srcset="assets/images/seasonal/kuminsai/hero-kuminsai.webp"
-                  type="image/webp">
-          <!–- ファーストビュー画像のため遅延読み込みはしない –->
-          <img src="assets/images/seasonal/kuminsai/hero-kuminsai.jpg"
-               width="1600" height="1200"
-               alt="高津区民祭で広場に集う神輿と緑の法被の担ぎ手たち。夏空と大樹"
-               fetchpriority="high">
-        </picture>
-        -->
-
-                <!-- 【MASTER-045】正式Hero写真=IMG_8258(2026-07-15撮影・青空の本殿正面)。
-             原本無加工。PC=5712x3213+0+300 / iPhone=2900x3867+1406+120 の専用トリミング。
-             旧hero-main(写真⑤)はclosing-photo等で継続使用のため保持。 -->
-        <picture>
-          <source media="(max-width: 640px)"
-                  srcset="assets/images/hero/hero-honden-mobile.webp"
-                  width="900" height="1200" type="image/webp">
-          <source srcset="assets/images/hero/hero-honden.webp"
-                  type="image/webp">
-          <img src="assets/images/hero/hero-honden.jpg"
-               width="1600" height="900"
-               alt="青空の下に建つ溝口神社の本殿正面。注連縄と鈴、改名百五十年の幟"
-               fetchpriority="high">
-        </picture>
-      </div>
-      <div class="hero__body">
-        <div class="container hero__inner">
-          <h1 class="hero__title">溝口神社</h1>
-
-          <!-- 通常テーマ：ブランドコピー（MIZONO-HP-MASTER-016 Mission2）
-               「川崎の祈願所」は境内の幟・掲示に実在する呼称。
-               サブは仮採用。候補：人生の節目に、祈りを。／地域とともに歩む、溝口の氏神。／
-               皆様の願いを、未来へ繋ぐ。／祈りのある暮らしを、いつまでも。 -->
-          <!-- 通常サブタイトル：天城第一推奨案を採用（MASTER-021 ■6） -->
-          <div class="theme-hide--kuminsai">
-            <p class="hero__kicker">川崎の祈願所</p>
-            <p class="hero__copy">人生の節目に、祈りを。</p>
-            <p class="hero__sub">地域とともに歩む、溝口の氏神さま。</p>
-          </div>
-
-          <!-- 7月・高津区民祭テーマの季節見出し（仮文言：北条言葉検分隊の検分待ち）
-               data-theme="kuminsai" のときだけ表示される -->
-          <!-- 【季節保管(kuminsai)・M040でコメント退避。テーマ再開時に有効化】
+      <!-- 【季節保管(kuminsai)・M040でコメント退避。テーマ再開時に有効化】
 <div class="theme-only--kuminsai">
             <p class="hero__copy">高津の夏、神輿がつなぐ。</p>
             <p class="hero__sub">地域とともに受け継がれる、祈りと祭りの一日。</p>
           </div>
           -->
-
-          <!-- 主ボタン1つ＋控えめな副リンク（■5 第一推奨）。
-               夏テーマも導線は通常の神社案内のみ（区民祭の案内はしない） -->
-          <!-- 主ボタン=御祈祷／副導線=年間行事（MASTER-021 ■8） -->
-          <div class="hero__actions theme-hide--kuminsai">
-            <a class="button button--primary" href="#prayer">御祈祷のご案内</a>
-            <a class="button button--ghost" href="access.html">アクセス</a>
-          </div>
-          <p class="theme-hide--kuminsai" style="margin-top:0.9rem;"><a href="#visit-info" style="color:rgba(255,255,255,.88);font-size:0.8125rem;text-decoration:underline;text-underline-offset:3px;min-height:44px;display:inline-flex;align-items:center;">参拝のご案内へ</a></p>
-          <!-- 【季節保管(kuminsai)CTA・M040でコメント退避】
+      <!-- 【季節保管(kuminsai)CTA・M040でコメント退避】
 <div class="hero__actions theme-only--kuminsai">
             <a class="button button--primary" href="#prayer">御祈祷のご案内</a>
             <a class="button button--ghost" href="#annual-events">年間行事を見る</a>
           </div>
           -->
-        </div>
-      </div>
     </section>
     <section id="visit-info" class="visit-info" data-block="worship-guide" data-block-status="published" aria-labelledby="visit-info-title">
       <div class="container">
@@ -331,7 +281,7 @@
         </div>
         <div class="m19-cards">
           <a class="m19-card m19-card--prayer" href="gokitou.html">
-            <div class="m19-card__media"><img src="assets/images/shrine/prayer-scene.webp" alt="幟の立つ拝殿正面。御祈祷が執り行われる社殿" width="1600" height="1000" loading="lazy"></div>
+            <div class="m19-card__media" style="height:auto;"><img src="assets/images/shrine/card-honden-open.webp" alt="扉が開かれた社殿の正面。提灯と注連縄が迎える" width="900" height="675" loading="lazy" style="height:auto;"></div>
             <div class="m19-card__body">
               <p class="m19-card__title">御祈祷</p>
               <p class="m19-card__desc">安産祈願・初宮詣・七五三詣・厄除など、人生の節目の御祈祷を毎日ご奉仕しております。</p>
@@ -339,7 +289,7 @@
             </div>
           </a>
           <a class="m19-card m19-card--keidai" href="keidai-map.html">
-            <div class="m19-card__media"><img src="assets/images/shrine/keidai-tree.webp" alt="注連縄が巻かれた御神木のクスノキと境内の緑" width="1600" height="1000" loading="lazy"></div>
+            <div class="m19-card__media" style="height:auto;"><img src="assets/images/shrine/card-oyakusu.webp" alt="注連縄と説明板とともに立つ御神木・親楠の全景" width="1000" height="1333" loading="lazy" style="height:auto;"></div>
             <div class="m19-card__body">
               <p class="m19-card__title">境内案内</p>
               <p class="m19-card__desc">御神木や社殿など、境内の見どころを地図と順路つきでご覧いただけます。</p>
@@ -347,7 +297,7 @@
             </div>
           </a>
           <a class="m19-card m19-card--omamori" href="omamori.html">
-            <div class="m19-card__media"><img src="assets/images/shrine/omamori-kizuna.webp" alt="絆御守。白地に金の刺繍と紺色の紐" width="1200" height="900" loading="lazy"></div>
+            <div class="m19-card__media" style="height:auto;background:#fff;"><img src="assets/images/shrine/omamori-kizuna.webp" alt="絆御守の全体。白地に金の刺繍と紺色の紐" width="1200" height="900" loading="lazy" style="height:auto;"></div>
             <div class="m19-card__body">
               <p class="m19-card__title">御守り・御札</p>
               <p class="m19-card__desc">常時100種類以上を授与しております。</p>
