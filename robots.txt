@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.mizonokuchijinjya.org/sitemap.xml
+Sitemap: https://mizonokuchijinjya.jp/sitemap.xml

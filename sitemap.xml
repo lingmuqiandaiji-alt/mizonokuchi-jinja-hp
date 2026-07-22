@@ -5,46 +5,46 @@
      公開時にドメイン・lastmodを最終確認すること。 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.mizonokuchijinjya.org/</loc>
+    <loc>https://mizonokuchijinjya.jp/</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.mizonokuchijinjya.org/gosaijin.html</loc>
+    <loc>https://mizonokuchijinjya.jp/gosaijin.html</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.mizonokuchijinjya.org/guide.html</loc>
+    <loc>https://mizonokuchijinjya.jp/guide.html</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.mizonokuchijinjya.org/anzan.html</loc>
+    <loc>https://mizonokuchijinjya.jp/anzan.html</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.mizonokuchijinjya.org/yakuyoke.html</loc>
+    <loc>https://mizonokuchijinjya.jp/yakuyoke.html</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.mizonokuchijinjya.org/150.html</loc>
+    <loc>https://mizonokuchijinjya.jp/150.html</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url><loc>https://www.mizonokuchijinjya.org/gokitou.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.mizonokuchijinjya.org/omamori.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.mizonokuchijinjya.org/gyouji.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.mizonokuchijinjya.org/keidai.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.mizonokuchijinjya.org/kenmu.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.mizonokuchijinjya.org/access.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.mizonokuchijinjya.org/keidai-map.html</loc></url>
+  <url><loc>https://mizonokuchijinjya.jp/gokitou.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mizonokuchijinjya.jp/omamori.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mizonokuchijinjya.jp/gyouji.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mizonokuchijinjya.jp/keidai.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mizonokuchijinjya.jp/kenmu.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mizonokuchijinjya.jp/access.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mizonokuchijinjya.jp/keidai-map.html</loc></url>
 </urlset>
