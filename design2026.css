@@ -1,0 +1,64 @@
+/* ============================================================
+   溝口神社 デザインシステム2026 試作(MASTER-041 PHASE2)
+   既存CSSの後に読み込み、トークン層のみを上書きする。
+   正式裁可後に variables.css へ統合予定(既存情報は不変更)。
+   ============================================================ */
+:root{
+  /* ■6 配色トークン(既存名へ写像) */
+  --color-ink:#1E1D1A;
+  --color-background:#FAFAF7;
+  --color-surface:#FFFFFF;
+  --color-surface-soft:#F3F2EC;
+  --color-text:#2D2B27;
+  --color-text-subtle:#66635C;
+  --color-primary:#1F4633;
+  --color-primary-deep:#173627;
+  --color-primary-soft:#E8EFEA;
+  --color-on-primary:#F7F6F1;
+  --color-accent:#A54432;
+  --color-gold-subtle:#A8894F;
+  --color-gold-soft:#F3EEE3;
+  --color-border:#DDDAD1;
+  --color-focus:#0B62A4;
+  /* ■3 三層フォント */
+  --font-gyosho:"Yuji Syuku","Yu Mincho","Hiragino Mincho ProN",serif;
+  --font-heading:"Yu Mincho","YuMincho","Hiragino Mincho ProN","Hiragino Mincho Pro",serif;
+  --font-body:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Meiryo",sans-serif;
+  --font-latin:system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  /* ■5/■7 体系 */
+  --fs-body:clamp(16px,1.06rem,18px);
+  --lh-body:1.9;
+  --radius-btn:12px;
+  --btn-h:48px;
+  --width-content:72rem;
+  --width-prose:46rem;
+}
+body{font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);background:var(--color-background);color:var(--color-text)}
+/* 見出し: 明朝(第二層) */
+h1,h2,h3,.section__title,.hero__title{font-family:var(--font-heading)}
+.hero__title{font-family:var(--font-gyosho);letter-spacing:.18em;font-weight:600;font-size:clamp(2.6rem,5vw,5rem)}
+@media(max-width:640px){.hero__title{font-size:clamp(2.2rem,10vw,3.2rem)}}
+.section__title{font-size:clamp(1.5rem,2.2vw,2.25rem);line-height:1.45;letter-spacing:.1em}
+.hero__kicker{font-family:var(--font-heading);letter-spacing:.42em}
+.hero__copy{font-family:var(--font-heading);font-size:clamp(1.15rem,2.4vw,1.5rem)}
+.hero__sub{font-size:clamp(.95rem,2vw,1.06rem)}
+/* ■7 余白体系 */
+.section{padding-block:clamp(6rem,10vw,9rem)}
+.section__header{margin-bottom:clamp(1.6rem,3vw,2rem)}
+.prose,.about__text{max-width:var(--width-prose)}
+/* ■10 ボタン体系 */
+.button{min-height:var(--btn-h);border-radius:var(--radius-btn);font-family:var(--font-body);font-size:1.03rem;letter-spacing:.08em;box-shadow:none}
+.button--primary{background:var(--color-primary);color:#fff;border:1px solid var(--color-primary)}
+.button--primary:hover{background:var(--color-primary-deep)}
+.button--secondary{background:#fff;color:var(--color-primary);border:1.5px solid var(--color-primary)}
+.button--ghost{border-radius:var(--radius-btn)}
+a:focus-visible,button:focus-visible,.button:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+/* ■11 カード: 薄い枠・小さな影なし */
+.accordion,.visit-info__item,.event-item,.guide-toc a{border-radius:14px}
+/* ■9 ヘッダー */
+.site-header__name{font-family:var(--font-gyosho);letter-spacing:.12em}
+.site-header__tagline{font-family:var(--font-body)}
+/* ■19 フッター下余白(Safariバー対策) */
+.site-footer{padding-bottom:calc(3rem + env(safe-area-inset-bottom))}
+/* 200%拡大・reduced-motion配慮 */
+@media (prefers-reduced-motion: reduce){*{transition-duration:.01ms !important;animation-duration:.01ms !important}}
