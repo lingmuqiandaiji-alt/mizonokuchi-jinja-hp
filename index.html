@@ -385,7 +385,8 @@
          中：静かな祈り（御祈祷・拝殿写真を予定）
          右：境内の光（御神木・大鳥居写真を予定）
          ======================================================== -->
-    <section class="section" data-block="photo-story" data-block-status="published" aria-labelledby="photo-story-title">
+    <!-- 【M046修正①】photo-story(祭礼の熱気/静かな祈り/御神木)はトップから廃止。写真は各詳細ページで活用。復元用に保管:
+<section class="section" data-block="photo-story" data-block-status="published" aria-labelledby="photo-story-title">
       <div class="container">
         <div class="section__header">
           <h2 id="photo-story-title" class="section__title">写真で伝える、いまの溝口神社</h2>
@@ -394,14 +395,14 @@
 
         <div class="photo-story">
           <figure class="photo-story__item">
-            <!-- IMG_2842（区民祭）。掲載権限・写り込み確認前＝公開不可 -->
+            <!— IMG_2842（区民祭）。掲載権限・写り込み確認前＝公開不可 —>
             <img src="assets/images/seasonal/kuminsai/mikoshi-story.webp"
                  width="1200" height="900" loading="lazy"
                  alt="夕方の光の中、諏訪の神輿を担ぐ緑の法被の人々">
             <figcaption>受け継がれる祭礼の熱気</figcaption>
           </figure>
           <figure class="photo-story__item">
-            <!-- IMG_8067（拝殿正面の静かな境内）。神社側提供素材 -->
+            <!— IMG_8067（拝殿正面の静かな境内）。神社側提供素材 —>
             <img src="assets/images/shrine/prayer-scene.webp"
                  width="1200" height="840" loading="lazy"
                  alt="幟の立つ拝殿正面の静かな境内">
@@ -416,6 +417,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <!-- ========================================================
          10-8. 人生儀礼・願意案内
@@ -612,9 +614,10 @@
 
         <!-- 代表授与品を大きく見せる非対称構成（AMAGI-PC-DESIGN-002 第10章）
              掲載5品はすべて維持 -->
-        <div class="omamori-feature">
+        <!-- 【M046修正②】授与品の写真・説明一覧はトップから削除(詳細はomamori.htmlへ)。保管:
+<div class="omamori-feature">
           <figure class="omamori-feature__media">
-            <!-- IMG_7979（授与品写真より）。神社側提供素材 -->
+            <!— IMG_7979（授与品写真より）。神社側提供素材 —>
             <img src="assets/images/shrine/omamori-kizuna.webp"
                  width="1200" height="900" loading="lazy"
                  alt="絆御守。白地に金の刺繍と紺色の紐">
@@ -643,9 +646,10 @@
             </dl>
           </div>
         </div>
+        -->
 
         <p style="margin-top: 1.5rem;">
-          <a class="button button--secondary" href="omamori.html">授与品・御守りを詳しく見る</a>
+          <a class="button button--secondary" href="omamori.html">授与品・御守りを見る</a>
         </p>
       </div>
     </section>
@@ -688,13 +692,17 @@
       <div class="container">
         <div class="section__header">
           <h2 id="precincts-title" class="section__title">境内のご案内</h2>
-          <p class="section__lead">御神木の長寿ケヤキや親子楠をはじめ、境内には見どころが数多くございます。</p>
+          <p class="section__lead">境内の見どころは、地図と順路つきの境内案内図でご覧いただけます。</p>
         </div>
 
-        <div class="precincts">
+        <p style="margin-top:0.5rem;">
+          <a class="button button--primary" href="keidai-map.html">境内案内図を見る</a>
+        </p>
+        <!-- 【M046修正③④】御神木写真・12番号一覧はトップから廃止(番号は境内案内図の順路番号へ一本化)。保管:
+<div class="precincts">
           <div class="precincts__media">
-            <!-- 実写真（IMG_8083・御神木のクスノキ）。
-                 権利：神社側提供素材。掲載最終確認は天城さん -->
+            <!— 実写真（IMG_8083・御神木のクスノキ）。
+                 権利：神社側提供素材。掲載最終確認は天城さん —>
             <img src="assets/images/shrine/keidai-tree.webp"
                  width="1200" height="900" loading="lazy"
                  alt="注連縄が巻かれた溝口神社の御神木のクスノキ">
@@ -715,11 +723,12 @@
               <li>大鳥居</li>
             </ol>
             <p style="margin-top: 1.5rem;">
-              <a class="button button--secondary" href="keidai.html">境内案内図を見る</a>
+              <a class="button button—secondary" href="keidai.html">境内案内図を見る</a>
             </p>
           </div>
         </div>
       </div>
+        -->
     </section>
 
     <!-- ========================================================
