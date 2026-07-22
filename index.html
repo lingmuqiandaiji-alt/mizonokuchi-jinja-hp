@@ -692,43 +692,33 @@
       <div class="container">
         <div class="section__header">
           <h2 id="precincts-title" class="section__title">境内のご案内</h2>
-          <p class="section__lead">境内の見どころは、地図と順路つきの境内案内図でご覧いただけます。</p>
+          <p class="section__lead">境内の全体は、こちらの境内案内図でご覧いただけます。</p>
         </div>
-
-        <p style="margin-top:0.5rem;">
-          <a class="button button--primary" href="keidai-map.html">境内案内図を見る</a>
+        <!-- 【M047①】正式版境内案内図をトップの主役として掲載(タップで順路つき案内へ) -->
+        <figure style="margin:0 auto;max-width:640px;">
+          <a href="keidai-map.html" aria-label="境内案内図を開く(順路つきのご案内へ)" style="display:block;background:#fff;border:1px solid var(--color-border);border-radius:14px;padding:14px;">
+            <svg viewBox="0 0 100 104" role="img" aria-labelledby="top-map-t top-map-d">
+          <title id="top-map-t">溝口神社 境内図(順路つき)</title>
+          <desc id="top-map-d">南の入口から大鳥居、神橋を渡って参道を北へ進むと本殿と拝殿。参道の東(右手)に手水舎と絵馬掛け、西(左手)に社務所。北側に長寿ケヤキ・垂乳根・親楠、北西に稲荷社、北東に小楠、東側に駐車場があります。順路は1番から27番まで続きます。</desc>
+          <rect x="4" y="2" width="92" height="98" rx="3" fill="#fff" stroke="#c9c6ba"/>
+          <polyline style="fill:none;stroke:#1f4633;stroke-width:1.1;opacity:.85;stroke-dasharray:2.5 2" points="50,95 50,88 63,84 34,82 60,78 44,74 50,70 50,52 64,56 50,24 43,30 50,34 60,28 26,64 18,52 32,40 16,26 12,12 24,20 54,16 46,9 58,12 82,12 80,55 80,28 66,36 66,46"/>
+          <rect x="46" y="40" width="8" height="56" fill="#f0eee6" opacity=".7"/>
+          <rect x="38" y="20" width="24" height="20" rx="1.5" fill="#e9e5d9" stroke="#a89f88" stroke-width=".8"/>
+          <rect x="10" y="44" width="16" height="16" rx="1.5" fill="#eeece2" stroke="#b9b3a0" stroke-width=".7"/>
+          <rect x="72" y="48" width="18" height="14" rx="1" fill="#f3f2ec" stroke="#c2beb0" stroke-width=".6"/>
+          
+          <text x="50" y="102.5" text-anchor="middle" font-size="3.2" fill="#6a675e">↓ 入口(府中街道)側</text>
+          <text x="50" y="32" text-anchor="middle" font-size="3.4" fill="#4a4437">社殿(本殿・拝殿)</text>
+          <text x="18" y="53" text-anchor="middle" font-size="3" fill="#4a4437">社務所</text>
+          <text x="81" y="56" text-anchor="middle" font-size="3" fill="#4a4437">駐車場</text>
+        </svg>
+          </a>
+          <figcaption style="text-align:center;font-size:0.8rem;color:var(--color-text-subtle);margin-top:0.6rem;letter-spacing:0.08em;">図を選ぶと、順路と写真つきの境内案内が開きます</figcaption>
+        </figure>
+        <p style="margin-top:1.5rem;text-align:center;">
+          <a class="button button--primary" href="keidai-map.html">境内案内を見る</a>
         </p>
-        <!-- 【M046修正③④】御神木写真・12番号一覧はトップから廃止(番号は境内案内図の順路番号へ一本化)。保管:
-<div class="precincts">
-          <div class="precincts__media">
-            <!— 実写真（IMG_8083・御神木のクスノキ）。
-                 権利：神社側提供素材。掲載最終確認は天城さん —>
-            <img src="assets/images/shrine/keidai-tree.webp"
-                 width="1200" height="900" loading="lazy"
-                 alt="注連縄が巻かれた溝口神社の御神木のクスノキ">
-          </div>
-          <div>
-            <ol class="precincts-list">
-              <li>長寿ケヤキ</li>
-              <li>垂乳根の銀杏と歯固め塚</li>
-              <li>稲荷社</li>
-              <li>本殿</li>
-              <li>親楠（親子楠）</li>
-              <li>子楠（親子楠）</li>
-              <li>社務所</li>
-              <li>願掛けの夫婦銀杏</li>
-              <li>手水舎</li>
-              <li>神輿・曳太鼓</li>
-              <li>神橋</li>
-              <li>大鳥居</li>
-            </ol>
-            <p style="margin-top: 1.5rem;">
-              <a class="button button—secondary" href="keidai.html">境内案内図を見る</a>
-            </p>
-          </div>
-        </div>
       </div>
-        -->
     </section>
 
     <!-- ========================================================
