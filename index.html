@@ -63,6 +63,7 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/css/m019.css">
 
   <!-- 構造化データ（確認済みの公開情報のみを記載） -->
   <script type="application/ld+json">
@@ -175,13 +176,7 @@
   </header>
 
   <main id="main">
-    <!-- ========================================================
-         10-4. ファーストビュー
-         ▼天城さん編集エリア（写真とキャッチコピー）
-         写真：assets/images/hero/hero-main.webp を置き、下の
-               src を差し替えてください（現在は仮画像）。
-         コピー：以下は仮コピーです。正式決定後に差し替え。
-         ======================================================== -->
+
     <section class="hero" data-block="hero" data-block-status="published" aria-label="溝口神社のご紹介">
       <div class="hero__media">
         <!-- ==================================================
@@ -275,30 +270,26 @@
         </div>
       </div>
     </section>
-
-    <!-- ========================================================
-         10-5. 本日の参拝案内
-         ▼天城さん編集エリア（時間・電話番号）
-         時間を変更する場合は、このセクションと
-         フッターの「参拝時間」の両方を直してください。
-         （場所は AMAGI_OPERATION_GUIDE.md に一覧があります）
-         ======================================================== -->
     <section id="visit-info" class="visit-info" data-block="worship-guide" data-block-status="published" aria-labelledby="visit-info-title">
       <div class="container">
+        <p class="m19-kicker" style="text-align:center;">VISIT</p>
         <h2 id="visit-info-title" class="section__title">参拝のご案内</h2>
 
-        <div class="visit-info__grid">
-          <div class="visit-info__item">
+        <div class="m19-visit-grid">
+          <div class="m19-visit-card m19-visit-card--kinari">
+            <svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 12c12 4.2 24 4.2 36 0"/><path d="M10 21h28"/><path d="M13.5 13.6V40M34.5 13.6V40"/><path d="M24 13.9V21"/></svg>
             <p class="visit-info__label">開門・閉門（通常）</p>
             <p class="visit-info__value">午前6時〜午後5時30分</p>
             <p class="visit-info__note">1月4日〜12月31日</p>
           </div>
-          <div class="visit-info__item">
+          <div class="m19-visit-card m19-visit-card--wakaba">
+            <svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 16l6-9 6 9"/><rect x="15" y="16" width="18" height="24" rx="7"/><path d="M21 26h6M24 23v6"/></svg>
             <p class="visit-info__label">お札・お守りの授与</p>
             <p class="visit-info__value">午前9時〜午後5時</p>
             <p class="visit-info__note">お焚き上げ（古札など）も同時間</p>
           </div>
-          <div class="visit-info__item">
+          <div class="m19-visit-card m19-visit-card--ishi">
+            <svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 9c-2.8 0-5 2.2-5 5 0 16 10 24 24 24 2.8 0 5-2.2 5-5v-4.5l-8.5-3-3.2 4.2c-4.8-2.2-8.2-5.6-10.4-10.4l4.2-3.2-3-8.6H15z"/></svg>
             <p class="visit-info__label">お電話でのお問い合わせ</p>
             <p class="visit-info__value">
               <a href="tel:0448223776">044-822-3776</a>
@@ -308,7 +299,7 @@
         </div>
 
         <!-- 正月三箇日・例大祭は時間が異なる（既存サイトの記載を継承） -->
-        <details class="accordion" style="margin-top: 1.25rem;">
+        <details class="accordion m19-important">
           <summary class="accordion__summary">正月三箇日・例大祭の開門時間</summary>
           <div class="accordion__content">
             <dl>
@@ -331,21 +322,69 @@
         </ul>
       </div>
     </section>
-
-    <!-- ========================================================
-         10-6. お知らせ
-         ▼天城さん編集エリア（お知らせの追加・削除）
-         下の <li class="news-item"> ... </li> のかたまりを
-         コピーして書き替えてください（新しいものを上へ）。
-         表示は3〜5件までにし、古いものは削除します。
-         重要なお知らせは class="news-item news-item--important"
-         とし、一番上に置いてください。
-         ※現在の3件はサンプル（仮表示）です。公開前に必ず
-           実際のお知らせに差し替えるか、削除してください。
-         ======================================================== -->
+    <section class="section m19-tone--kinari" data-block="main-guide" data-block-status="published" aria-labelledby="mainguide-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="m19-kicker">GUIDANCE</p>
+          <h2 id="mainguide-title" class="section__title">ご案内</h2>
+          <p class="section__lead">お探しの内容へ、こちらからお進みください。</p>
+        </div>
+        <div class="m19-cards">
+          <a class="m19-card m19-card--prayer" href="gokitou.html">
+            <div class="m19-card__media"><img src="assets/images/shrine/prayer-scene.webp" alt="幟の立つ拝殿正面。御祈祷が執り行われる社殿" width="1600" height="1000" loading="lazy"></div>
+            <div class="m19-card__body">
+              <p class="m19-card__title">御祈祷</p>
+              <p class="m19-card__desc">安産祈願・初宮詣・七五三詣・厄除など、人生の節目の御祈祷を毎日ご奉仕しております。</p>
+              <p class="m19-card__link">御祈祷の種類と受付時間を見る <span class="m19-arrow" aria-hidden="true">→</span></p>
+            </div>
+          </a>
+          <a class="m19-card m19-card--keidai" href="keidai-map.html">
+            <div class="m19-card__media"><img src="assets/images/shrine/keidai-tree.webp" alt="注連縄が巻かれた御神木のクスノキと境内の緑" width="1600" height="1000" loading="lazy"></div>
+            <div class="m19-card__body">
+              <p class="m19-card__title">境内案内</p>
+              <p class="m19-card__desc">御神木や社殿など、境内の見どころを地図と順路つきでご覧いただけます。</p>
+              <p class="m19-card__link">境内を写真で巡る <span class="m19-arrow" aria-hidden="true">→</span></p>
+            </div>
+          </a>
+          <a class="m19-card m19-card--omamori" href="omamori.html">
+            <div class="m19-card__media"><img src="assets/images/shrine/omamori-kizuna.webp" alt="絆御守。白地に金の刺繍と紺色の紐" width="1200" height="900" loading="lazy"></div>
+            <div class="m19-card__body">
+              <p class="m19-card__title">御守り・御札</p>
+              <p class="m19-card__desc">常時100種類以上を授与しております。</p>
+              <p class="m19-card__link">御守り・御札を見る <span class="m19-arrow" aria-hidden="true">→</span></p>
+            </div>
+          </a>
+          <a class="m19-card m19-card--goshuin" href="guide.html#goshuin">
+            <div class="m19-card__body">
+              <svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="13" y="13" width="22" height="22" rx="3"/><path d="M20 24h8M24 20v8"/></svg>
+              <p class="m19-card__title">御朱印</p>
+              <p class="m19-card__desc">事前に神社までお問い合わせください。</p>
+              <p class="m19-card__link">御朱印のご案内を見る <span class="m19-arrow" aria-hidden="true">→</span></p>
+            </div>
+          </a>
+          <a class="m19-card m19-card--events" href="gyouji.html">
+            <div class="m19-card__body">
+              <svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="9" y="12" width="30" height="27" rx="3"/><path d="M9 20h30M17 8v7M31 8v7"/></svg>
+              <p class="m19-card__title">年間行事</p>
+              <p class="m19-card__desc">例祭・酉の市・大祓など、四季のお祭りをご紹介します。</p>
+              <p class="m19-card__link">年間行事を見る <span class="m19-arrow" aria-hidden="true">→</span></p>
+            </div>
+          </a>
+          <a class="m19-card m19-card--access" href="access.html">
+            <div class="m19-card__body">
+              <svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 41c8-8.5 12-14.6 12-20a12 12 0 1 0-24 0c0 5.4 4 11.5 12 20z"/><circle cx="24" cy="20" r="4.5"/></svg>
+              <p class="m19-card__title">アクセス</p>
+              <p class="m19-card__desc">溝の口駅・武蔵溝ノ口駅から徒歩約5分。境内に駐車場がございます。</p>
+              <p class="m19-card__link">アクセス・駐車場を見る <span class="m19-arrow" aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
     <section class="section" data-block="news" data-block-status="published" aria-labelledby="news-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">NEWS</p>
           <h2 id="news-title" class="section__title">大切なお知らせ</h2>
         </div>
 
@@ -376,57 +415,10 @@
         -->
       </div>
     </section>
-
-    <!-- ========================================================
-         写真で伝える、いまの溝口神社（BLOCK: photo-story／新設）
-         AMAGI-PC-DESIGN-002 ■9-06。
-         ▼写真は区民祭写真の変換後に差し替える（現在は仮画像）。
-         左：祭礼の熱気（神輿・第二候補写真を予定）
-         中：静かな祈り（御祈祷・拝殿写真を予定）
-         右：境内の光（御神木・大鳥居写真を予定）
-         ======================================================== -->
-    <!-- 【M046修正①】photo-story(祭礼の熱気/静かな祈り/御神木)はトップから廃止。写真は各詳細ページで活用。復元用に保管:
-<section class="section" data-block="photo-story" data-block-status="published" aria-labelledby="photo-story-title">
+    <section class="section section--alt m19-tone--kinari" data-block="purpose-navigation" data-block-status="published" aria-labelledby="rites-title">
       <div class="container">
         <div class="section__header">
-          <h2 id="photo-story-title" class="section__title">写真で伝える、いまの溝口神社</h2>
-          <p class="section__lead">静かな祈りの日々と、地域とともにある祭礼。二つの表情が、この神社にはあります。</p>
-        </div>
-
-        <div class="photo-story">
-          <figure class="photo-story__item">
-            <!— IMG_2842（区民祭）。掲載権限・写り込み確認前＝公開不可 —>
-            <img src="assets/images/seasonal/kuminsai/mikoshi-story.webp"
-                 width="1200" height="900" loading="lazy"
-                 alt="夕方の光の中、諏訪の神輿を担ぐ緑の法被の人々">
-            <figcaption>受け継がれる祭礼の熱気</figcaption>
-          </figure>
-          <figure class="photo-story__item">
-            <!— IMG_8067（拝殿正面の静かな境内）。神社側提供素材 —>
-            <img src="assets/images/shrine/prayer-scene.webp"
-                 width="1200" height="840" loading="lazy"
-                 alt="幟の立つ拝殿正面の静かな境内">
-            <figcaption>日々の静かな祈り</figcaption>
-          </figure>
-          <figure class="photo-story__item">
-            <img src="assets/images/shrine/keidai-tree.webp"
-                 width="1200" height="900" loading="lazy"
-                 alt="注連縄が巻かれた御神木のクスノキ">
-            <figcaption>境内に立つ御神木</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- ========================================================
-         10-8. 人生儀礼・願意案内
-         代表例のみ掲載。全内容は御祈祷ページで確認できる導線。
-         料金は正式情報の提供があるまで掲載しない。
-         ======================================================== -->
-    <section class="section section--alt" data-block="purpose-navigation" data-block-status="published" aria-labelledby="rites-title">
-      <div class="container">
-        <div class="section__header">
+          <p class="m19-kicker">PRAYER</p>
           <h2 id="rites-title" class="section__title">人生の節目のご祈願</h2>
           <p class="section__lead">はじめての方もご安心ください。代表的なご祈願をご紹介します。このほかの諸願もご相談いただけます。</p>
         </div>
@@ -472,14 +464,10 @@
         </p>
       </div>
     </section>
-
-    <!-- ========================================================
-         御祈祷案内（BLOCK: prayer）
-         既存サイト gokitou.html の情報を整理して継承
-         ======================================================== -->
-    <section id="prayer" class="section section--alt" data-block="prayer" data-block-status="published" aria-labelledby="prayer-title">
+    <section id="prayer" class="section section--alt m19-tone--kinari" data-block="prayer" data-block-status="published" aria-labelledby="prayer-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">RECEPTION</p>
           <h2 id="prayer-title" class="section__title">御祈祷のご案内</h2>
           <p class="section__lead">安産祈願、初宮詣、七五三詣、厄除など、人生の節目の御祈祷を毎日ご奉仕しております。</p>
         </div>
@@ -534,13 +522,10 @@
         </div>
       </div>
     </section>
-
-    <!-- ========================================================
-         早見表への導線（BLOCK: hayamihyo／MASTER-021 ■9-5,6 新設）
-         ======================================================== -->
-    <section class="section section--alt" data-block="hayamihyo" data-block-status="published" aria-labelledby="hayami-title">
+    <section class="section section--alt m19-tone--kinari" data-block="hayamihyo" data-block-status="published" aria-labelledby="hayami-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">CHART</p>
           <h2 id="hayami-title" class="section__title">令和8年の早見表</h2>
           <p class="section__lead">安産祈願の戌の日、ご自身の厄年・方位除けを、早見表でご確認いただけます。</p>
         </div>
@@ -550,64 +535,10 @@
         </ul>
       </div>
     </section>
-
-    <!-- ========================================================
-         10-11. 年間行事
-         ▼天城さん編集エリア（年ごとの日程更新）
-         開催日が毎年変わる行事は「時期」だけを表示しています。
-         その年の具体的な日付は、お知らせ欄と年間行事ページで
-         案内してください（HTMLへの恒久固定を避けるため）。
-         ======================================================== -->
-    <section id="annual-events" class="section section--alt" data-block="annual-events" data-block-status="published" aria-labelledby="events-title">
-      <div class="container">
-        <div class="section__header">
-          <h2 id="events-title" class="section__title">年間行事</h2>
-          <p class="section__lead">四季を通じて、様々なお祭りが斎行されます。開催日は年により変わるものがあります。最新の日程は年間行事ページ・お知らせをご確認ください。</p>
-        </div>
-
-        <!-- 季節軸の構成（AMAGI-PC-DESIGN-002 第10章）。行事は従来の11件を維持 -->
-        <!-- 掲載は実際に行われる祭典のみ（MIZONO-HP-FINAL-QA-001②）。
-             春季祖霊祭・宵宮祭・秋季祖霊祭・新嘗祭は現在実施していないため
-             非掲載（旧サイトには記載あり。gyouji.html再構築時も反映のこと） -->
-        <div class="events-seasons">
-          <div class="events-season events-season--now">
-            <h3 class="events-season__title">夏</h3>
-            <ul class="events-list" role="list">
-              <li class="event-item"><span class="event-item__month">6月</span><span class="event-item__name">夏越の大祓<span class="event-item__note">6月30日</span></span></li>
-            </ul>
-          </div>
-          <div class="events-season">
-            <h3 class="events-season__title">秋</h3>
-            <ul class="events-list" role="list">
-              <li class="event-item"><span class="event-item__month">9月</span><span class="event-item__name">例祭<span class="event-item__note">9月15日に近い日曜日</span></span></li>
-              <li class="event-item"><span class="event-item__month">9〜12月</span><span class="event-item__name">七五三詣<span class="event-item__note">予約制</span></span></li>
-              <li class="event-item"><span class="event-item__month">11月</span><span class="event-item__name">酉の市<span class="event-item__note">11月中の酉の日</span></span></li>
-            </ul>
-          </div>
-          <div class="events-season">
-            <h3 class="events-season__title">冬</h3>
-            <ul class="events-list" role="list">
-              <li class="event-item"><span class="event-item__month">12月</span><span class="event-item__name">年越の大祓</span></li>
-              <li class="event-item"><span class="event-item__month">1月</span><span class="event-item__name">元旦祭</span></li>
-              <li class="event-item"><span class="event-item__month">2月</span><span class="event-item__name">節分祭<span class="event-item__note">式典・豆まき</span></span></li>
-            </ul>
-          </div>
-        </div>
-
-        <p style="margin-top: 1.5rem;">
-          <a class="button button--secondary" href="gyouji.html">年間行事を詳しく見る</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         10-10. 授与品・御守り
-         既存 omamori.html の代表的な授与品を継承。
-         価格・在庫は掲載しない（正式情報の提供待ち）。
-         ======================================================== -->
     <section class="section" data-block="amulets" data-block-status="published" aria-labelledby="omamori-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">OMAMORI</p>
           <h2 id="omamori-title" class="section__title">授与品・御守り</h2>
           <p class="section__lead">溝口神社では、常時100種類以上の御守・御札を授与しております。授与所の対応時間は午前9時〜午後5時です。</p>
         </div>
@@ -653,44 +584,10 @@
         </p>
       </div>
     </section>
-
-    <!-- ========================================================
-         10-9. 溝口神社について
-         既存 gosaijin.html の内容を意味を変えずに要約して継承
-         ======================================================== -->
-    <section class="section" data-block="about" data-block-status="published" aria-labelledby="about-title">
+    <section class="section m19-tone--wakaba" data-block="precincts" data-block-status="published" aria-labelledby="precincts-title">
       <div class="container">
         <div class="section__header">
-          <h2 id="about-title" class="section__title">溝口神社について</h2>
-        </div>
-
-        <div class="about">
-          <div class="about__media">
-            <!-- 実写真（IMG_8068・2026年撮影の記録写真より）。
-                 権利：神社側提供素材。掲載最終確認は天城さん -->
-            <img src="assets/images/shrine/main-hall-front.webp"
-                 width="1200" height="800" loading="lazy"
-                 alt="溝口神社の拝殿正面。注連縄と鈴、改名百五十年の幟">
-          </div>
-          <div class="about__text prose">
-            <p>御祭神の<strong>天照皇大神</strong>（あまてらすすめおおかみ）は、皇室の御祖神であり、私たち日本人の総氏神でもあります。太陽神としての御神徳をもち、万物に活力を与え、八百万の神々の仲を取り持つことから、物事の調和をはかる御利益があるとされています。</p>
-            <p>江戸時代には神仏習合により、溝口村の鎮守・<strong>赤城大明神</strong>と称されていました。明治維新後、神仏分離の法により、新たに伊勢神宮より御分霊を奉迎して御祭神を改め、溝口神社と改称。溝口村の総鎮守として祀られ、明治6年（1873年）には幣帛共進村社に指定されました。</p>
-            <p style="margin-top:1.25rem;">
-              <a class="button button--secondary" href="gosaijin.html">御祭神・由緒沿革を詳しく見る</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         10-12. 境内案内
-         既存 keidai.html の12地点を継承。
-         将来的に地点選択型の案内へ拡張できるようリスト構造で用意。
-         ======================================================== -->
-    <section class="section" data-block="precincts" data-block-status="published" aria-labelledby="precincts-title">
-      <div class="container">
-        <div class="section__header">
+          <p class="m19-kicker">PRECINCTS</p>
           <h2 id="precincts-title" class="section__title">境内のご案内</h2>
           <p class="section__lead">境内の全体は、こちらの境内案内図でご覧いただけます。</p>
         </div>
@@ -720,56 +617,87 @@
         </p>
       </div>
     </section>
-
-    <!-- ========================================================
-         初めての方へ・神社の質問箱（BLOCK: guide-teaser／新設）
-         AMAGI-GUIDE-GOSHUIN-100-002 ■17。表示は3問に限定。
-         ======================================================== -->
-    <section class="section" data-block="guide-teaser" data-block-status="published" aria-labelledby="guide-teaser-title">
+    <section id="annual-events" class="section section--alt m19-tone--awashu" data-block="annual-events" data-block-status="published" aria-labelledby="events-title">
       <div class="container">
         <div class="section__header">
-          <h2 id="guide-teaser-title" class="section__title">初めての方へ — 神社の質問箱</h2>
-          <p class="section__lead">お参りやご祈祷の「これで合ってる？」に、神社ガイドでお答えします。</p>
+          <p class="m19-kicker">EVENTS</p>
+          <h2 id="events-title" class="section__title">年間行事</h2>
+          <p class="section__lead">四季を通じて、様々なお祭りが斎行されます。開催日は年により変わるものがあります。最新の日程は年間行事ページ・お知らせをご確認ください。</p>
         </div>
-        <details class="accordion">
-          <summary class="accordion__summary">安産祈願には何を持っていけばよいですか？</summary>
-          <div class="accordion__content"><p>特別なご準備がなくてもお受けいただけます。腹帯のお祓いをご希望の場合はご持参ください。<a href="guide.html#anzan">安産祈願について詳しく見る</a></p></div>
-        </details>
-        <details class="accordion">
-          <summary class="accordion__summary">大安の日にお参りする方が多いのはなぜですか？</summary>
-          <div class="accordion__content"><p>大安は何事にも良い日とされ、人生の節目に選ばれることがあります。ただし六曜は神社の祭祀と直接関係せず、どの日でもご参拝いただけます。<a href="guide.html#rokuyou">六曜と日取りについて詳しく見る</a></p></div>
-        </details>
-        <details class="accordion">
-          <summary class="accordion__summary">御朱印はいただけますか？</summary>
-          <div class="accordion__content"><p>御朱印については、事前に神社までお問い合わせください（<a href="tel:0448223776">044-822-3776</a>）。<a href="guide.html#goshuin">御朱印について詳しく見る</a></p></div>
-        </details>
+
+        <!-- 季節軸の構成（AMAGI-PC-DESIGN-002 第10章）。行事は従来の11件を維持 -->
+        <!-- 掲載は実際に行われる祭典のみ（MIZONO-HP-FINAL-QA-001②）。
+             春季祖霊祭・宵宮祭・秋季祖霊祭・新嘗祭は現在実施していないため
+             非掲載（旧サイトには記載あり。gyouji.html再構築時も反映のこと） -->
+        <div class="events-seasons">
+          <div class="events-season events-season--now">
+            <h3 class="events-season__title">夏</h3>
+            <ul class="events-list" role="list">
+              <li class="event-item"><span class="event-item__month">6月</span><span class="event-item__name">夏越の大祓<span class="event-item__note">6月30日</span></span></li>
+            </ul>
+          </div>
+          <div class="events-season">
+            <h3 class="events-season__title">秋</h3>
+            <ul class="events-list" role="list">
+              <li class="event-item"><span class="event-item__month">9月</span><span class="event-item__name">例祭<span class="event-item__note">9月15日に近い日曜日</span></span></li>
+              <li class="event-item"><span class="event-item__month">9〜12月</span><span class="event-item__name">七五三詣<span class="event-item__note">予約制</span></span></li>
+              <li class="event-item"><span class="event-item__month">11月</span><span class="event-item__name">酉の市<span class="event-item__note">11月中の酉の日</span></span></li>
+            </ul>
+          </div>
+          <div class="events-season">
+            <h3 class="events-season__title">冬</h3>
+            <ul class="events-list" role="list">
+              <li class="event-item"><span class="event-item__month">12月</span><span class="event-item__name">年越の大祓</span></li>
+              <li class="event-item"><span class="event-item__month">1月</span><span class="event-item__name">元旦祭</span></li>
+              <li class="event-item"><span class="event-item__month">2月</span><span class="event-item__name">節分祭<span class="event-item__note">式典・豆まき</span></span></li>
+            </ul>
+          </div>
+        </div>
+
         <p style="margin-top: 1.5rem;">
-          <a class="button button--secondary" href="guide.html">神社ガイド・質問箱を見る</a>
+          <a class="button button--secondary" href="gyouji.html">年間行事を詳しく見る</a>
         </p>
       </div>
     </section>
-
-    <!-- ========================================================
-         150年記念事業への導線（BLOCK: kinen-teaser／MASTER-021 ■9-12 新設）
-         ======================================================== -->
-    <section class="section" data-block="kinen-teaser" data-block-status="published" aria-labelledby="kinen-title">
+    <section class="section" data-block="about" data-block-status="published" aria-labelledby="about-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">ABOUT</p>
+          <h2 id="about-title" class="section__title">溝口神社について</h2>
+        </div>
+
+        <div class="about">
+          <div class="about__media">
+            <!-- 実写真（IMG_8068・2026年撮影の記録写真より）。
+                 権利：神社側提供素材。掲載最終確認は天城さん -->
+            <img src="assets/images/shrine/main-hall-front.webp"
+                 width="1200" height="800" loading="lazy"
+                 alt="溝口神社の拝殿正面。注連縄と鈴、改名百五十年の幟">
+          </div>
+          <div class="about__text prose">
+            <p>御祭神の<strong>天照皇大神</strong>（あまてらすすめおおかみ）は、皇室の御祖神であり、私たち日本人の総氏神でもあります。太陽神としての御神徳をもち、万物に活力を与え、八百万の神々の仲を取り持つことから、物事の調和をはかる御利益があるとされています。</p>
+            <p>江戸時代には神仏習合により、溝口村の鎮守・<strong>赤城大明神</strong>と称されていました。明治維新後、神仏分離の法により、新たに伊勢神宮より御分霊を奉迎して御祭神を改め、溝口神社と改称。溝口村の総鎮守として祀られ、明治6年（1873年）には幣帛共進村社に指定されました。</p>
+            <p style="margin-top:1.25rem;">
+              <a class="button button--secondary" href="gosaijin.html">御祭神・由緒沿革を詳しく見る</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section m19-tone--ishi" data-block="kinen-teaser" data-block-status="published" aria-labelledby="kinen-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="m19-kicker">150TH</p>
           <h2 id="kinen-title" class="section__title">溝口神社改名150年記念事業</h2>
           <p class="section__lead">改名150年を記念した社殿耐震・手水舎改修などの記念事業。工事の歩みと竣工後の姿を記録しています。</p>
         </div>
         <p><a class="button button--secondary" href="150.html">記念事業の記録を見る</a></p>
       </div>
     </section>
-
-    <!-- ========================================================
-         兼務神社への導線（BLOCK: branch-shrines）
-         神社名は既存サイトの各個別ページ（kenmu-*.html）の
-         記載から確認済み。
-         ======================================================== -->
-    <section class="section section--alt" data-block="branch-shrines" data-block-status="published" aria-labelledby="kenmu-title">
+    <section class="section section--alt m19-tone--ishi" data-block="branch-shrines" data-block-status="published" aria-labelledby="kenmu-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">SHRINES</p>
           <h2 id="kenmu-title" class="section__title">兼務神社</h2>
           <p class="section__lead">溝口神社では、高津区・中原区の各神社の祭祀を兼務しております。</p>
         </div>
@@ -799,15 +727,10 @@
         </p>
       </div>
     </section>
-
-    <!-- ========================================================
-         公式発信導線（BLOCK: social）
-         Instagramは既存公式サイトに掲載されている公式アカウント。
-         新しいSNSは、正式確認が取れるまで追加しないこと。
-         ======================================================== -->
     <section class="section" data-block="social" data-block-status="published" aria-labelledby="social-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">OFFICIAL</p>
           <h2 id="social-title" class="section__title">公式の発信</h2>
           <p class="section__lead">境内の様子や行事のご案内は、公式Instagramでも発信しております。</p>
         </div>
@@ -818,13 +741,10 @@
         </p>
       </div>
     </section>
-
-    <!-- ========================================================
-         10-13. アクセス（BLOCK: access）
-         ======================================================== -->
-    <section id="access" class="section section--alt" data-block="access" data-block-status="published" aria-labelledby="access-title">
+    <section id="access" class="section section--alt m19-tone--ishi" data-block="access" data-block-status="published" aria-labelledby="access-title">
       <div class="container">
         <div class="section__header">
+          <p class="m19-kicker">ACCESS</p>
           <h2 id="access-title" class="section__title">アクセス</h2>
         </div>
 
@@ -889,13 +809,30 @@
         </div>
       </div>
     </section>
-
-    <!-- ========================================================
-         余韻を残す大型写真（BLOCK: closing-photo／新設）
-         AMAGI-PC-DESIGN-002 ■9-14。
-         ▼「御神木と本殿の朝の写真」受領後に差し替え予定。
-         現在は採用済みの社殿写真を使用（実写真）。
-         ======================================================== -->
+    <section class="section m19-tone--kinari" data-block="guide-teaser" data-block-status="published" aria-labelledby="guide-teaser-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="m19-kicker">FAQ</p>
+          <h2 id="guide-teaser-title" class="section__title">初めての方へ — 神社の質問箱</h2>
+          <p class="section__lead">お参りやご祈祷の「これで合ってる？」に、神社ガイドでお答えします。</p>
+        </div>
+        <details class="accordion">
+          <summary class="accordion__summary">安産祈願には何を持っていけばよいですか？</summary>
+          <div class="accordion__content"><p>特別なご準備がなくてもお受けいただけます。腹帯のお祓いをご希望の場合はご持参ください。<a href="guide.html#anzan">安産祈願について詳しく見る</a></p></div>
+        </details>
+        <details class="accordion">
+          <summary class="accordion__summary">大安の日にお参りする方が多いのはなぜですか？</summary>
+          <div class="accordion__content"><p>大安は何事にも良い日とされ、人生の節目に選ばれることがあります。ただし六曜は神社の祭祀と直接関係せず、どの日でもご参拝いただけます。<a href="guide.html#rokuyou">六曜と日取りについて詳しく見る</a></p></div>
+        </details>
+        <details class="accordion">
+          <summary class="accordion__summary">御朱印はいただけますか？</summary>
+          <div class="accordion__content"><p>御朱印については、事前に神社までお問い合わせください（<a href="tel:0448223776">044-822-3776</a>）。<a href="guide.html#goshuin">御朱印について詳しく見る</a></p></div>
+        </details>
+        <p style="margin-top: 1.5rem;">
+          <a class="button button--secondary" href="guide.html">神社ガイド・質問箱を見る</a>
+        </p>
+      </div>
+    </section>
     <section class="closing-photo" data-block="closing-photo" data-block-status="published" aria-label="溝口神社の風景">
       <figure class="closing-photo__media">
         <img src="assets/images/hero/hero-main.webp"
@@ -907,6 +844,150 @@
         今日も、溝口の街とともに。
       </p>
     </section>
+    <!-- ========================================================
+         10-4. ファーストビュー
+         ▼天城さん編集エリア（写真とキャッチコピー）
+         写真：assets/images/hero/hero-main.webp を置き、下の
+               src を差し替えてください（現在は仮画像）。
+         コピー：以下は仮コピーです。正式決定後に差し替え。
+         ======================================================== -->
+
+    <!-- ========================================================
+         10-5. 本日の参拝案内
+         ▼天城さん編集エリア（時間・電話番号）
+         時間を変更する場合は、このセクションと
+         フッターの「参拝時間」の両方を直してください。
+         （場所は AMAGI_OPERATION_GUIDE.md に一覧があります）
+         ======================================================== -->
+
+    <!-- 【M019第八章】主要案内カード。重要度で大きさを変える。詳しくはこちら禁止→具体リンク文 -->
+
+
+    <!-- ========================================================
+         10-6. お知らせ
+         ▼天城さん編集エリア（お知らせの追加・削除）
+         下の <li class="news-item"> ... </li> のかたまりを
+         コピーして書き替えてください（新しいものを上へ）。
+         表示は3〜5件までにし、古いものは削除します。
+         重要なお知らせは class="news-item news-item--important"
+         とし、一番上に置いてください。
+         ※現在の3件はサンプル（仮表示）です。公開前に必ず
+           実際のお知らせに差し替えるか、削除してください。
+         ======================================================== -->
+
+    <!-- ========================================================
+         写真で伝える、いまの溝口神社（BLOCK: photo-story／新設）
+         AMAGI-PC-DESIGN-002 ■9-06。
+         ▼写真は区民祭写真の変換後に差し替える（現在は仮画像）。
+         左：祭礼の熱気（神輿・第二候補写真を予定）
+         中：静かな祈り（御祈祷・拝殿写真を予定）
+         右：境内の光（御神木・大鳥居写真を予定）
+         ======================================================== -->
+    <!-- 【M046修正①】photo-story(祭礼の熱気/静かな祈り/御神木)はトップから廃止。写真は各詳細ページで活用。復元用に保管:
+<section class="section" data-block="photo-story" data-block-status="published" aria-labelledby="photo-story-title">
+      <div class="container">
+        <div class="section__header">
+          <h2 id="photo-story-title" class="section__title">写真で伝える、いまの溝口神社</h2>
+          <p class="section__lead">静かな祈りの日々と、地域とともにある祭礼。二つの表情が、この神社にはあります。</p>
+        </div>
+
+        <div class="photo-story">
+          <figure class="photo-story__item">
+            <!— IMG_2842（区民祭）。掲載権限・写り込み確認前＝公開不可 —>
+            <img src="assets/images/seasonal/kuminsai/mikoshi-story.webp"
+                 width="1200" height="900" loading="lazy"
+                 alt="夕方の光の中、諏訪の神輿を担ぐ緑の法被の人々">
+            <figcaption>受け継がれる祭礼の熱気</figcaption>
+          </figure>
+          <figure class="photo-story__item">
+            <!— IMG_8067（拝殿正面の静かな境内）。神社側提供素材 —>
+            <img src="assets/images/shrine/prayer-scene.webp"
+                 width="1200" height="840" loading="lazy"
+                 alt="幟の立つ拝殿正面の静かな境内">
+            <figcaption>日々の静かな祈り</figcaption>
+          </figure>
+          <figure class="photo-story__item">
+            <img src="assets/images/shrine/keidai-tree.webp"
+                 width="1200" height="900" loading="lazy"
+                 alt="注連縄が巻かれた御神木のクスノキ">
+            <figcaption>境内に立つ御神木</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ========================================================
+         10-8. 人生儀礼・願意案内
+         代表例のみ掲載。全内容は御祈祷ページで確認できる導線。
+         料金は正式情報の提供があるまで掲載しない。
+         ======================================================== -->
+
+    <!-- ========================================================
+         御祈祷案内（BLOCK: prayer）
+         既存サイト gokitou.html の情報を整理して継承
+         ======================================================== -->
+
+    <!-- ========================================================
+         早見表への導線（BLOCK: hayamihyo／MASTER-021 ■9-5,6 新設）
+         ======================================================== -->
+
+    <!-- ========================================================
+         10-11. 年間行事
+         ▼天城さん編集エリア（年ごとの日程更新）
+         開催日が毎年変わる行事は「時期」だけを表示しています。
+         その年の具体的な日付は、お知らせ欄と年間行事ページで
+         案内してください（HTMLへの恒久固定を避けるため）。
+         ======================================================== -->
+
+    <!-- ========================================================
+         10-10. 授与品・御守り
+         既存 omamori.html の代表的な授与品を継承。
+         価格・在庫は掲載しない（正式情報の提供待ち）。
+         ======================================================== -->
+
+    <!-- ========================================================
+         10-9. 溝口神社について
+         既存 gosaijin.html の内容を意味を変えずに要約して継承
+         ======================================================== -->
+
+    <!-- ========================================================
+         10-12. 境内案内
+         既存 keidai.html の12地点を継承。
+         将来的に地点選択型の案内へ拡張できるようリスト構造で用意。
+         ======================================================== -->
+
+    <!-- ========================================================
+         初めての方へ・神社の質問箱（BLOCK: guide-teaser／新設）
+         AMAGI-GUIDE-GOSHUIN-100-002 ■17。表示は3問に限定。
+         ======================================================== -->
+
+    <!-- ========================================================
+         150年記念事業への導線（BLOCK: kinen-teaser／MASTER-021 ■9-12 新設）
+         ======================================================== -->
+
+    <!-- ========================================================
+         兼務神社への導線（BLOCK: branch-shrines）
+         神社名は既存サイトの各個別ページ（kenmu-*.html）の
+         記載から確認済み。
+         ======================================================== -->
+
+    <!-- ========================================================
+         公式発信導線（BLOCK: social）
+         Instagramは既存公式サイトに掲載されている公式アカウント。
+         新しいSNSは、正式確認が取れるまで追加しないこと。
+         ======================================================== -->
+
+    <!-- ========================================================
+         10-13. アクセス（BLOCK: access）
+         ======================================================== -->
+
+    <!-- ========================================================
+         余韻を残す大型写真（BLOCK: closing-photo／新設）
+         AMAGI-PC-DESIGN-002 ■9-14。
+         ▼「御神木と本殿の朝の写真」受領後に差し替え予定。
+         現在は採用済みの社殿写真を使用（実写真）。
+         ======================================================== -->
 
   
   </main>
@@ -982,5 +1063,12 @@
 
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/index.js" defer></script>
+
+  <!-- 【M019第十五章】iPhone下部固定導線(電話/アクセス/神社ガイド) -->
+  <nav class="m19-bottom-nav" aria-label="主要導線">
+    <a href="tel:0448223776"><svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 9c-2.8 0-5 2.2-5 5 0 16 10 24 24 24 2.8 0 5-2.2 5-5v-4.5l-8.5-3-3.2 4.2c-4.8-2.2-8.2-5.6-10.4-10.4l4.2-3.2-3-8.6H15z"/></svg>電話</a>
+    <a href="access.html"><svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 41c8-8.5 12-14.6 12-20a12 12 0 1 0-24 0c0 5.4 4 11.5 12 20z"/><circle cx="24" cy="20" r="4.5"/></svg>アクセス</a>
+    <a href="guide.html"><svg class="m19-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="15"/><path d="M20 19c0-5.5 8-5.5 8 0 0 3.5-4 3-4 7"/><path d="M24 31.5v.5"/></svg>神社ガイド</a>
+  </nav>
 </body>
 </html>
