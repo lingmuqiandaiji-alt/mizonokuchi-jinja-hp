@@ -317,3 +317,71 @@ section.m19-tone--ishi.section--alt { background-color: transparent; }
 
 /* 墨の文字色を全体へ徹底 */
 main { color: var(--m19-sumi); }
+
+/* ==========================================================
+   MASTER-049 追記: 御祈祷 和モダンアイコンカード(10種)
+   色は4色のみ(深緑#234638/生成り#F5F0E6/朱#8A2F2B/金茶#B79A5B)
+   ========================================================== */
+.m49-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* PC: 5列 */
+  gap: 1.1rem;
+  margin-top: 2rem;
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .m49-grid { grid-template-columns: repeat(3, 1fr); } /* タブレット: 3列 */
+}
+@media (max-width: 640px) {
+  .m49-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; } /* スマホ: 2列 */
+}
+.m49-card {
+  background: #fff;
+  border: 1px solid rgba(43, 41, 38, 0.08);
+  border-radius: 16px;
+  padding: 1.6rem 1rem 1.35rem; /* 余白を十分に */
+  text-align: center;
+  text-decoration: none;
+  color: var(--m19-sumi);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(43, 41, 38, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.m49-card:hover {
+  transform: translateY(-2px);              /* 2pxのみ浮く */
+  box-shadow: 0 8px 18px rgba(43, 41, 38, 0.13); /* 影を少し強める */
+}
+.m49-icon {
+  width: 64px;
+  height: 64px;
+  transition: transform 0.25s ease;
+}
+.m49-card:hover .m49-icon { transform: scale(1.03); } /* 1.03倍のみ */
+.m49-name {
+  font-family: var(--font-serif, serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+  color: var(--m19-sumi);
+}
+.m49-desc {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: #5a564f;
+  margin-top: 0.35rem;
+}
+.m49-more {
+  margin-top: auto;
+  padding-top: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--m19-tokiwa);
+}
+@media (prefers-reduced-motion: reduce) {
+  .m49-card, .m49-icon { transition: none; }
+  .m49-card:hover { transform: none; }
+  .m49-card:hover .m49-icon { transform: none; }
+}
+.m49-card:focus-visible { outline: 3px solid var(--m19-kin); outline-offset: 2px; }
