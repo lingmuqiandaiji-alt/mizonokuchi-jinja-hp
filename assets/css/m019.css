@@ -385,3 +385,71 @@ main { color: var(--m19-sumi); }
   .m49-card:hover .m49-icon { transform: none; }
 }
 .m49-card:focus-visible { outline: 3px solid var(--m19-kin); outline-offset: 2px; }
+
+/* ==========================================================
+   MASTER-054 追記: PC版レイアウト均整化(1025px以上限定)
+   iPhone/タブレットの既存表示には一切影響しない
+   ========================================================== */
+@media (min-width: 1025px) {
+
+  /* ---- 第一項 ご案内: 上段=同格2枚/下段=同格4枚の二層構図 ---- */
+  .m19-cards { grid-template-columns: repeat(12, 1fr); gap: 1.1rem; }
+  .m19-card--prayer  { grid-column: span 6; grid-row: auto; }
+  .m19-card--keidai  { grid-column: span 6; }
+  .m19-card--omamori,
+  .m19-card--goshuin,
+  .m19-card--events,
+  .m19-card--access  { grid-column: span 3; }
+
+  /* 写真の高さ・比率を統一(上段220px)。主役が切れない位置に固定 */
+  .m19-card--prayer .m19-card__media,
+  .m19-card--keidai .m19-card__media { height: 220px !important; }
+  .m19-card--prayer .m19-card__media img,
+  .m19-card--keidai .m19-card__media img { height: 100% !important; object-fit: cover; }
+  .m19-card--prayer .m19-card__media img { object-position: 50% 62%; } /* 社殿正面・扉を中心に */
+  .m19-card--keidai .m19-card__media img { object-position: 50% 48%; } /* 親楠の幹と説明板を中心に */
+  .m19-card--omamori .m19-card__media { height: 128px !important; background: #fff; }
+  .m19-card--omamori .m19-card__media img { height: 100% !important; object-fit: contain; padding: 4%; }
+
+  /* 文章量の差でカード高が崩れない(説明は2行に統一・導線は下端の共通軸) */
+  .m19-card__desc {
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden; min-height: calc(0.9rem * 1.7 * 2);
+  }
+  .m19-card--prayer .m19-card__title { font-size: 1.3rem; } /* 上段2枚の見出し格を統一 */
+  .m19-card--keidai .m19-card__title { font-size: 1.3rem; }
+  .m19-card__body { padding: 1.15rem 1.25rem 1.2rem; }
+  .m19-card--goshuin .m19-icon, .m19-card--events .m19-icon, .m19-card--access .m19-icon { margin-top: 0.35rem; }
+
+  /* ---- 第二項 年間行事: 左=夏+冬/右=秋(2行ぶち抜き)で左右の重量を均衡 ---- */
+  .events-seasons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.25rem !important;
+    align-items: stretch;
+  }
+  .events-seasons > .events-season {
+    background: #fff;
+    border: 1px solid rgba(43, 41, 38, 0.08);
+    border-radius: 16px;
+    padding: 1.4rem 1.4rem 1.5rem;
+    margin: 0 !important;
+  }
+  .events-seasons > .events-season:nth-child(1) { grid-column: 1; grid-row: 1; border-top: 3px solid #4a7a5e; }   /* 夏 */
+  .events-seasons > .events-season:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; border-top: 3px solid var(--m19-shu); } /* 秋 */
+  .events-seasons > .events-season:nth-child(3) { grid-column: 1; grid-row: 2; border-top: 3px solid #6b7f8c; }   /* 冬 */
+
+  /* 見出し・階層の共通軸(第五項2) */
+  .events-season__title {
+    text-align: center; letter-spacing: 0.3em; font-size: 1.1rem;
+    margin: 0 0 0.9rem; padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(183, 154, 91, 0.4);
+  }
+
+  /* 行事写真の高さ・比率・角丸を統一(第二項7) */
+  .event-item img {
+    height: 132px !important; width: 100% !important;
+    object-fit: cover; border-radius: 10px !important;
+  }
+  .event-item { padding: 0.45rem 0; }
+}
