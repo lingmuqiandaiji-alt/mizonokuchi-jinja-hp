@@ -23,6 +23,25 @@
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/guide.css">
+
+  <style>
+    /* 【MASTER-053A】アクセスページ専用 */
+    .ac-map{margin-top:1rem;border-radius:14px;overflow:hidden;border:1px solid rgba(43,41,38,.12);}
+    .ac-map iframe{display:block;width:100%;height:340px;border:0;}
+    @media(max-width:640px){.ac-map iframe{height:300px;}}
+    .ac-route{list-style:none;margin:1.25rem 0 0;padding:0;max-width:340px;}
+    .ac-route li{background:#fff;border:1px solid rgba(43,41,38,.1);border-radius:12px;
+      padding:.7rem 1rem;text-align:center;font-weight:600;letter-spacing:.08em;color:#2B2926;}
+    .ac-route li+li{margin-top:1.5rem;position:relative;}
+    .ac-route li+li::before{content:"↓";position:absolute;top:-1.35rem;left:50%;transform:translateX(-50%);
+      color:#B79A5B;font-weight:700;}
+    .ac-route li span{display:block;font-size:.75rem;font-weight:400;color:#5a564f;letter-spacing:.04em;margin-top:.15rem;}
+    .ac-parking{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+    @media(max-width:640px){.ac-parking{grid-template-columns:1fr;}}
+    .ac-parking figure{margin:0;}
+    .ac-parking img{width:100%;height:auto;border-radius:12px;display:block;}
+    .ac-parking figcaption{font-size:.8rem;color:#5a564f;margin-top:.4rem;text-align:center;}
+  </style>
 </head>
 <body data-mode="normal">
 
@@ -77,25 +96,54 @@
     <section class="section" aria-labelledby="page-title">
       <div class="container">
         <nav aria-label="現在位置" class="note" style="margin-bottom:1rem;"><a href="index.html">ホーム</a> › アクセス</nav>
-        <h1 style="font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.1rem); color: var(--color-primary-deep);">アクセス</h1>
+        <h1 id="page-title" style="font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.1rem); color: var(--color-primary-deep);">アクセス</h1>
+
+        <!-- ①所在地 ②電車 ③車 (MASTER-053A第二項の順) -->
         <dl class="guide-terms" style="margin-top: var(--space-md);">
           <div class="guide-term"><dt>所在地</dt><dd>〒213-0001<br>神奈川県川崎市高津区溝口2-25-1<br>TEL：<a href="tel:0448223776">044-822-3776</a><br>FAX：044-822-8968</dd></div>
-          <div class="guide-term"><dt>電車の場合</dt><dd>東急田園都市線・大井町線「溝の口駅」正面口<br>JR南武線「武蔵溝ノ口駅」北口から徒歩5分</dd></div>
-          <div class="guide-term"><dt>自動車の場合</dt><dd>境内に駐車場がございます（台数に限りがあります）。<br>※七五三参り・お正月の時期は大変混み合います。なるべく公共の交通手段でご参拝ください。</dd></div>
+          <div class="guide-term"><dt>電車でお越しの方</dt><dd>東急田園都市線・大井町線「溝の口駅」正面口<br>JR南武線「武蔵溝ノ口駅」北口<br>各駅から<strong>徒歩約5分</strong></dd></div>
+          <div class="guide-term"><dt>お車でお越しの方</dt><dd>境内の駐車場には、普通車25台を駐車できます。<br>※七五三参り・お正月の時期は大変混み合います。なるべく公共の交通手段でご参拝ください。</dd></div>
         </dl>
-        <p style="margin-top: var(--space-md);">
+
+        <!-- ⑤駅からの簡易ルート(第五項) -->
+        <h2 style="margin-top: var(--space-lg); font-size:1.375rem; color: var(--color-primary-deep);">駅からの歩き方</h2>
+        <p class="note" style="margin-top:.5rem;">武蔵溝ノ口駅・溝の口駅から徒歩約5分です。</p>
+        <ol class="ac-route">
+          <li>駅<span>溝の口駅 正面口／武蔵溝ノ口駅 北口</span></li>
+          <li>大山街道<span>街道沿いを進みます</span></li>
+          <li>大鳥居<span>一礼してくぐり、参道へ</span></li>
+          <li>社殿<span>ご参拝ください</span></li>
+        </ol>
+
+        <!-- ④地図アプリ ⑤GoogleMap埋め込み(第三項) -->
+        <p style="margin-top: var(--space-lg);">
           <a class="button button--primary" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%BA%9D%E5%8F%A3%E7%A5%9E%E7%A4%BE+%E5%B7%9D%E5%B4%8E%E5%B8%82%E9%AB%98%E6%B4%A5%E5%8C%BA%E6%BA%9D%E5%8F%A32-25-1" target="_blank" rel="noopener noreferrer">地図アプリで開く</a>
         </p>
-        <h2 style="margin-top: var(--space-lg); font-size:1.375rem; color: var(--color-primary-deep);">神社周辺の写真店</h2>
-        <div class="guide-note" style="margin-top: var(--space-sm);">
-          <p><strong>写真のたなかや</strong><br>
-          〒213-0001 川崎市高津区溝口4-6-28<br>
-          TEL：044-822-3466<br>
-          営業時間：月〜金 9:30〜18:30／土日祝 9:00〜18:00<br>
-          定休日：水曜日<br>
-          <a href="http://www.photo-tanakaya.co.jp/" target="_blank" rel="noopener noreferrer">ホームページ（外部サイト）</a></p>
-          <p class="note">※営業時間・定休日は変更される場合があります。最新の情報は直接ご確認ください。</p>
+        <div class="ac-map">
+          <iframe src="https://www.google.com/maps?q=%E6%BA%9D%E5%8F%A3%E7%A5%9E%E7%A4%BE%20%E5%B7%9D%E5%B4%8E%E5%B8%82%E9%AB%98%E6%B4%A5%E5%8C%BA%E6%BA%9D%E5%8F%A32-25-1&output=embed"
+                  title="溝口神社周辺の地図(Googleマップ)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
+
+        <!-- ⑥駐車場のご案内(第四項) -->
+        <h2 style="margin-top: var(--space-lg); font-size:1.375rem; color: var(--color-primary-deep);">駐車場のご案内</h2>
+        <div class="ac-parking">
+          <figure>
+            <img src="keidai-map-img/K-22-parking-main-01.webp" alt="境内東側の駐車場" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>境内東側の駐車場(普通車25台)</figcaption>
+          </figure>
+          <figure>
+            <img src="keidai-map-img/K-21-kotsu-main-01.webp" alt="駐車場側の入口周辺。交通安全の横断幕" width="900" height="675" loading="lazy" decoding="async">
+            <figcaption>駐車場側の入口周辺</figcaption>
+          </figure>
+        </div>
+        <ul class="guide-note" style="margin-top:1rem;">
+          <li>境内の駐車場には、普通車25台を駐車できます。</li>
+          <li>満車の際は、周辺のコインパーキングをご利用ください。</li>
+          <li>七五三・お正月・祭礼の時期は大変混み合います。公共交通機関のご利用をおすすめします。</li>
+        </ul>
+
+        <!-- 【M053A第一項】「神社周辺の写真店(写真のたなかや)」は目的外情報のため掲載終了(2026-07-23)。
+             復元用バックアップ: homepage-site-backup-20260722-M021前/access-M053A前.html -->
       </div>
     </section>
 
