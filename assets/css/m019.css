@@ -283,3 +283,37 @@ section.m19-tone--ishi.section--alt { background-color: transparent; }
   outline: 3px solid var(--m19-kin);
   outline-offset: 2px;
 }
+
+/* ==========================================================
+   MASTER-048 追記: 「一つの神社空間」への再統一(引き算の美)
+   方針: 色数を減らし和紙のトーンへ収束/写真が主役/静けさと余白
+   ========================================================== */
+/* ③ 世界観統一: セクション背景を和紙2トーンへ収束(情報分類は上端の細い彩線1本で継承) */
+.m19-tone--kinari, .m19-tone--wakaba, .m19-tone--awashu, .m19-tone--ishi,
+.m19-tone--kinari.section--alt, .m19-tone--wakaba.section--alt,
+.m19-tone--awashu.section--alt, .m19-tone--ishi.section--alt {
+  background: #FAF8F2; /* 和紙 */
+}
+.m19-tone--kinari { box-shadow: inset 0 2px 0 rgba(183, 154, 91, 0.45); }  /* 薄金 */
+.m19-tone--wakaba { box-shadow: inset 0 2px 0 rgba(74, 122, 94, 0.40); }   /* 深緑 */
+.m19-tone--awashu { box-shadow: inset 0 2px 0 rgba(138, 47, 43, 0.35); }   /* 深朱 */
+.m19-tone--ishi   { box-shadow: inset 0 2px 0 rgba(139, 133, 122, 0.40); } /* 石 */
+
+/* ② PC再検証: 幅を絞り静けさを出す・本文の読み幅を整える */
+@media (min-width: 1025px) {
+  .container { max-width: 1080px; }
+  .section__lead { max-width: 36em; margin-left: auto; margin-right: auto; line-height: 2; }
+}
+.section__title { letter-spacing: 0.12em; }
+
+/* 天城① 写真が主役: 影と動きをさらに控えめに */
+.m19-card:hover { box-shadow: 0 6px 16px rgba(43, 41, 38, 0.10); }
+.m19-card { border-color: rgba(43, 41, 38, 0.08); }
+.m19-keidai-feature a { border-color: rgba(43, 41, 38, 0.08); }
+
+/* ⑤ 体験品質: 参道を歩くような区切り(結びへ向かう静かな余白) */
+.events-seasons + p, .m19-seasons + p { margin-top: 2rem; }
+.closing-photo { margin-top: 0; }
+
+/* 墨の文字色を全体へ徹底 */
+main { color: var(--m19-sumi); }
