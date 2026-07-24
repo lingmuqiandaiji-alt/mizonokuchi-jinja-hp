@@ -94,13 +94,7 @@ html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:no-preference){html.js img.mainimg{transition:opacity .18s ease}}
 
 .kd-map61 .mapwrap{border-radius:12px}
-@media(max-width:640px){.kd-map61 .mapwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.kd-map61 .mapwrap svg{min-width:640px}}
 .mapedge{position:relative}
-.kd-hint{display:none}
-@media(max-width:640px){.kd-hint{display:block;font-size:.75rem;color:var(--sub);margin-top:.3rem;letter-spacing:.06em}
-.mapedge::before,.mapedge::after{content:"";position:absolute;top:1px;bottom:1px;width:16px;pointer-events:none;z-index:2}
-.mapedge::before{left:0;background:linear-gradient(90deg,rgba(245,240,230,.85),rgba(245,240,230,0));border-radius:12px 0 0 12px}
-.mapedge::after{right:0;background:linear-gradient(270deg,rgba(245,240,230,.85),rgba(245,240,230,0));border-radius:0 12px 12px 0}}
 svg .spotlink rect:not([fill="transparent"]):not(.deco),svg .spotlink circle:not([fill="transparent"]):not(.deco),svg .spotlink path:not(.deco){transition:stroke .2s ease,stroke-width .2s ease}
 svg .spotlink text{transition:fill .2s ease}
 svg .spotlink:hover rect:not([fill="transparent"]):not(.deco),svg .spotlink:focus-visible rect:not([fill="transparent"]):not(.deco),
@@ -111,6 +105,32 @@ svg .spotlink:focus-visible{outline:none}
 .m61-intro{transform-box:fill-box;transform-origin:center;animation:m61sway 1.4s ease-out 1 both}
 @keyframes m61sway{0%{opacity:0;transform:translateY(-10px) rotate(-6deg)}60%{opacity:1;transform:translateY(2px) rotate(2deg)}100%{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.m61-intro{animation:none}}
+
+.slabel{font-size:.85rem;color:var(--sub);margin:0 0 .35rem;letter-spacing:.06em}
+.zubtnwrap{display:none}
+.zubtn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.6em 1.7em;background:var(--green);color:#fff;border:1px solid rgba(183,154,91,.6);border-radius:8px;font-size:.95rem;text-decoration:none}
+.zubtn:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.zubsub{font-size:.78rem;color:var(--sub);margin:.5rem 0 0}
+@media(max-width:640px){
+  .wrap{padding:1.1rem 10px 4.5rem}
+  .map-box{padding:8px;border-radius:10px}
+  .zubtnwrap{display:block;text-align:center;margin:.9rem 0 .2rem}
+  body.map-visible .fixnav{display:none}
+}
+body.zu-open .fixnav{display:none!important}
+#zumod{border:0;padding:0;width:100vw;height:100dvh;max-width:100vw;max-height:100dvh;background:#F7F0E1}
+#zumod::backdrop{background:rgba(43,41,38,.35)}
+.zu-top{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:calc(6px + env(safe-area-inset-top)) 10px 6px;background:rgba(247,240,225,.97);border-bottom:1px solid var(--line);z-index:5}
+.zu-top b{font-family:var(--font-serif,serif);font-weight:600;letter-spacing:.1em;font-size:1rem}
+.zu-top button{min-height:40px;padding:.3em 1em;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:.85rem}
+.zu-view{position:absolute;left:0;right:0;top:calc(52px + env(safe-area-inset-top));bottom:calc(46px + env(safe-area-inset-bottom));overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;background:#F7F0E1}
+.zu-inner{margin:0 auto}
+.zu-inner svg{width:100%;height:auto;display:block}
+.zu-foot{position:absolute;left:0;right:0;bottom:0;padding:8px 12px calc(8px + env(safe-area-inset-bottom));text-align:center;font-size:.78rem;color:var(--sub);background:rgba(247,240,225,.96);border-top:1px solid var(--line)}
+.zu-sheet{position:absolute;left:12px;right:12px;bottom:calc(52px + env(safe-area-inset-bottom));background:#fff;border:1px solid var(--line);border-radius:12px;padding:.7rem .9rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;box-shadow:0 4px 14px rgba(43,41,38,.14);z-index:6}
+.zu-sheet b{font-family:var(--font-serif,serif);letter-spacing:.06em}
+.zu-sheet a{background:var(--green);color:#fff;border-radius:8px;padding:.55em 1em;text-decoration:none;font-size:.85rem;min-height:42px;display:inline-flex;align-items:center}
+@media(orientation:landscape) and (max-height:500px){.zu-top{padding-top:4px}.zu-top button{min-height:34px}.zu-foot{padding-top:4px;font-size:.72rem}}
 </style>
 </head>
 <body>
@@ -163,11 +183,7 @@ svg .spotlink:focus-visible{outline:none}
   <nav aria-label="現在位置" class="note" style="margin-bottom:1rem;"><a href="index.html">ホーム</a> › <a href="keidai.html">境内案内</a> › 境内のご案内(地図と順路)</nav>
   <h1>境内のご案内</h1>
   <p class="lead">地図と順路で、境内を歩くように。</p>
-  <div class="searchbox" id="searchbox" hidden>
-    <label for="sin" style="position:absolute;left:-9999px">場所をさがす</label>
-    <input id="sin" type="search" placeholder="拝殿・化粧室・駐車場・授乳室" autocomplete="off">
-    <div class="sresults" id="sres" hidden role="listbox" aria-label="検索結果"></div>
-  </div>
+  
   <div class="layout">
     <div class="map-col">
       <div class="map-box kd-map61" id="top-map"><div class="mapedge"><div class="mapwrap"><svg id="kmapM61" viewBox="0 0 1000 1300" role="img" aria-label="溝口神社 参拝へ誘う境内図" style="width:100%;height:auto;background:#F8EFDC;border:1px solid #ddd;border-radius:12px;">
@@ -192,9 +208,21 @@ svg .spotlink:focus-visible{outline:none}
 <text x="72" y="21" text-anchor="start" font-size="9" font-weight="600" fill="#B79A5B" letter-spacing="0.2em" font-family="'Hiragino Mincho ProN',serif">MIZONOKUCHI JINJA</text><text x="72" y="37" text-anchor="start" font-size="22" font-weight="700" fill="#2B2926" letter-spacing="0.16em" font-family="'Hiragino Mincho ProN',serif">境内をめぐる</text><text x="232" y="37" text-anchor="start" font-size="12" fill="#6d675c" letter-spacing="0.1em" font-family="'Hiragino Mincho ProN',serif">溝口神社</text><line x1="72" y1="44" x2="300" y2="44" stroke="#B79A5B" stroke-width="1.4"/><text x="330" y="37" text-anchor="start" font-size="11.5" fill="#6d675c" letter-spacing="0.06em" font-family="'Hiragino Mincho ProN',serif">気になる場所から、ゆっくりとお巡りください。</text>
 <g transform="translate(600,1252)"><rect x="-17" y="-13.5" width="34" height="17" rx="2" fill="#F8F3E7" stroke="#B79A5B" stroke-width="1.2"/><text x="0" y="-1" text-anchor="middle" font-size="10" font-weight="600" fill="#2B2926" font-family="'Hiragino Mincho ProN',serif">二十五</text><text x="24" y="0" font-size="12" fill="#5a564f" font-family="sans-serif">番号=境内案内(全27地点)と共通</text><circle cx="250" cy="-5" r="9" fill="#8CAC7D" stroke="#5E7A55" stroke-width="1.5"/><path d="M243,-8.5 H257" stroke="#C9B173" stroke-width="1.6" fill="none"/><text x="264" y="0" font-size="12" fill="#5a564f" font-family="sans-serif">注連縄印=御神木</text></g>
 <rect x="8" y="8" width="984" height="1276" fill="none" stroke="#B79A5B" stroke-width="0.9" opacity=".75"/>
-<g class="m61-intro"><g transform="translate(940,32) rotate(-12)" fill="#7FA05F" opacity=".45"><path d="M0,-11 L2.3,-4.6 L7.8,-7.8 L5.5,-1.4 L11,0 L5.5,1.4 L7.8,7.8 L2.3,4.6 L0,11 L-2.3,4.6 L-7.8,7.8 L-5.5,1.4 L-11,0 L-5.5,-1.4 L-7.8,-7.8 L-2.3,-4.6 Z"/></g></g></svg></div></div><p class="note" style="margin-top:.8rem;">気になる場所を選ぶと、写真とご案内をご覧いただけます。<span class="kd-hint">左右に動かすと、境内の続きをご覧いただけます。</span></p></div>
+<g class="m61-intro"><g transform="translate(940,32) rotate(-12)" fill="#7FA05F" opacity=".45"><path d="M0,-11 L2.3,-4.6 L7.8,-7.8 L5.5,-1.4 L11,0 L5.5,1.4 L7.8,7.8 L2.3,4.6 L0,11 L-2.3,4.6 L-7.8,7.8 L-5.5,1.4 L-11,0 L-5.5,-1.4 L-7.8,-7.8 L-2.3,-4.6 Z"/></g></g></svg></div></div><p class="note" style="margin-top:.8rem;">気になる場所を選ぶと、写真とご案内をご覧いただけます。</p><div class="zubtnwrap"><a class="zubtn" id="zuopen" href="#" role="button">境内絵図を大きく見る</a><p class="zubsub">拡大しながら、気になる場所をお選びいただけます。</p></div></div><dialog id="zumod" aria-modal="true" aria-label="境内絵図の拡大表示。指で動かし、二本指で拡大できます">
+  <div class="zu-top"><button type="button" id="zuclose">閉じる</button><b>境内をめぐる</b><button type="button" id="zufit">全体を見る</button></div>
+  <div class="zu-view" id="zuview"><div class="zu-inner" id="zuinner"></div></div>
+  <div class="zu-sheet" id="zusheet" hidden><b id="zuname"></b><a href="#" id="zugo">写真とご案内を見る</a></div>
+  <div class="zu-foot">指で動かし、二本指で拡大できます。</div>
+</dialog>
     </div>
     <div class="panel">
+      <p class="slabel">境内の見どころを検索</p>
+      <div class="searchbox" id="searchbox" hidden>
+    <label for="sin" style="position:absolute;left:-9999px">場所をさがす</label>
+    <input id="sin" type="search" placeholder="拝殿・化粧室・駐車場・授乳室" autocomplete="off">
+    <div class="sresults" id="sres" hidden role="listbox" aria-label="検索結果"></div>
+  </div>
+
       <div class="spots" id="spots">
 <article class="spot" id="p01" data-no="1" data-name="入口" data-kana="いりぐち" data-alias="エントランス,大山街道" data-cat="参拝" data-sm="keidai-map-img/sm/IMG8251.webp"><header class="spot-h"><span class="no">一</span><div><h2>入口</h2><span class="kana">いりぐち</span><span class="pn2">始点 ／ 次: 大鳥居</span></div><span class="cat">参拝</span></header><figure class="mainfig"><img class="mainimg" src="keidai-map-img/IMG8251.webp" srcset="keidai-map-img/sm/IMG8251.webp 480w, keidai-map-img/IMG8251.webp 1200w" sizes="(min-width:980px) 620px, 100vw" width="1200" height="900" alt="道路側から見た溝口神社の入口" decoding="async"></figure><div class="thumbs" hidden></div><div class="spot-body"><p class="dir">道路から境内へ、正面が大鳥居です。</p><p>大山街道側の入口。ここから境内へ入ります。</p><details class="ph" data-label="参道の入口"><summary><img class="th" src="keidai-map-img/sm/IMG8252.webp" width="56" height="42" alt="" loading="lazy" decoding="async"><span>参道の入口を見る</span></summary><img class="dimg" src="keidai-map-img/IMG8252.webp" srcset="keidai-map-img/sm/IMG8252.webp 480w, keidai-map-img/IMG8252.webp 1200w" sizes="(min-width:980px) 620px, 100vw" width="1200" height="900" alt="灯篭の並ぶ参道の入口" loading="lazy" decoding="async"></details><div class="cardnav"><span class="dis">始点です</span><a href="#top-map" class="tomap">地図</a><a class="nx" href="#p02" data-go="2">次へ: 大鳥居 →</a></div></div></article>
 <article class="spot" id="p02" data-no="2" data-name="大鳥居" data-kana="おおとりい" data-alias="鳥居" data-cat="参拝" data-sm="keidai-map-img/sm/IMG8253.webp"><header class="spot-h"><span class="no">二</span><div><h2>大鳥居</h2><span class="kana">おおとりい</span><span class="pn2">前: 入口 ／ 次: 松尾大明神</span></div><span class="cat">参拝</span></header><figure class="mainfig"><img class="mainimg" src="keidai-map-img/IMG8253.webp" srcset="keidai-map-img/sm/IMG8253.webp 480w, keidai-map-img/IMG8253.webp 1200w" sizes="(min-width:980px) 620px, 100vw" width="1200" height="900" alt="改名150年の幕が掛かる大鳥居" decoding="async"></figure><div class="thumbs" hidden></div><div class="spot-body"><p class="dir">くぐって直進すると神橋です。</p><p>境内の正面に立つ大鳥居。一礼してからくぐります。</p><div class="cardnav"><a href="#p01" data-go="1">← 前: 入口</a><a href="#top-map" class="tomap">地図</a><a class="nx" href="#p03" data-go="3">次へ: 松尾大明神 →</a></div></div></article>
@@ -358,6 +386,7 @@ svg .spotlink:focus-visible{outline:none}
     select(no,true);history.replaceState(null,'','#p'+String(no).padStart(2,'0'));
   });
   document.addEventListener('click',function(e){if(!box.contains(e.target))res.hidden=true;});
+  window.__kdSelect=select;
   var m=location.hash.match(/^#p(\d+)/);
   select(m?+m[1]:1,false);
 })();
@@ -381,6 +410,74 @@ requestAnimationFrame(function f(t){var p=Math.min((t-t0)/D,1);
 c.setAttribute('r',String(6+p*46));c.setAttribute('opacity',String(0.5*(1-p)));
 if(p<1)requestAnimationFrame(f);else if(c.parentNode)c.parentNode.removeChild(c);});
 });});
+})();
+</script>
+<script>
+(function(){
+var dlg=document.getElementById('zumod');if(!dlg||!dlg.showModal)return;
+var openB=document.getElementById('zuopen'),view=document.getElementById('zuview'),inner=document.getElementById('zuinner');
+var fitB=document.getElementById('zufit'),closeB=document.getElementById('zuclose');
+var sheet=document.getElementById('zusheet'),zuname=document.getElementById('zuname'),zugo=document.getElementById('zugo');
+var home=document.querySelector('#top-map .mapwrap');
+var svg=home?home.querySelector('svg'):null;
+var scale=1,fitW=0,pendingNo=0,pd=0;
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function calcFit(){var cw=view.clientWidth,ch=view.clientHeight;fitW=Math.min(cw,ch*1000/1300);}
+function apply(){inner.style.width=(fitW*scale)+'px';}
+function openDlg(e){if(e)e.preventDefault();
+ if(svg)inner.appendChild(svg);
+ document.body.classList.add('zu-open');
+ dlg.showModal();
+ try{history.pushState({zu:1},'');}catch(_){}
+ calcFit();scale=1;apply();view.scrollLeft=0;view.scrollTop=0;sheet.hidden=true;
+ closeB.focus();}
+function closeDlg(fromPop){
+ if(dlg.open)dlg.close();
+ document.body.classList.remove('zu-open');
+ if(svg&&home)home.appendChild(svg);
+ sheet.hidden=true;pd=0;
+ if(!fromPop&&history.state&&history.state.zu){try{history.back();}catch(_){}}
+ if(openB)openB.focus();}
+if(openB)openB.addEventListener('click',openDlg);
+closeB.addEventListener('click',function(){closeDlg(false);});
+dlg.addEventListener('cancel',function(ev){ev.preventDefault();closeDlg(false);});
+addEventListener('popstate',function(){if(dlg.open)closeDlg(true);});
+addEventListener('resize',function(){if(dlg.open){calcFit();apply();}});
+fitB.addEventListener('click',function(){scale=1;apply();sheet.hidden=true;
+ if(reduce||!view.scrollTo){view.scrollLeft=0;view.scrollTop=0;}
+ else view.scrollTo({left:0,top:0,behavior:'smooth'});});
+view.addEventListener('touchstart',function(e){if(e.touches.length===2){pd=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}},{passive:true});
+view.addEventListener('touchmove',function(e){
+ if(e.touches.length===2&&pd){
+  e.preventDefault();
+  var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
+  var ns=Math.min(3.5,Math.max(1,scale*d/pd));pd=d;
+  var r=view.getBoundingClientRect();
+  var vx=(e.touches[0].clientX+e.touches[1].clientX)/2-r.left;
+  var vy=(e.touches[0].clientY+e.touches[1].clientY)/2-r.top;
+  var k=ns/scale;scale=ns;apply();
+  view.scrollLeft=(view.scrollLeft+vx)*k-vx;
+  view.scrollTop=(view.scrollTop+vy)*k-vy;
+ }},{passive:false});
+view.addEventListener('touchend',function(){pd=0;},{passive:true});
+dlg.addEventListener('click',function(e){
+ var a=e.target.closest&&e.target.closest('a.spotlink');if(!a)return;
+ e.preventDefault();e.stopPropagation();
+ var m2=(a.getAttribute('href')||'').match(/#p(\d+)/);if(!m2)return;
+ pendingNo=+m2[1];
+ zuname.textContent=(a.getAttribute('aria-label')||'').split('。')[0];
+ sheet.hidden=false;
+},true);
+zugo.addEventListener('click',function(e){e.preventDefault();
+ var no=pendingNo;if(!no)return;
+ closeDlg(false);
+ setTimeout(function(){
+  if(window.__kdSelect){window.__kdSelect(no,true);try{history.replaceState(null,'','#p'+String(no).padStart(2,'0'));}catch(_){}}
+  else location.hash='#p'+String(no).padStart(2,'0');
+ },80);});
+var fxn=document.querySelector('.fixnav'),tm=document.getElementById('top-map');
+if(fxn&&tm&&'IntersectionObserver' in window){
+ new IntersectionObserver(function(en){document.body.classList.toggle('map-visible',en[0].isIntersecting);},{threshold:.15}).observe(tm);}
 })();
 </script>
 </body>
